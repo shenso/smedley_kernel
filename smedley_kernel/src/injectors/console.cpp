@@ -1,4 +1,5 @@
 #include "injectors/console.hpp"
+#include "memory.hpp"
 #include "handles/std.hpp"
 
 #include <algorithm>
@@ -86,25 +87,9 @@ ConsoleCommandInjector::ConsoleCommandInjector(DWORD baseAddr) : _baseAddr(baseA
 	}
 	VirtualProtect(initCommands, sizeof(handles::CConsoleCommand) * 59, oldProtect, &oldProtect);
 
-	uint8_t patch[] = {
-		// jmp [InsertInjectedTrampoline]
-		0xe9, 0x90, 0x90, 0x90, 0x90,
-	};
-	*((DWORD *) (patch + 1)) = ((DWORD) InsertInjectedTrampoline - (DWORD) patchAddr) - 5;
-
-	std::cout << "patching InitConsoleCommandVector function @ " << patchAddr << std::endl;
-	for (int i = 0; i < sizeof(patch); i++) {
-		std::cout << std::hex << (int) patch[i] << " ";
-	}
-	std::cout << std::dec << std::endl;
-
-
 	INJECTOR_BUF = this;
-	RET_ADDR = (DWORD) patchAddr + sizeof(patch);
-
-	VirtualProtect(patchAddr, sizeof(patch), PAGE_EXECUTE_READWRITE, &oldProtect);
-	std::memcpy(patchAddr, patch, sizeof(patch));
-	VirtualProtect(patchAddr, sizeof(patch), oldProtect, &oldProtect);
+	RET_ADDR = (DWORD) patchAddr + 5;
+	core::memory::Hook(patchAddr, InsertInjectedTrampoline, 5);
 }
 
 void ConsoleCommandInjector::Inject(ConsoleCommandInfo &metadata, handles::ConsoleCommandHandler handler)
