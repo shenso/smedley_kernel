@@ -20,6 +20,18 @@ struct SmedleyRequest
 	std::string kernel;
 };
 
+struct ProcessPipes
+{
+	HANDLE hCommPipe;
+	HANDLE hStdoutReader, hStdoutWriter;
+};
+
+struct SignalListener
+{
+	HANDLE hPipe;
+	HANDLE hProcess, hThread;
+};
+
 // TODO: first look at PWD, then game directory, then try build path layout
 std::string FindKernel()
 {
@@ -96,12 +108,16 @@ std::unique_ptr<SmedleyRequest> ParseArgs(int argc, char **argv)
 	return req;
 }
 
-std::unique_ptr<PROCESS_INFORMATION> OpenVic2(SmedleyRequest &req)
+std::unique_ptr<PROCESS_INFORMATION> OpenVic2(SmedleyRequest &req, HANDLE out)
 {
 	BOOL success; 
 	char buf[512];
 	STARTUPINFO startupInfo = {sizeof(STARTUPINFO)};
 	std::unique_ptr<PROCESS_INFORMATION> procInfo(new PROCESS_INFORMATION);
+
+	startupInfo.hStdOutput = out;
+	startupInfo.hStdError = out;
+	startupInfo.dwFlags |= STARTF_USESTDHANDLES;
 
 	std::string dirname = req.path.substr(0, req.path.find_last_of("/\\"));
 	std::strncpy(buf, (req.path + " " + req.argv).c_str(), 512);
@@ -132,12 +148,17 @@ HANDLE CreateKernelThread(HANDLE hProcess, std::string modPath)
 	return CreateRemoteThread(hProcess, NULL, 0, subroutine, modNameBuf, 0, NULL);
 }
 
-HANDLE OpenPipe()
+ProcessPipes OpenPipes()
 {
-	HANDLE hPipe;
 	BOOL connFailed;
+	SECURITY_ATTRIBUTES saAttr;
+	ProcessPipes pipes = {};
 
-	hPipe = CreateNamedPipe(
+	saAttr.nLength = sizeof(SECURITY_ATTRIBUTES);
+	saAttr.bInheritHandle = TRUE;
+	saAttr.lpSecurityDescriptor = NULL;
+
+	pipes.hCommPipe = CreateNamedPipe(
 		"\\\\.\\pipe\\smedley_launcher",
 		PIPE_ACCESS_DUPLEX,
 		PIPE_TYPE_MESSAGE | PIPE_READMODE_MESSAGE | PIPE_WAIT,
@@ -146,23 +167,77 @@ HANDLE OpenPipe()
 		PIPE_BUF_SIZE,
 		1000,
 		NULL);
-	if (hPipe == INVALID_HANDLE_VALUE) {
-		throw std::runtime_error("failed to open pipe: " + GetLastError());
+	if (pipes.hCommPipe == INVALID_HANDLE_VALUE) {
+		throw std::runtime_error("failed to open communication pipe: " + GetLastError());
 	}
 
-	return hPipe;
+	if (!CreatePipe(&pipes.hStdoutReader, &pipes.hStdoutWriter, &saAttr, 0)) {
+		CloseHandle(pipes.hCommPipe);
+		throw std::runtime_error("failed to open stdout pipe");
+	}
+
+	return pipes;
+}
+
+DWORD WINAPI SignalListenerWorker(LPVOID lpParam)
+{
+	BOOL success;
+	char buf[PIPE_BUF_SIZE];
+	DWORD bytesRead;
+
+	SignalListener listener = *((SignalListener *) lpParam);
+
+	ZeroMemory(buf, sizeof(char) * PIPE_BUF_SIZE);
+
+	std::cout << "connecting to pipe..." << std::endl;
+	if (!ConnectNamedPipe(listener.hPipe, NULL)) {
+		std::cerr << "failed to establish pipe connection with client: " << GetLastError() << std::endl;
+		return 2;
+	}
+
+	std::cout << "reading pipe..." << std::endl;
+	success = ReadFile(listener.hPipe, buf, PIPE_BUF_SIZE * sizeof(char), &bytesRead, NULL);
+	if (!success) {
+		std::cerr << "failed to read pipe: " << GetLastError() << std::endl;
+		return 2;
+	}
+
+	if (std::strcmp(buf, "ready") == 0) {
+		ResumeThread(listener.hThread);
+		std::cout << "main game thread resumed!\n";
+	} else {
+		std::cerr << "unexpected message from pipe: " << buf << std::endl;
+	}
+}
+
+HANDLE ListenForResumeSignalAsync(HANDLE hProcess, HANDLE hThread, HANDLE hPipe)
+{
+	HANDLE hListenerThread;
+	DWORD threadId;
+	SignalListener *listener = new SignalListener;
+
+	listener->hProcess = hProcess;
+	listener->hThread = hThread;
+	listener->hPipe = hPipe;
+
+	hListenerThread = CreateThread(NULL, 0, SignalListenerWorker, (LPVOID) listener, 0, &threadId);
+	if (hListenerThread == NULL || hListenerThread == INVALID_HANDLE_VALUE) {
+		throw std::runtime_error("failed to create listener thread");
+	}
+
+	return hListenerThread;
 }
 
 int main(int argc, char **argv)
 {
 	std::unique_ptr<SmedleyRequest> req;
 	std::unique_ptr<PROCESS_INFORMATION> procInfo;
-	HANDLE hPipe, hModThread;
+	ProcessPipes pipes;
+	HANDLE hModThread, hListenerThread;
+	HANDLE hStdout;
 	BOOL success;
-	DWORD bytesRead;
-	char buf[PIPE_BUF_SIZE];
-
-	ZeroMemory(buf, sizeof(char) * PIPE_BUF_SIZE);
+	DWORD bytesRead, bytesWritten;
+	char outBuf[2048];
 
 	try {
 		req = ParseArgs(argc, argv);
@@ -175,11 +250,9 @@ int main(int argc, char **argv)
 		return 0;
 	}
 
-	procInfo = OpenVic2(*req);
-
 	try {
-		hPipe = OpenPipe();
-		std::cout << "pipe opened: " << hPipe << std::endl;
+		pipes = OpenPipes();
+		std::cout << "pipe opened: " << pipes.hCommPipe << std::endl;
 	} catch (std::runtime_error &exc) {
 		std::cerr << exc.what() << std::endl;
 		TerminateProcess(procInfo->hProcess, 1);
@@ -188,30 +261,27 @@ int main(int argc, char **argv)
 		return 2;
 	}
 
+	procInfo = OpenVic2(*req, pipes.hStdoutWriter);
+
+	hListenerThread = ListenForResumeSignalAsync(procInfo->hProcess, procInfo->hThread, pipes.hCommPipe);
+
 	// create the thread now that the pipe is available for connection
 	hModThread = CreateKernelThread(procInfo->hProcess, req->kernel);
-	std::cout << "thread opened: " << hModThread << std::endl;
+	std::cout << "kernel thread opened: " << hModThread << std::endl;
 
-	std::cout << "connecting to pipe..." << std::endl;
-	if (!ConnectNamedPipe(hPipe, NULL)) {
-		std::cerr << "failed to establish pipe connection with client: " << GetLastError() << std::endl;
-		return 2;
+	hStdout = GetStdHandle(STD_OUTPUT_HANDLE);
+	while (true) {
+		success = ReadFile(pipes.hStdoutReader, outBuf, 2048, &bytesRead, NULL);
+		if (success == FALSE || bytesRead == 0) {
+			break;
+		}
+
+		if (!WriteFile(hStdout, outBuf, bytesRead, &bytesWritten, NULL)) {
+			break;
+		}
 	}
 
-	std::cout << "reading pipe..." << std::endl;
-	success = ReadFile(hPipe, buf, PIPE_BUF_SIZE * sizeof(char), &bytesRead, NULL);
-	if (!success) {
-		std::cerr << "failed to read pipe: " << GetLastError() << std::endl;
-		return 2;
-	}
-
-	if (std::strcmp(buf, "ready") == 0) {
-		ResumeThread(procInfo->hThread);
-		std::cout << "main game thread resumed!\n";
-	} else {
-		std::cerr << "unexpected message from pipe: " << buf << std::endl;
-	}
-
+	CloseHandle(hListenerThread);
 	CloseHandle(hModThread);
 	CloseHandle(procInfo->hThread);
 	CloseHandle(procInfo->hProcess);

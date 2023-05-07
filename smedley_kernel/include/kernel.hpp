@@ -1,6 +1,10 @@
 #ifndef KERNEL_HPP_
 #define KERNEL_HPP_
 
+#include "injectors/console.hpp"
+
+#include <memory>
+
 #include <windows.h>
 #include <processthreadsapi.h>
 
@@ -11,9 +15,10 @@ namespace core
 
 class Kernel
 {
-	HANDLE hProcess;
-	DWORD processId;
+	HANDLE _hProcess, _hBaseMod;
+	DWORD _processId;
 
+	std::unique_ptr<injectors::ConsoleCommandInjector> _consoleCommandInjector;
 public:
 	Kernel();
 
@@ -21,6 +26,7 @@ public:
 	void Detach();
 private:
 	void GetProcessInformation();
+	void OnComplete();
 };
 
 } // core

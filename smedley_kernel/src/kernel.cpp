@@ -1,12 +1,15 @@
 #include "kernel.hpp"
+#include "handles/std.hpp"
 #include <iostream>
-#include <sstream>
+#include <memory>
+#include <string>
 
 #include <windows.h>
 #include <tlhelp32.h>
 
 constexpr DWORD PIPE_BUF_SIZE = 512;
 constexpr DWORD PIPE_NUM_INSTANCES = 2;
+constexpr DWORD PIPE_ERR_CODE = 4215;
 
 namespace smedley
 {
@@ -31,39 +34,46 @@ HANDLE OpenPipe()
 			throw std::runtime_error("failed to open pipe: " + GetLastError());
 		}
 
-		/*
-		connFailed = ConnectNamedPipe(hPipe, NULL);
-		if (connFailed) {
-			throw std::runtime_error("failed to connect to pipe:");
-		}
-		*/
-
 		if (!WaitNamedPipe(pipeName, 20000)) {
 			throw std::runtime_error("could not open pipe: 20 second timeout passed");
 		}
 	}
 }
 
-Kernel::Kernel() : hProcess(INVALID_HANDLE_VALUE), processId(0)
+handles::ConsoleCommandOutput *KernelCommandHandler(handles::ConsoleCommandOutput *out, handles::vector<handles::basic_string<char>> *argv)
+{
+	out->message = handles::basic_string<char>();
+	out->message.capacity = 0xf;
+	out->message.size = 15;
+	std::strcpy(out->message._impl, "smedley butler!");
+
+	out->success = true;
+
+	return out;
+}
+
+Kernel::Kernel() : _hProcess(INVALID_HANDLE_VALUE), _hBaseMod(INVALID_HANDLE_VALUE), _processId(0)
 {
 }
 
 void Kernel::Attach()
 {
-	std::stringstream ss;
-	HANDLE hPipe;
-	char buf[PIPE_BUF_SIZE];
+	injectors::ConsoleCommandInfo cmdInfo = {};
+	cmdInfo.name = "smedley";
+	cmdInfo.description = "smedley butler";
+	cmdInfo.param = "if you're seeing this... it worked! we can inject into vic2! command just prints smedley butler";
 
 	this->GetProcessInformation();
 
-	MessageBoxA(NULL, "we are the champions", "HUZZAH", MB_ICONEXCLAMATION);
+	std::cout << "creating command injector" << std::endl;
+	_consoleCommandInjector = std::make_unique<injectors::ConsoleCommandInjector>((DWORD) _hBaseMod);
+	std::cout << "injecting smedley command" << std::endl;
 
-	hPipe = OpenPipe();
-	std::strcpy(buf, "ready");
-	std::cout << "writing to pipe...\n";
-	if (!WriteFile(hPipe, buf, PIPE_BUF_SIZE, NULL, NULL)) {
-		MessageBoxA(NULL, "smedley: failed to write to pipe. cannot resume game thread - terminating process.", "failure", MB_ICONEXCLAMATION);
-	}
+	_consoleCommandInjector->Inject(cmdInfo, KernelCommandHandler);
+
+	std::cout << "command injector jobs done!" << std::endl;
+
+	this->OnComplete();
 }
 
 void Kernel::Detach()
@@ -72,8 +82,25 @@ void Kernel::Detach()
 
 void Kernel::GetProcessInformation()
 {
-	this->hProcess = GetCurrentProcess();
-	this->processId = GetProcessId(this->hProcess);
+	_hProcess = GetCurrentProcess();
+	_processId = GetProcessId(_hProcess);
+	_hBaseMod =  GetModuleHandleA("v2game.exe");
+}
+
+void Kernel::OnComplete()
+{
+
+	HANDLE hPipe;
+	char buf[PIPE_BUF_SIZE];
+
+	hPipe = OpenPipe();
+	std::strcpy(buf, "ready");
+	std::cout << "writing to pipe...\n";
+	if (!WriteFile(hPipe, buf, PIPE_BUF_SIZE, NULL, NULL)) {
+		MessageBoxA(NULL, "smedley: failed to write to pipe. cannot resume game thread - terminating process.", "failure", MB_ICONEXCLAMATION);
+		ExitProcess(PIPE_ERR_CODE);
+	}
+
 }
 
 } // core
