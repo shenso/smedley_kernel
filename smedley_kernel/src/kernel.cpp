@@ -1,4 +1,5 @@
 #include "kernel.hpp"
+#include "plugin.hpp"
 #include "handles/std.hpp"
 #include <iostream>
 #include <memory>
@@ -15,6 +16,8 @@ namespace smedley
 {
 namespace core
 {
+
+Kernel *Kernel::_instance = nullptr;
 
 HANDLE OpenPipe()
 {
@@ -58,6 +61,9 @@ Kernel::Kernel() : _hProcess(INVALID_HANDLE_VALUE), _hBaseMod(INVALID_HANDLE_VAL
 
 void Kernel::Attach()
 {
+	char buf[1024];
+	std::string testPlugin;
+
 	injectors::ConsoleCommandInfo cmdInfo = {};
 	cmdInfo.name = "smedley";
 	cmdInfo.description = "smedley butler";
@@ -65,12 +71,8 @@ void Kernel::Attach()
 
 	this->GetProcessInformation();
 
-	std::cout << "creating command injector" << std::endl;
 	_consoleCommandInjector = std::make_unique<injectors::ConsoleCommandInjector>((DWORD) _hBaseMod);
-	std::cout << "injecting smedley command" << std::endl;
-
 	_consoleCommandInjector->Inject(cmdInfo, KernelCommandHandler);
-
 	std::cout << "command injector jobs done!" << std::endl;
 
 	this->OnComplete();
@@ -78,6 +80,15 @@ void Kernel::Attach()
 
 void Kernel::Detach()
 {
+}
+
+Kernel *Kernel::GetInstance()
+{
+	if (Kernel::_instance == nullptr) {
+		Kernel::_instance = new Kernel();
+	}
+
+	return Kernel::_instance;
 }
 
 void Kernel::GetProcessInformation()
@@ -94,7 +105,7 @@ void Kernel::OnComplete()
 	char buf[PIPE_BUF_SIZE];
 
 	hPipe = OpenPipe();
-	std::strcpy(buf, "ready");
+	std::strcpy(buf, "ready\n");
 	std::cout << "writing to pipe...\n";
 	if (!WriteFile(hPipe, buf, PIPE_BUF_SIZE, NULL, NULL)) {
 		MessageBoxA(NULL, "smedley: failed to write to pipe. cannot resume game thread - terminating process.", "failure", MB_ICONEXCLAMATION);

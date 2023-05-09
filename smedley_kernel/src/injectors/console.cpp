@@ -4,7 +4,6 @@
 
 #include <algorithm>
 #include <cstdint>
-#include <iostream>
 #include <stdexcept>
 
 namespace smedley
@@ -26,8 +25,6 @@ void InsertInjectedCommands(handles::vector<handles::CConsoleCommand *> *command
 {
 	DWORD growAddr;
 
-	std::cout << "hook called!\n";
-
 	growAddr = INJECTOR_BUF->_baseAddr + 0x6513F0; // vector<?>::grow
 
 	for (auto it = INJECTOR_BUF->injected().begin(); it != INJECTOR_BUF->injected().end(); it++) {
@@ -37,8 +34,6 @@ void InsertInjectedCommands(handles::vector<handles::CConsoleCommand *> *command
 				call[growAddr]
 			}
 		}
-
-		std::cout << "command injected: " << it->name << std::endl;
 
 		*(commands->last) = &(*it);
 		commands->last++;
