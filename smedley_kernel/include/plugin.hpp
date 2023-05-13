@@ -6,7 +6,15 @@
 
 #include <windows.h>
 
-#define PLUGIN_API __declspec(dllexport)
+#define PLUGIN_API extern "C" __declspec(dllexport)
+
+struct PluginListNode
+{
+	const char *name;
+	PluginListNode *next;
+};
+
+PLUGIN_API void LoadPlugins(PluginListNode *root);
 
 namespace smedley
 {

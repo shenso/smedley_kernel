@@ -26,7 +26,7 @@ HANDLE OpenPipe()
 	const char *pipeName;
 
 	while (true) {
-		pipeName = "\\\\.\\pipe\\smedley_launcher";
+		pipeName = "\\\\.\\pipe\\smedley_bootstrapper";
 		hPipe = CreateFile(pipeName, GENERIC_WRITE, 0, NULL, OPEN_EXISTING, 0, NULL);
 
 		if (hPipe != INVALID_HANDLE_VALUE) {
@@ -101,16 +101,19 @@ void Kernel::GetProcessInformation()
 void Kernel::OnComplete()
 {
 
+	/*
 	HANDLE hPipe;
 	char buf[PIPE_BUF_SIZE];
 
 	hPipe = OpenPipe();
-	std::strcpy(buf, "ready\n");
+	std::strcpy(buf, "load_plugins\n");
 	std::cout << "writing to pipe...\n";
 	if (!WriteFile(hPipe, buf, PIPE_BUF_SIZE, NULL, NULL)) {
 		MessageBoxA(NULL, "smedley: failed to write to pipe. cannot resume game thread - terminating process.", "failure", MB_ICONEXCLAMATION);
 		ExitProcess(PIPE_ERR_CODE);
 	}
+	CloseHandle(hPipe);
+	*/
 
 }
 

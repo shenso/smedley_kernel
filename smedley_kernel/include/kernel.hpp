@@ -14,6 +14,8 @@ namespace smedley
 namespace core
 {
 
+HANDLE OpenPipe();
+
 class Kernel
 {
 	HANDLE _hProcess, _hBaseMod;

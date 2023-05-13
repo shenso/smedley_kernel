@@ -34,9 +34,11 @@ public:
 	}
 };
 
+}
+
 PLUGIN_API core::Plugin *MakePlugin()
 {
-	return static_cast<core::Plugin *>(new V2UPPlugin());
+	return static_cast<core::Plugin *>(new v2up::V2UPPlugin());
 }
 
 PLUGIN_API const char *PluginName()
@@ -44,4 +46,3 @@ PLUGIN_API const char *PluginName()
 	return "v2up";
 }
 
-}
