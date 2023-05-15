@@ -1,8 +1,7 @@
 #ifndef INJECTORS_CONSOLE_HPP_
 #define INJECTORS_CONSOLE_HPP_
 
-#include "handles/console.hpp"
-#include "handles/std.hpp"
+#include "handles.hpp"
 
 #include <memory>
 #include <string>

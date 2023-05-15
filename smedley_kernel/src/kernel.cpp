@@ -1,6 +1,7 @@
 #include "kernel.hpp"
 #include "plugin.hpp"
-#include "handles/std.hpp"
+#include "handles.hpp"
+#include "functions/base.hpp"
 #include <iostream>
 #include <memory>
 #include <string>
@@ -8,40 +9,13 @@
 #include <windows.h>
 #include <tlhelp32.h>
 
-constexpr DWORD PIPE_BUF_SIZE = 512;
-constexpr DWORD PIPE_NUM_INSTANCES = 2;
-constexpr DWORD PIPE_ERR_CODE = 4215;
-
 namespace smedley
 {
+
 namespace core
 {
 
 Kernel *Kernel::_instance = nullptr;
-
-HANDLE OpenPipe()
-{
-	HANDLE hPipe;
-	BOOL connFailed;
-	const char *pipeName;
-
-	while (true) {
-		pipeName = "\\\\.\\pipe\\smedley_bootstrapper";
-		hPipe = CreateFile(pipeName, GENERIC_WRITE, 0, NULL, OPEN_EXISTING, 0, NULL);
-
-		if (hPipe != INVALID_HANDLE_VALUE) {
-			return hPipe;
-		}
-
-		if (GetLastError() != ERROR_PIPE_BUSY) {
-			throw std::runtime_error("failed to open pipe: " + GetLastError());
-		}
-
-		if (!WaitNamedPipe(pipeName, 20000)) {
-			throw std::runtime_error("could not open pipe: 20 second timeout passed");
-		}
-	}
-}
 
 handles::ConsoleCommandOutput *KernelCommandHandler(handles::ConsoleCommandOutput *out, handles::vector<handles::basic_string<char>> *argv)
 {
@@ -71,7 +45,7 @@ void Kernel::Attach()
 
 	this->GetProcessInformation();
 
-	_consoleCommandInjector = std::make_unique<injectors::ConsoleCommandInjector>((DWORD) _hBaseMod);
+	_consoleCommandInjector = std::make_shared<injectors::ConsoleCommandInjector>((DWORD) _hBaseMod);
 	_consoleCommandInjector->Inject(cmdInfo, KernelCommandHandler);
 	std::cout << "command injector jobs done!" << std::endl;
 
@@ -80,6 +54,21 @@ void Kernel::Attach()
 
 void Kernel::Detach()
 {
+}
+
+std::shared_ptr<PluginLoader> Kernel::pluginLoader()
+{
+	return _pluginLoader;
+}
+
+std::shared_ptr<injectors::ConsoleCommandInjector> Kernel::consoleInjector()
+{
+	return _consoleCommandInjector;
+}
+
+DWORD Kernel::baseAddress()
+{
+	return (DWORD) _hBaseMod;
 }
 
 Kernel *Kernel::GetInstance()
@@ -100,21 +89,7 @@ void Kernel::GetProcessInformation()
 
 void Kernel::OnComplete()
 {
-
-	/*
-	HANDLE hPipe;
-	char buf[PIPE_BUF_SIZE];
-
-	hPipe = OpenPipe();
-	std::strcpy(buf, "load_plugins\n");
-	std::cout << "writing to pipe...\n";
-	if (!WriteFile(hPipe, buf, PIPE_BUF_SIZE, NULL, NULL)) {
-		MessageBoxA(NULL, "smedley: failed to write to pipe. cannot resume game thread - terminating process.", "failure", MB_ICONEXCLAMATION);
-		ExitProcess(PIPE_ERR_CODE);
-	}
-	CloseHandle(hPipe);
-	*/
-
+	_pluginLoader = std::make_shared<PluginLoader>();
 }
 
 } // core

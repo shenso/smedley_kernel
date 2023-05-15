@@ -27,6 +27,17 @@ struct PluginMetadata
 	std::string path;
 };
 
+class Plugin;
+
+class PluginLoader
+{
+	std::unordered_map<std::string, Plugin *> _plugins;
+public:
+
+	PluginLoader();
+	void Load(Plugin *newPlugin, const std::string &name, const std::string &path);
+};
+
 class Plugin
 {
 	PluginMetadata _metadata;
@@ -38,6 +49,8 @@ public:
 	std::string path() { return _metadata.path;  };
 
 	virtual void OnAttach() = 0;
+
+	friend class PluginLoader;
 };
 
 } // core

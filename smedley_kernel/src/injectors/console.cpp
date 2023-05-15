@@ -1,6 +1,6 @@
 #include "injectors/console.hpp"
 #include "memory.hpp"
-#include "handles/std.hpp"
+#include "handles.hpp"
 
 #include <algorithm>
 #include <cstdint>

@@ -14,14 +14,13 @@ namespace smedley
 namespace core
 {
 
-HANDLE OpenPipe();
-
 class Kernel
 {
 	HANDLE _hProcess, _hBaseMod;
 	DWORD _processId;
 
-	std::unique_ptr<injectors::ConsoleCommandInjector> _consoleCommandInjector;
+	std::shared_ptr<injectors::ConsoleCommandInjector> _consoleCommandInjector;
+	std::shared_ptr<PluginLoader> _pluginLoader;
 
 	static Kernel *_instance;
 public:
@@ -29,6 +28,11 @@ public:
 
 	void Attach();
 	void Detach();
+
+	std::shared_ptr<PluginLoader> pluginLoader();
+	std::shared_ptr<injectors::ConsoleCommandInjector> consoleInjector();
+
+	DWORD baseAddress();
 
 	static Kernel *GetInstance();
 private:
