@@ -30,7 +30,7 @@ PLUGIN_API void LoadPlugins(PluginListNode *root)
 		const char *name = nameProvider();
 		smedley::core::Plugin *plugin = creator();
 
-		auto *kernel = smedley::core::Kernel::GetInstance();
+		auto *kernel = smedley::core::Kernel::instance();
 		kernel->pluginLoader()->Load(plugin, name, modPath);
 
 		node = node->next;

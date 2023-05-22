@@ -1,6 +1,7 @@
 #include "injectors/console.hpp"
 #include "memory.hpp"
-#include "handles.hpp"
+#include "handles/CConsoleCommand.hpp"
+#include "handles/ConsoleCommandOutput.hpp"
 
 #include <algorithm>
 #include <cstdint>
@@ -84,10 +85,10 @@ ConsoleCommandInjector::ConsoleCommandInjector(DWORD baseAddr) : _baseAddr(baseA
 
 	INJECTOR_BUF = this;
 	RET_ADDR = (DWORD) patchAddr + 5;
-	core::memory::Hook(patchAddr, InsertInjectedTrampoline, 5);
+	core::memory::Hook(patchAddr, InsertInjectedTrampoline, 5, nullptr);
 }
 
-void ConsoleCommandInjector::Inject(ConsoleCommandInfo &metadata, handles::ConsoleCommandHandler handler)
+void ConsoleCommandInjector::Inject(ConsoleCommandInfo &metadata, ConsoleCommandHandler handler)
 {
 	if (metadata.name.empty()) {
 		throw std::runtime_error("the command requires a name");

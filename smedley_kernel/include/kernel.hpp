@@ -2,6 +2,7 @@
 #define KERNEL_HPP_
 
 #include "plugin.hpp"
+#include "hook/container.hpp"
 #include "injectors/console.hpp"
 
 #include <memory>
@@ -21,6 +22,7 @@ class Kernel
 
 	std::shared_ptr<injectors::ConsoleCommandInjector> _consoleCommandInjector;
 	std::shared_ptr<PluginLoader> _pluginLoader;
+	std::shared_ptr<hook::HookContainer> _hooks;
 
 	static Kernel *_instance;
 public:
@@ -31,10 +33,11 @@ public:
 
 	std::shared_ptr<PluginLoader> pluginLoader();
 	std::shared_ptr<injectors::ConsoleCommandInjector> consoleInjector();
+	std::shared_ptr<hook::HookContainer> hooks();
 
 	DWORD baseAddress();
 
-	static Kernel *GetInstance();
+	static Kernel *instance();
 private:
 	void GetProcessInformation();
 	void OnComplete();

@@ -1,6 +1,7 @@
 #include "kernel.hpp"
 #include "plugin.hpp"
-#include "handles.hpp"
+#include "handles/CConsoleCommand.hpp"
+#include "handles/ConsoleCommandOutput.hpp"
 #include "functions/base.hpp"
 #include <iostream>
 #include <memory>
@@ -35,19 +36,16 @@ Kernel::Kernel() : _hProcess(INVALID_HANDLE_VALUE), _hBaseMod(INVALID_HANDLE_VAL
 
 void Kernel::Attach()
 {
-	char buf[1024];
-	std::string testPlugin;
-
 	injectors::ConsoleCommandInfo cmdInfo = {};
 	cmdInfo.name = "smedley";
 	cmdInfo.description = "smedley butler";
-	cmdInfo.param = "if you're seeing this... it worked! we can inject into vic2! command just prints smedley butler";
 
 	this->GetProcessInformation();
 
+	_hooks = std::make_shared<hook::HookContainer>((DWORD) _hBaseMod);
+
 	_consoleCommandInjector = std::make_shared<injectors::ConsoleCommandInjector>((DWORD) _hBaseMod);
 	_consoleCommandInjector->Inject(cmdInfo, KernelCommandHandler);
-	std::cout << "command injector jobs done!" << std::endl;
 
 	this->OnComplete();
 }
@@ -61,6 +59,11 @@ std::shared_ptr<PluginLoader> Kernel::pluginLoader()
 	return _pluginLoader;
 }
 
+std::shared_ptr<hook::HookContainer> Kernel::hooks()
+{
+	return _hooks;
+}
+
 std::shared_ptr<injectors::ConsoleCommandInjector> Kernel::consoleInjector()
 {
 	return _consoleCommandInjector;
@@ -71,7 +74,7 @@ DWORD Kernel::baseAddress()
 	return (DWORD) _hBaseMod;
 }
 
-Kernel *Kernel::GetInstance()
+Kernel *Kernel::instance()
 {
 	if (Kernel::_instance == nullptr) {
 		Kernel::_instance = new Kernel();

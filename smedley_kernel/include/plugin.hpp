@@ -48,7 +48,8 @@ public:
 	std::string name() { return _metadata.name;  };
 	std::string path() { return _metadata.path;  };
 
-	virtual void OnAttach() = 0;
+	virtual void OnAttach() {};
+	virtual void OnDetach() {};
 
 	friend class PluginLoader;
 };

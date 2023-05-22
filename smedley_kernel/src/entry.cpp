@@ -10,10 +10,10 @@ BOOL __stdcall DllMain(HINSTANCE hInst, DWORD fdwReason, LPVOID lpvReserved)
 {
 	switch (fdwReason) {
 	case DLL_PROCESS_ATTACH:
-		Kernel::GetInstance()->Attach();
+		Kernel::instance()->Attach();
 		break;
 	case DLL_PROCESS_DETACH:
-		Kernel::GetInstance()->Detach();
+		Kernel::instance()->Detach();
 	}
 
 	return TRUE;

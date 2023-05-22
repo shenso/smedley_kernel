@@ -1,7 +1,10 @@
 #ifndef INJECTORS_CONSOLE_HPP_
 #define INJECTORS_CONSOLE_HPP_
 
-#include "handles.hpp"
+#include "handles/basic_string.hpp"
+#include "handles/vector.hpp"
+#include "handles/CConsoleCommand.hpp"
+#include "handles/ConsoleCommandOutput.hpp"
 
 #include <memory>
 #include <string>
@@ -14,6 +17,8 @@ namespace smedley
 {
 namespace injectors
 {
+
+typedef handles::ConsoleCommandOutput *(_cdecl *ConsoleCommandHandler)(handles::ConsoleCommandOutput *out, handles::vector<handles::basic_string<char>> *argv);
 
 constexpr DWORD INIT_CONSOLE_COMMANDS_ADDR = 0x00b09740;
 constexpr DWORD FUN_INIT_CONSOLE_COMMAND_VECTOR_INSTR = 0x00023a43;
@@ -39,7 +44,7 @@ public:
 
 	std::vector<handles::CConsoleCommand> &injected();
 
-	void Inject(ConsoleCommandInfo &metadata, handles::ConsoleCommandHandler handler);
+	void Inject(ConsoleCommandInfo &metadata, ConsoleCommandHandler handler);
 	friend void InsertInjectedCommands(handles::vector<handles::CConsoleCommand *> *commands);
 };
 

@@ -2,7 +2,8 @@
 #define FUNCTIONS_POP_HPP_
 
 #include "kernel.hpp"
-#include "handles.hpp"
+#include "handles/CPop.hpp"
+#include "handles/CashFlowType.hpp"
 
 namespace smedley
 {
@@ -14,7 +15,7 @@ namespace CPop
 
 void __stdcall GiveMoney(handles::CPop *pop, handles::CashFlowType cfType, long long int amount)
 {
-	DWORD fn = core::Kernel::GetInstance()->baseAddress() + 0x55a5f0;
+	DWORD fn = core::Kernel::instance()->baseAddress() + 0x55a5f0;
 	uint32_t amount_00 = (uint32_t) (amount >> 32);
 	uint32_t amount_01 = amount & 0xffffffff;
 

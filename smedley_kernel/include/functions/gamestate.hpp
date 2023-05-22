@@ -1,7 +1,7 @@
 #ifndef FUNCTIONS_GAMESTATE_HPP_
 #define FUNCTIONS_GAMESTATE_HPP_
 
-#include "handles.hpp"
+#include "handles/CGameState.hpp"
 #include "functions/base.hpp"
 
 namespace smedley
@@ -14,9 +14,9 @@ namespace CCurrentGameState
 
 using namespace smedley::core;
 
-handles::CGameState *GetInstance()
+handles::CGameState *instance()
 {
-	return *(handles::CGameState **) (Kernel::GetInstance()->baseAddress() + 0xe588e8);
+	return *(handles::CGameState **) (Kernel::instance()->baseAddress() + 0xe588e8);
 }
 
 }

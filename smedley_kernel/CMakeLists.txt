@@ -3,7 +3,7 @@
 #
 cmake_minimum_required (VERSION 3.8)
 
-FILE(GLOB kernel_sources src/*.cpp src/injectors/*.cpp)
+FILE(GLOB_RECURSE kernel_sources src/*.cpp)
 
 include_directories("include")
 
