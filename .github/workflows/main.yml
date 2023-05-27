@@ -1,0 +1,36 @@
+on:
+  push:
+    branches:
+    - master
+    - actions-stage
+  pull_request:
+    branches:
+      - master
+    
+    
+jobs:
+  build:
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        version: [0.1]
+        build_type: [Debug, Release]
+    env:
+      artifact_name: smedley-${{ matrix.version }}-${{ matrix.build_type }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: generate build file
+        run: cmake -DCMAKE_GENERATOR_PLATFORM=WIN32 -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} -G "Visual Studio 17 2022" -B build 
+      - name: build objects
+        run: |
+          cmake --build build --config ${{ matrix.build_type }}
+      - name: prepare artifact
+        run: |
+          mkdir -p dist && mkdir -p dist/plugins
+          cp build/smedley_kernel/${{ matrix.build_type }}/smedley_kernel.dll dist
+          cp build/plugins/v2up/${{ matrix.build_type }}/v2up.dll dist/plugins
+      - name: upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ env.artifact_name }}
+          path: dist
