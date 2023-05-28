@@ -27,8 +27,7 @@ void PayPopInterest(handles::CCountry *country)
 	handles::CGameState *gameState = funcs::CCurrentGameState::instance();
 	handles::CFixedPoint64 popMoneyScaleFactor = *(handles::CFixedPoint64 *) (baseAddr + 0xb0b168); // pretty sure this is always 1000.0
 
-	for (auto node = country->states.first; node != country->states.last; node = node->next) {
-		handles::CState *state = node->val;
+	for (auto state : country->states) {
 		handles::CFixedPoint64 stateSavings = state->savingsInBank;
 		handles::CFixedPoint64 origAmount = state->interestPayments;
 
@@ -37,17 +36,16 @@ void PayPopInterest(handles::CCountry *country)
 			continue;
 		}
 
-		for (int *provCursor = state->provinces.first; provCursor != state->provinces.last; provCursor++) {
-			int provinceId = *provCursor;
-			handles::CProvince *province = gameState->provinces.first[provinceId];
+		for (int provinceId : state->provinces) {
+			handles::CProvince *province = gameState->provinces[provinceId];
 
-			for (handles::CPopList *popList = province->pops.first; popList != province->pops.last; popList++) {
-				for (auto pop = popList->first; pop != nullptr; pop = pop->next) {
-					if (pop->savingsInBank == 0) {
+			for (auto &popList : province->pops) {
+				for (auto &pop : popList) {
+					if (pop.savingsInBank == 0) {
 						continue;
 					}
 
-					handles::CFixedPoint64 popSavings{(pop->savingsInBank << 0xf) / popMoneyScaleFactor.qty};
+					handles::CFixedPoint64 popSavings{(pop.savingsInBank << 0xf) / popMoneyScaleFactor.qty};
 					double percentage = (double) popSavings.qty / stateSavings.qty;
 					handles::CFixedPoint64 payment{(long long int) (percentage * origAmount.qty)};
 					state->interestPayments.qty -= payment.qty;
@@ -57,7 +55,7 @@ void PayPopInterest(handles::CCountry *country)
 					}
 					long long int popPayment = (payment.qty * popMoneyScaleFactor.qty) >> 0xf;
 
-					funcs::CPop::GiveMoney(pop, handles::CashFlowType::CF_INTEREST_PAYMENT, popPayment);
+					funcs::CPop::GiveMoney(&pop, handles::CashFlowType::CF_INTEREST_PAYMENT, popPayment);
 				}
 			}
 		}

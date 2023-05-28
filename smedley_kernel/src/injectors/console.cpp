@@ -29,15 +29,15 @@ void InsertInjectedCommands(handles::vector<handles::CConsoleCommand *> *command
 	growAddr = INJECTOR_BUF->_baseAddr + 0x6513F0; // vector<?>::grow
 
 	for (auto it = INJECTOR_BUF->injected().begin(); it != INJECTOR_BUF->injected().end(); it++) {
-		if (commands->last == commands->end) {
+		if (commands->_last == commands->_end) {
 			__asm {
 				mov EAX, [commands]
 				call[growAddr]
 			}
 		}
 
-		*(commands->last) = &(*it);
-		commands->last++;
+		*(commands->_last) = &(*it);
+		commands->_last++;
 	}
 }
 

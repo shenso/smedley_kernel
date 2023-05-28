@@ -26,7 +26,7 @@ struct CFile_vftable
 	void (__thiscall *WriteLong)(CFile *_this, basic_string<char> *str);
 	void (__thiscall *WriteByte)(CFile *_this, char ch);
 	void (__thiscall *Write)(CFile *_this, void *data, size_t n);
-	bool (__thiscall *EOF)(CFile *_this);
+	bool (__thiscall *AtEOF)(CFile *_this);
 	bool (__thiscall *Seek)(CFile *_this, size_t n);
 	bool (__thiscall *SeekEnd)(CFile *_this);
 	bool (__thiscall *SeekBegin)(CFile *_this);
