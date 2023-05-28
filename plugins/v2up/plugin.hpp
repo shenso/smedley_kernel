@@ -1,7 +1,7 @@
 #ifndef V2UP_PLUGIN_HPP_
 #define V2UP_PLUGIN_HPP_
 
-#include <plugin.hpp>
+#include <smedley/plugin.hpp>
 
 using namespace smedley;
 

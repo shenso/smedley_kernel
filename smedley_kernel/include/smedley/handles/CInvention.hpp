@@ -1,0 +1,189 @@
+#ifndef HANDLES_CINVENTION_HPP_
+#define HANDLES_CINVENTION_HPP_
+
+#include <cstdint>
+#include "CTechnology.hpp"
+
+#pragma pack(push, 1)
+
+namespace smedley
+{
+namespace handles
+{
+
+struct CInvention
+{
+	void **vftable;
+	uint8_t field1_0x4;
+	uint8_t field2_0x5;
+	uint8_t field3_0x6;
+	uint8_t field4_0x7;
+	uint8_t field5_0x8;
+	uint8_t field6_0x9;
+	uint8_t field7_0xa;
+	uint8_t field8_0xb;
+	uint8_t field9_0xc;
+	uint8_t field10_0xd;
+	uint8_t field11_0xe;
+	uint8_t field12_0xf;
+	uint8_t field13_0x10;
+	uint8_t field14_0x11;
+	uint8_t field15_0x12;
+	uint8_t field16_0x13;
+	uint8_t field17_0x14;
+	uint8_t field18_0x15;
+	uint8_t field19_0x16;
+	uint8_t field20_0x17;
+	uint8_t field21_0x18;
+	uint8_t field22_0x19;
+	uint8_t field23_0x1a;
+	uint8_t field24_0x1b;
+	uint8_t field25_0x1c;
+	uint8_t field26_0x1d;
+	uint8_t field27_0x1e;
+	uint8_t field28_0x1f;
+	uint8_t field29_0x20;
+	uint8_t field30_0x21;
+	uint8_t field31_0x22;
+	uint8_t field32_0x23;
+	uint8_t field33_0x24;
+	uint8_t field34_0x25;
+	uint8_t field35_0x26;
+	uint8_t field36_0x27;
+	uint8_t field37_0x28;
+	uint8_t field38_0x29;
+	uint8_t field39_0x2a;
+	uint8_t field40_0x2b;
+	uint8_t field41_0x2c;
+	uint8_t field42_0x2d;
+	uint8_t field43_0x2e;
+	uint8_t field44_0x2f;
+	uint8_t field45_0x30;
+	uint8_t field46_0x31;
+	uint8_t field47_0x32;
+	uint8_t field48_0x33;
+	uint8_t field49_0x34;
+	uint8_t field50_0x35;
+	uint8_t field51_0x36;
+	uint8_t field52_0x37;
+	uint8_t field53_0x38;
+	uint8_t field54_0x39;
+	uint8_t field55_0x3a;
+	uint8_t field56_0x3b;
+	uint8_t field57_0x3c;
+	uint8_t field58_0x3d;
+	uint8_t field59_0x3e;
+	uint8_t field60_0x3f;
+	uint8_t field61_0x40;
+	uint8_t field62_0x41;
+	uint8_t field63_0x42;
+	uint8_t field64_0x43;
+	uint8_t field65_0x44;
+	uint8_t field66_0x45;
+	uint8_t field67_0x46;
+	uint8_t field68_0x47;
+	uint8_t field69_0x48;
+	uint8_t field70_0x49;
+	uint8_t field71_0x4a;
+	uint8_t field72_0x4b;
+	uint8_t field73_0x4c;
+	uint8_t field74_0x4d;
+	uint8_t field75_0x4e;
+	uint8_t field76_0x4f;
+	uint8_t field77_0x50;
+	uint8_t field78_0x51;
+	uint8_t field79_0x52;
+	uint8_t field80_0x53;
+	uint8_t field81_0x54;
+	uint8_t field82_0x55;
+	uint8_t field83_0x56;
+	uint8_t field84_0x57;
+	uint8_t field85_0x58;
+	uint8_t field86_0x59;
+	uint8_t field87_0x5a;
+	uint8_t field88_0x5b;
+	uint8_t field89_0x5c;
+	uint8_t field90_0x5d;
+	uint8_t field91_0x5e;
+	uint8_t field92_0x5f;
+	uint8_t field93_0x60;
+	uint8_t field94_0x61;
+	uint8_t field95_0x62;
+	uint8_t field96_0x63;
+	uint8_t field97_0x64;
+	uint8_t field98_0x65;
+	uint8_t field99_0x66;
+	uint8_t field100_0x67;
+	uint8_t field101_0x68;
+	uint8_t field102_0x69;
+	uint8_t field103_0x6a;
+	uint8_t field104_0x6b;
+	uint8_t field105_0x6c;
+	uint8_t field106_0x6d;
+	uint8_t field107_0x6e;
+	uint8_t field108_0x6f;
+	CTechnology tech__;
+	uint8_t field110_0x400;
+	uint8_t field111_0x401;
+	uint8_t field112_0x402;
+	uint8_t field113_0x403;
+	uint8_t field114_0x404;
+	uint8_t field115_0x405;
+	uint8_t field116_0x406;
+	uint8_t field117_0x407;
+	uint8_t field118_0x408;
+	uint8_t field119_0x409;
+	uint8_t field120_0x40a;
+	uint8_t field121_0x40b;
+	uint8_t field122_0x40c;
+	uint8_t field123_0x40d;
+	uint8_t field124_0x40e;
+	uint8_t field125_0x40f;
+	uint8_t field126_0x410;
+	uint8_t field127_0x411;
+	uint8_t field128_0x412;
+	uint8_t field129_0x413;
+	uint8_t field130_0x414;
+	uint8_t field131_0x415;
+	uint8_t field132_0x416;
+	uint8_t field133_0x417;
+	uint8_t field134_0x418;
+	uint8_t field135_0x419;
+	uint8_t field136_0x41a;
+	uint8_t field137_0x41b;
+	uint8_t field138_0x41c;
+	uint8_t field139_0x41d;
+	uint8_t field140_0x41e;
+	uint8_t field141_0x41f;
+	uint8_t field142_0x420;
+	uint8_t field143_0x421;
+	uint8_t field144_0x422;
+	uint8_t field145_0x423;
+	uint8_t field146_0x424;
+	uint8_t field147_0x425;
+	uint8_t field148_0x426;
+	uint8_t field149_0x427;
+	uint8_t field150_0x428;
+	uint8_t field151_0x429;
+	uint8_t field152_0x42a;
+	uint8_t field153_0x42b;
+	uint8_t field154_0x42c;
+	uint8_t field155_0x42d;
+	uint8_t field156_0x42e;
+	uint8_t field157_0x42f;
+	uint8_t field158_0x430;
+	uint8_t field159_0x431;
+	uint8_t field160_0x432;
+	uint8_t field161_0x433;
+	uint8_t field162_0x434;
+	uint8_t field163_0x435;
+	uint8_t field164_0x436;
+	uint8_t field165_0x437;
+};
+
+}
+}
+
+#pragma pack(pop)
+
+#endif // HANDLES_CINVENTION_HPP_

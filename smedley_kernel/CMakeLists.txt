@@ -3,9 +3,9 @@
 #
 cmake_minimum_required (VERSION 3.8)
 
-FILE(GLOB_RECURSE kernel_sources src/*.cpp)
+FILE(GLOB_RECURSE kernel_sources src/*.cpp include/smedley/handles/*.hpp)
 
-include_directories("include")
+include_directories("include/smedley")
 
 # Add source to this project's executable.
 add_library (smedley_kernel SHARED ${kernel_sources})

@@ -4,17 +4,17 @@
 #include <string>
 #include <sstream>
 
-#include <kernel.hpp>
-#include <memory.hpp>
-#include <handles/CCountry.hpp>
-#include <handles/CGameState.hpp>
-#include <handles/CState.hpp>
-#include <handles/CFixedPoint64.hpp>
-#include <handles/CProvince.hpp>
-#include <handles/CPopList.hpp>
-#include <functions/gamestate.hpp>
-#include <functions/province.hpp>
-#include <functions/pop.hpp>
+#include <smedley/kernel.hpp>
+#include <smedley/memory.hpp>
+#include <smedley/handles/CCountry.hpp>
+#include <smedley/handles/CGameState.hpp>
+#include <smedley/handles/CState.hpp>
+#include <smedley/handles/CFixedPoint64.hpp>
+#include <smedley/handles/CProvince.hpp>
+#include <smedley/handles/CPopList.hpp>
+#include <smedley/functions/gamestate.hpp>
+#include <smedley/functions/province.hpp>
+#include <smedley/functions/pop.hpp>
 
 namespace v2up
 {

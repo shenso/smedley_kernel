@@ -9,14 +9,7 @@
       "installRoot": "${projectDir}\\out\\install\\${name}",
       "cmakeCommandArgs": "",
       "buildCommandArgs": "",
-      "ctestCommandArgs": "",
-      "variables": [
-        {
-          "name": "CMAKE_INSTALL_PREFIX",
-          "value": "C:/Users/shenso/source/repos/smedley_kernel/out/install/x86-Debug",
-          "type": "PATH"
-        }
-      ]
+      "ctestCommandArgs": ""
     },
     {
       "name": "x86-Release",
@@ -27,8 +20,7 @@
       "cmakeCommandArgs": "",
       "buildCommandArgs": "",
       "ctestCommandArgs": "",
-      "inheritEnvironments": [ "msvc_x86" ],
-      "variables": []
+      "inheritEnvironments": [ "msvc_x86" ]
     }
   ]
 }
