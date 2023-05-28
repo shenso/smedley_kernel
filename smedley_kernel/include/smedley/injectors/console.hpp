@@ -1,10 +1,10 @@
 #ifndef INJECTORS_CONSOLE_HPP_
 #define INJECTORS_CONSOLE_HPP_
 
-#include "handles/basic_string.hpp"
-#include "handles/vector.hpp"
-#include "handles/CConsoleCommand.hpp"
-#include "handles/ConsoleCommandOutput.hpp"
+#include "native/handles/basic_string.hpp"
+#include "native/handles/vector.hpp"
+#include "native/handles/CConsoleCommand.hpp"
+#include "native/handles/ConsoleCommandOutput.hpp"
 
 #include <memory>
 #include <string>
@@ -12,6 +12,8 @@
 #include <vector>
 
 #include <windows.h>
+
+using namespace smedley::native;
 
 namespace smedley
 {

@@ -2,9 +2,11 @@
 #define COUNTRY_HOOK_HPP_
 
 #include "hook/hook.hpp"
-#include "handles/CCountry.hpp"
+#include "native/handles/CCountry.hpp"
 
 #include <memory>
+
+using namespace smedley::native;
 
 namespace smedley
 {

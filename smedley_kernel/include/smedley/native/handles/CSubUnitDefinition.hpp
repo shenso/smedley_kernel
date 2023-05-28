@@ -1,0 +1,183 @@
+#ifndef HANDLES_CSUBUNITDEFINITION_HPP_
+#define HANDLES_CSUBUNITDEFINITION_HPP_
+
+#include <cstdint>
+#include "CGoodsPool.hpp"
+#include "basic_string.hpp"
+#include "CFixedPoint.hpp"
+
+#pragma pack(push, 1)
+
+namespace smedley
+{
+namespace native
+{
+namespace handles
+{
+
+struct CSubUnitDefinition
+{
+	void **vftable;
+	uint8_t field1_0x4;
+	uint8_t field2_0x5;
+	uint8_t field3_0x6;
+	uint8_t field4_0x7;
+	basic_string<char> name;
+	int type;
+	int icon;
+	int navalIcon;
+	bool requirePrimaryCulturePop;
+	uint8_t field10_0x31;
+	uint8_t field11_0x32;
+	uint8_t field12_0x33;
+	int unitType;
+	bool isAirUnit;
+	bool isLandUnit;
+	bool isNavalUnit;
+	bool isCapitalShip;
+	bool isTransportShip;
+	bool canBuildOverseas;
+	bool isSail;
+	uint8_t field21_0x3f;
+	uint8_t field22_0x40;
+	uint8_t field23_0x41;
+	bool isBuildable;
+	uint8_t field25_0x43;
+	uint8_t field26_0x44;
+	bool floatingFlag;
+	uint8_t field28_0x46;
+	uint8_t field29_0x47;
+	uint8_t field30_0x48;
+	uint8_t field31_0x49;
+	uint8_t field32_0x4a;
+	uint8_t field33_0x4b;
+	bool inactive;
+	uint8_t field35_0x4d;
+	uint8_t field36_0x4e;
+	uint8_t field37_0x4f;
+	uint8_t field38_0x50;
+	uint8_t field39_0x51;
+	uint8_t field40_0x52;
+	uint8_t field41_0x53;
+	uint8_t field42_0x54;
+	uint8_t field43_0x55;
+	uint8_t field44_0x56;
+	uint8_t field45_0x57;
+	uint8_t field46_0x58;
+	uint8_t field47_0x59;
+	uint8_t field48_0x5a;
+	uint8_t field49_0x5b;
+	uint8_t field50_0x5c;
+	uint8_t field51_0x5d;
+	uint8_t field52_0x5e;
+	uint8_t field53_0x5f;
+	uint8_t field54_0x60;
+	uint8_t field55_0x61;
+	uint8_t field56_0x62;
+	uint8_t field57_0x63;
+	uint8_t field58_0x64;
+	uint8_t field59_0x65;
+	uint8_t field60_0x66;
+	uint8_t field61_0x67;
+	uint8_t field62_0x68;
+	uint8_t field63_0x69;
+	uint8_t field64_0x6a;
+	uint8_t field65_0x6b;
+	uint8_t field66_0x6c;
+	uint8_t field67_0x6d;
+	uint8_t field68_0x6e;
+	uint8_t field69_0x6f;
+	uint8_t field70_0x70;
+	uint8_t field71_0x71;
+	uint8_t field72_0x72;
+	uint8_t field73_0x73;
+	uint8_t field74_0x74;
+	uint8_t field75_0x75;
+	uint8_t field76_0x76;
+	uint8_t field77_0x77;
+	uint8_t field78_0x78;
+	uint8_t field79_0x79;
+	uint8_t field80_0x7a;
+	uint8_t field81_0x7b;
+	uint8_t field82_0x7c;
+	uint8_t field83_0x7d;
+	uint8_t field84_0x7e;
+	uint8_t field85_0x7f;
+	uint8_t field86_0x80;
+	uint8_t field87_0x81;
+	uint8_t field88_0x82;
+	uint8_t field89_0x83;
+	uint8_t field90_0x84;
+	uint8_t field91_0x85;
+	uint8_t field92_0x86;
+	uint8_t field93_0x87;
+	uint8_t river__;
+	uint8_t field95_0x89;
+	uint8_t field96_0x8a;
+	uint8_t field97_0x8b;
+	uint8_t field98_0x8c;
+	uint8_t field99_0x8d;
+	uint8_t field100_0x8e;
+	uint8_t field101_0x8f;
+	uint8_t field102_0x90;
+	uint8_t field103_0x91;
+	uint8_t field104_0x92;
+	uint8_t field105_0x93;
+	uint8_t field106_0x94;
+	uint8_t field107_0x95;
+	uint8_t field108_0x96;
+	uint8_t field109_0x97;
+	uint8_t field110_0x98;
+	uint8_t field111_0x99;
+	uint8_t field112_0x9a;
+	uint8_t field113_0x9b;
+	uint8_t field114_0x9c;
+	uint8_t field115_0x9d;
+	uint8_t field116_0x9e;
+	uint8_t field117_0x9f;
+	int minPortLevel;
+	int limitPerPort;
+	int supplyConsumptionScore;
+	int colonialPoints;
+	CFixedPoint maxStrength;
+	CFixedPoint defaultOrganisation;
+	CFixedPoint maximumSpeed;
+	CFixedPoint weightedValue;
+	CFixedPoint buildTime;
+	CFixedPoint supplyConsumption;
+	CGoodsPool buildCost;
+	CGoodsPool supplyCost;
+	int priority;
+	basic_string<char> sprite;
+	basic_string<char> spriteMount;
+	basic_string<char> spriteMountAttachNode;
+	basic_string<char> spriteOverride;
+	int spriteIndex;
+	basic_string<char> selectSound;
+	basic_string<char> moveSound;
+	CFixedPoint reconnaissance;
+	CFixedPoint siege;
+	CFixedPoint attack;
+	CFixedPoint defence;
+	CFixedPoint discipline;
+	CFixedPoint support;
+	CFixedPoint maneuver;
+	CFixedPoint hull;
+	CFixedPoint gunPower;
+	CFixedPoint fireRange;
+	CFixedPoint evasion;
+	uint8_t field149_0x254;
+	uint8_t field150_0x255;
+	uint8_t field151_0x256;
+	uint8_t field152_0x257;
+	CFixedPoint transportSpeed__;
+	CFixedPoint torpedoAttack;
+};
+
+}
+}
+}
+
+#pragma pack(pop)
+
+#endif // HANDLES_CSUBUNITDEFINITION_HPP_

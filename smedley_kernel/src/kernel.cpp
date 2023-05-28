@@ -1,14 +1,15 @@
 #include "kernel.hpp"
 #include "plugin.hpp"
-#include "handles/CConsoleCommand.hpp"
-#include "handles/ConsoleCommandOutput.hpp"
-#include "functions/base.hpp"
+#include "native/handles/CConsoleCommand.hpp"
+#include "native/handles/ConsoleCommandOutput.hpp"
 #include <iostream>
 #include <memory>
 #include <string>
 
 #include <windows.h>
 #include <tlhelp32.h>
+
+using namespace smedley::native;
 
 namespace smedley
 {

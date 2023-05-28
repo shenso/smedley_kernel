@@ -6,15 +6,17 @@
 
 #include <smedley/kernel.hpp>
 #include <smedley/memory.hpp>
-#include <smedley/handles/CCountry.hpp>
-#include <smedley/handles/CGameState.hpp>
-#include <smedley/handles/CState.hpp>
-#include <smedley/handles/CFixedPoint64.hpp>
-#include <smedley/handles/CProvince.hpp>
-#include <smedley/handles/CPopList.hpp>
-#include <smedley/functions/gamestate.hpp>
-#include <smedley/functions/province.hpp>
-#include <smedley/functions/pop.hpp>
+#include <smedley/native/handles/CCountry.hpp>
+#include <smedley/native/handles/CGameState.hpp>
+#include <smedley/native/handles/CState.hpp>
+#include <smedley/native/handles/CFixedPoint64.hpp>
+#include <smedley/native/handles/CProvince.hpp>
+#include <smedley/native/handles/CPopList.hpp>
+#include <smedley/native/funcs/gamestate.hpp>
+#include <smedley/native/funcs/province.hpp>
+#include <smedley/native/funcs/pop.hpp>
+
+using namespace smedley::native;
 
 namespace v2up
 {
@@ -22,7 +24,7 @@ namespace v2up
 void PayPopInterest(handles::CCountry *country)
 {
 	DWORD baseAddr = core::Kernel::instance()->baseAddress();
-	handles::CGameState *gameState = functions::CCurrentGameState::instance();
+	handles::CGameState *gameState = funcs::CCurrentGameState::instance();
 	handles::CFixedPoint64 popMoneyScaleFactor = *(handles::CFixedPoint64 *) (baseAddr + 0xb0b168); // pretty sure this is always 1000.0
 
 	for (auto node = country->states.first; node != country->states.last; node = node->next) {
@@ -55,7 +57,7 @@ void PayPopInterest(handles::CCountry *country)
 					}
 					long long int popPayment = (payment.qty * popMoneyScaleFactor.qty) >> 0xf;
 
-					functions::CPop::GiveMoney(pop, handles::CashFlowType::CF_INTEREST_PAYMENT, popPayment);
+					funcs::CPop::GiveMoney(pop, handles::CashFlowType::CF_INTEREST_PAYMENT, popPayment);
 				}
 			}
 		}
@@ -78,7 +80,6 @@ V2UPPlugin::~V2UPPlugin()
 
 void V2UPPlugin::OnAttach()
 {
-	LPVOID patchAddr;
 	core::Kernel *kernel = core::Kernel::instance();
 
 	injectors::ConsoleCommandInfo metadata{};

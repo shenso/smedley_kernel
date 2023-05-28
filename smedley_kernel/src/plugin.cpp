@@ -1,6 +1,5 @@
 #include "plugin.hpp"
 #include "kernel.hpp"
-#include "functions/base.hpp"
 #include <iostream>
 #include <sstream>
 #include <stdexcept>

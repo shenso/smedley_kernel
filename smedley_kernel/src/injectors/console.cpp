@@ -1,7 +1,7 @@
 #include "injectors/console.hpp"
 #include "memory.hpp"
-#include "handles/CConsoleCommand.hpp"
-#include "handles/ConsoleCommandOutput.hpp"
+#include "native/handles/CConsoleCommand.hpp"
+#include "native/handles/ConsoleCommandOutput.hpp"
 
 #include <algorithm>
 #include <cstdint>
