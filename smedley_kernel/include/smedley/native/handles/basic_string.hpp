@@ -2,6 +2,7 @@
 #define HANDLES_BASIC_STRING_HPP_
 
 #include <cstdint>
+#include <string>
 
 #pragma pack(push, 1)
 
@@ -19,6 +20,11 @@ struct basic_string
 	int size;
 	int capacity;
 	uint32_t field3;
+
+	std::basic_string<T> transform()
+	{
+		return std::basic_string<T>(_impl, size);
+	}
 };
 
 }

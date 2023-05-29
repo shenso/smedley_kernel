@@ -6,12 +6,14 @@
 
 #include <smedley/kernel.hpp>
 #include <smedley/memory.hpp>
+#include <smedley/api/Country.hpp>
 #include <smedley/native/handles/CCountry.hpp>
 #include <smedley/native/handles/CGameState.hpp>
 #include <smedley/native/handles/CState.hpp>
 #include <smedley/native/handles/CFixedPoint64.hpp>
 #include <smedley/native/handles/CProvince.hpp>
 #include <smedley/native/handles/CPopList.hpp>
+#include <smedley/native/funcs/country.hpp>
 #include <smedley/native/funcs/gamestate.hpp>
 #include <smedley/native/funcs/province.hpp>
 #include <smedley/native/funcs/pop.hpp>
@@ -26,6 +28,11 @@ void PayPopInterest(handles::CCountry *country)
 	DWORD baseAddr = core::Kernel::instance()->baseAddress();
 	handles::CGameState *gameState = funcs::CCurrentGameState::instance();
 	handles::CFixedPoint64 popMoneyScaleFactor = *(handles::CFixedPoint64 *) (baseAddr + 0xb0b168); // pretty sure this is always 1000.0
+
+	auto countryApi = api::Country::registry()->Get(country);
+	for (auto &state : countryApi->states()) {
+		MessageBox(NULL, state.name().c_str(), "TEST", MB_ICONINFORMATION);
+	}
 
 	for (auto state : country->states) {
 		handles::CFixedPoint64 stateSavings = state->savingsInBank;

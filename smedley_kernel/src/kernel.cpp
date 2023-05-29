@@ -2,6 +2,8 @@
 #include "plugin.hpp"
 #include "native/handles/CConsoleCommand.hpp"
 #include "native/handles/ConsoleCommandOutput.hpp"
+#include "api/country.hpp"
+#include "api/state.hpp"
 #include <iostream>
 #include <memory>
 #include <string>
@@ -43,9 +45,11 @@ void Kernel::Attach()
 
 	this->GetProcessInformation();
 
-	_hooks = std::make_shared<hook::HookContainer>((DWORD) _hBaseMod);
+	_hooks = std::make_shared<hook::HookContainer>(baseAddress());
+	api::NativeCountry::InstallHooks(baseAddress());
+	api::State::InstallHooks(baseAddress());
 
-	_consoleCommandInjector = std::make_shared<injectors::ConsoleCommandInjector>((DWORD) _hBaseMod);
+	_consoleCommandInjector = std::make_shared<injectors::ConsoleCommandInjector>(baseAddress());
 	_consoleCommandInjector->Inject(cmdInfo, KernelCommandHandler);
 
 	this->OnComplete();

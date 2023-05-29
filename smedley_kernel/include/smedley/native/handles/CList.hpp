@@ -16,7 +16,7 @@ namespace handles
 template <typename T>
 struct CList
 {
-	struct Iterator : std::iterator<std::bidirectional_iterator_tag, std::ptrdiff_t, T, T*, T&>
+	struct Iterator : std::iterator<std::bidirectional_iterator_tag, T>
 	{
 		Iterator(CListNode<T> *node) : _node(node) {}
 

@@ -2,6 +2,7 @@
 #define HANDLES_CDATASPREAD_HPP_
 
 #include <cstdint>
+#include "vector.hpp"
 
 #pragma pack(push, 1)
 
@@ -15,11 +16,8 @@ namespace handles
 template <typename T>
 struct CDataSpread
 {
-	void *vtable;
-	uint8_t field1_0x4;
-	uint8_t field2_0x5;
-	uint8_t field3_0x6;
-	uint8_t field4_0x7;
+	void *vftable;
+	uint32_t field1_0x4;
 	vector<T> values;
 	vector<int> index;
 };
