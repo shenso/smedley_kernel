@@ -1,19 +1,19 @@
 ﻿// smedley_kernel.cpp : Defines the entry point for the application.
 //
 
-#include "kernel.hpp"
+#include "loader.hpp"
 #include <windows.h>
-
-using namespace smedley::core;
 
 BOOL __stdcall DllMain(HINSTANCE hInst, DWORD fdwReason, LPVOID lpvReserved)
 {
+	smedley::PluginLoader *loader;
+
 	switch (fdwReason) {
 	case DLL_PROCESS_ATTACH:
-		Kernel::instance()->Attach();
+		smedley::PluginLoader::instance();
 		break;
 	case DLL_PROCESS_DETACH:
-		Kernel::instance()->Detach();
+		break;
 	}
 
 	return TRUE;

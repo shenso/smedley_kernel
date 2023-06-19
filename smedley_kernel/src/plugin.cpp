@@ -1,68 +1,78 @@
 #include "plugin.hpp"
-#include "kernel.hpp"
-#include <iostream>
-#include <sstream>
-#include <stdexcept>
-#include <libloaderapi.h>
-
-typedef smedley::core::Plugin *(*PluginCreator)();
-typedef const char *(*PluginNameProvider)();
-
-PLUGIN_API void LoadPlugins(PluginListNode *root)
-{
-	PluginListNode *node = root;
-
-	while (node != nullptr) {
-		std::string modPath(node->name);
-
-		HMODULE hMod = GetModuleHandleA(node->name);
-		if (hMod == NULL || hMod == INVALID_HANDLE_VALUE) {
-			std::string msg = "could not find module: " + modPath;
-			MessageBox(NULL, msg.c_str(), "Plugin Load Failure", MB_ICONERROR);
-			node = node->next;
-			continue;
-		}
-
-		PluginCreator creator = (PluginCreator) GetProcAddress(hMod, "MakePlugin");
-		PluginNameProvider nameProvider = (PluginNameProvider) GetProcAddress(hMod, "PluginName");
-
-		const char *name = nameProvider();
-		smedley::core::Plugin *plugin = creator();
-
-		auto *kernel = smedley::core::Kernel::instance();
-		kernel->pluginLoader()->Load(plugin, name, modPath);
-
-		node = node->next;
-	}
-}
+#include "util.hpp"
+#include <cstdlib>
+#include <toml.hpp>
 
 namespace smedley
 {
-namespace core
-{
 
-PluginLoader::PluginLoader()
-{
-}
+	PluginDefinition::Version PluginDefinition::Version::Parse(const std::string &s)
+	{
+		PluginDefinition::Version ver;
+		auto ver_strs = SplitString(s, '.');
 
-void PluginLoader::Load(Plugin *newPlugin, const std::string &name, const std::string &path)
-{
-	PluginMetadata metadata{};
+		ver.str = s;
+		ver.num_versions = ver_strs.size();
+		ver.versions = std::unique_ptr<int[]>(new int[ver.num_versions]);
+		for (int i = 0; i < ver.num_versions; i++) {
+			ver.versions[i] = std::atoi(ver_strs[i].c_str());
+		}
 
-	if (_plugins.find(name) != _plugins.end()) {
-		throw std::runtime_error("plugin " + name + " is already loaded!");
+		return ver;
 	}
 
-	metadata.name = name;
-	metadata.path = path;
-	newPlugin->_metadata = metadata;
-	_plugins.insert(std::pair<std::string, Plugin *>(name, newPlugin));
-	newPlugin->OnAttach();
-}
+	Plugin::Plugin() : _checksum(0), _logger(nullptr)
+	{
+	}
 
-Plugin::Plugin()
-{
-}
+	PluginDefinition PluginDefinition::Read(const std::string &filename)
+	{
+		PluginDefinition def{};
+		auto tbl = toml::parse_file(filename);
 
-}
+		std::optional<std::string> id = tbl["id"].value<std::string>();
+		std::optional<std::string> name = tbl["name"].value<std::string>();
+		std::optional<std::string> module_name = tbl["module"].value<std::string>();
+
+		if (!id.has_value() || !name.has_value()  || !module_name.has_value()) {
+			// TODO: custom exception
+			std::runtime_error("plugin definition missing requirement!");
+		}
+
+		def.id = *id;
+		def.name = *name;
+		def.module_name = *module_name;
+
+		return def;
+	}
+
+	bool operator==(const PluginDefinition::Version &lhs, const PluginDefinition::Version &rhs)
+	{
+		if (lhs.num_versions != rhs.num_versions) {
+			return false;
+		}
+
+		for (int i = 0; i < lhs.num_versions; i++) {
+			if (lhs.versions[i] != rhs.versions[i]) {
+				return false;
+			}
+		}
+
+		return true;
+	}
+
+	bool operator!=(const PluginDefinition::Version &lhs, const PluginDefinition::Version &rhs)
+	{
+		if (lhs.num_versions != rhs.num_versions) {
+			return true;
+		}
+
+		for (int i = 0; i < lhs.num_versions; i++) {
+			if (lhs.versions[i] != rhs.versions[i]) {
+				return true;
+			}
+		}
+
+		return false;
+	}
 }

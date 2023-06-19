@@ -1,60 +1,81 @@
-#ifndef PLUGIN_HPP_
-#define PLUGIN_HPP_
+#pragma once
 
+#include "log.hpp"
+#include <memory>
+#include <optional>
 #include <string>
-#include <unordered_map>
-
+#include <vector>
 #include <windows.h>
 
 #define PLUGIN_API extern "C" __declspec(dllexport)
 
-struct PluginListNode
-{
-	const char *name;
-	PluginListNode *next;
-};
-
-PLUGIN_API void LoadPlugins(PluginListNode *root);
-
 namespace smedley
 {
-namespace core
-{
 
-struct PluginMetadata
-{
-	std::string name;
-	std::string path;
-};
+	struct PluginDefinition
+	{
+		struct Version
+		{
+			std::string str;
+			std::unique_ptr<int[]> versions;
+			int num_versions;
 
-class Plugin;
+			static Version Parse(const std::string &s);
 
-class PluginLoader
-{
-	std::unordered_map<std::string, Plugin *> _plugins;
-public:
+			friend bool operator==(const Version &lhs, const Version &rhs);
+			friend bool operator!=(const Version &lhs, const Version &rhs);
+		};
 
-	PluginLoader();
-	void Load(Plugin *newPlugin, const std::string &name, const std::string &path);
-};
+		struct Dependency
+		{
+			std::string id;
+			std::optional<Version> eq;
+			std::optional<Version> gt;
+			std::optional<Version> lt;
+		};
 
-class Plugin
-{
-	PluginMetadata _metadata;
-public:
-	Plugin();
-	virtual ~Plugin() {};
+		std::string id;
+		std::string name;
+		std::string description;
+		std::string module_name;
+		Version version;
+		std::vector<Dependency> dependencies;
 
-	std::string name() { return _metadata.name;  };
-	std::string path() { return _metadata.path;  };
+		PluginDefinition() {}
+		PluginDefinition(const PluginDefinition &def) : id(def.id), name(def.name), description(def.description), module_name(def.module_name) {}
 
-	virtual void OnAttach() {};
-	virtual void OnDetach() {};
+		void operator=(const PluginDefinition &def) { id = def.id; name = def.name; description = def.description; module_name = def.module_name; }
 
-	friend class PluginLoader;
-};
+		static PluginDefinition Read(const std::string &filename);
+	};
 
-} // core
-} // smedley
+	class Plugin
+	{
+	private: // fields populated by the loader
+		HMODULE _hmod;
+		PluginDefinition _definition;
+		uint32_t _checksum;
 
-#endif // PLUGIN_HPP_
+		std::unique_ptr<Logger> _logger;
+	public:
+		// plugin constructors should generally have little to no logic. various
+		// object properties will NOT be available until they are provided by the 
+		// plugin loader immediately AFTER instantiation.
+		Plugin();
+		virtual ~Plugin() {};
+
+		virtual void OnLoad() {};
+		virtual void OnUnload() {};
+
+		const PluginDefinition &definition() const { return _definition; }
+		uint32_t checksum() const { return _checksum; }
+		HMODULE mod_handle() const { return _hmod; }
+
+		friend class PluginLoader;
+	protected:
+		Logger &logger() const { return *_logger; }
+	};
+
+	
+
+}
