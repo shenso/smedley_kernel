@@ -10,6 +10,7 @@ namespace smedley::v2
 
     class CGoodsPool : public clausewitz::CPersistent
     {
+    protected:
         uint8_t _index[64];
         sstd::vector<clausewitz::fixed_point<int64_t,48,15>> _values;
     };
@@ -18,6 +19,7 @@ namespace smedley::v2
 
     class CGoodsProject : public clausewitz::CPersistent
     {
+    protected:
         CGoodsPool _input;
         CGoodsPool _demand;
         clausewitz::fixed_point<int64_t,48,15> _money;

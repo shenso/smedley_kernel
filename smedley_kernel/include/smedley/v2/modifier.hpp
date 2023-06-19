@@ -141,6 +141,7 @@ namespace smedley::v2
 
     class CModifierDefinition
     {
+    protected:
         sstd::string _name; // 4
         int _tok_type; // 20
         int _ordinal; // 24
@@ -154,6 +155,7 @@ namespace smedley::v2
 
     class CModifierEntry
     {
+    protected:
         clausewitz::CFixedPoint _value; // 0
         CModifierDefinition *_def; // 4
     };
@@ -162,6 +164,7 @@ namespace smedley::v2
 
     class CModifier : public clausewitz::CPersistent
     {
+    protected:
         clausewitz::CList<void *> _uk_0x8;
         sstd::vector<CModifierEntry> _entries; // 18
         int _icon; // 28
@@ -179,6 +182,7 @@ namespace smedley::v2
 
     class CStaticModifier : public CModifier
     {
+    protected:
         sstd::string _tag; // 30
     };
 
@@ -188,6 +192,7 @@ namespace smedley::v2
 
     class CProvinceModifier : public CModifier
     {
+    protected:
         CProvince *_province; // 30
     };
 
@@ -195,6 +200,7 @@ namespace smedley::v2
 
     class CCrime : public CModifier
     {
+    protected:
         sstd::string _tag; // 30
         int _ordinal; // 4c
         CAndTrigger _trigger; // 50

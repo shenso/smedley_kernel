@@ -10,6 +10,7 @@ namespace smedley::v2
 
     class CEventScope : public clausewitz::CPersistent
     {
+    protected:
         CCountryTag _this_tag; // 8
         int _province_id; // 10
         CPop *_pop; // 14

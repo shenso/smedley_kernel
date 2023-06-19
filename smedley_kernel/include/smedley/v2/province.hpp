@@ -20,6 +20,7 @@ namespace smedley::v2
 
     class COwnerArea
     {
+    protected:
         uint8_t _uk[0x60];
     public:
         virtual void Unk0();
@@ -34,6 +35,7 @@ namespace smedley::v2
 
     class CProvinceBuilding : public CSelectable, public CModifierEntry, public clausewitz::CPersistent
     {
+    protected:
         uint32_t _uk_0x18;
         uint32_t _uk_0x1c;
         clausewitz::CFixedPoint _quantity;
@@ -44,6 +46,7 @@ namespace smedley::v2
 
     class CProvince : public clausewitz::CPersistent, public CSelectable
     {
+    protected:
         uint32_t _uk_0x10;
         sstd::vector<CEvent *> _events; // 14 fired events? 
         uint32_t _uk_0x24;

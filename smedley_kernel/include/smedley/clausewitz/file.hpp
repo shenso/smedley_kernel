@@ -15,6 +15,7 @@ namespace smedley::clausewitz
 
 	class CFile
 	{
+	protected:
 		uint32_t _unk_0x4;
 		uint32_t _unk_0x8;
 		uint32_t _unk_0xc;

@@ -9,6 +9,7 @@ namespace smedley::v2
 
     class CFlag
     {
+    protected:
         sstd::string _key;
         bool _val;
     };

@@ -8,6 +8,7 @@ namespace smedley::sstd
 	template <typename T>
 	class basic_string
 	{
+	protected:
 		T _impl[16];
 		size_t _size;
 		size_t _capacity;

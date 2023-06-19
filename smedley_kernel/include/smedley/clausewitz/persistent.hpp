@@ -9,6 +9,7 @@ namespace smedley::clausewitz
 	// base class for all persistent objects (objects serialized/deserialized from game files)
 	class CPersistent
 	{
+	protected:
 		int _type_token;
 	public:
 		virtual ~CPersistent();

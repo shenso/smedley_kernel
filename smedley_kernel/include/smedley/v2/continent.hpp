@@ -10,6 +10,7 @@ namespace smedley::v2
 
     class CContinent : public CModifier, public clausewitz::CList<int>
     {
+    protected:
         sstd::string _tag;
         sstd::string _name;
         clausewitz::CColor _color;

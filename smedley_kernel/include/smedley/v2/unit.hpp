@@ -8,6 +8,7 @@ namespace smedley::v2
 
     class CUniqueUnitNameInternal : public clausewitz::CPersistent
     {
+    protected:
         uint32_t _uk_0x8;
         uint32_t _uk_0xc;
         uint32_t _uk_0x10;
@@ -19,6 +20,7 @@ namespace smedley::v2
 
     class CUniqueUnitName : public clausewitz::CPersistent
     {
+    protected:
         sstd::vector<CUniqueUnitNameInternal> _names;
     };
 

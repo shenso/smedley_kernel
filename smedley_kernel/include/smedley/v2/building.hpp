@@ -14,6 +14,7 @@ namespace smedley::v2
 
     class CBuilding : public CModifierEntry, public clausewitz::CPersistent
     {
+    protected:
         int _type; // 10
         uint8_t _uk_0x14[0x44]; // double check this
         clausewitz::CFixedPoint _construction_cost; // 5c

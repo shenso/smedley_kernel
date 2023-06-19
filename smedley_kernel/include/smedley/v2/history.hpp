@@ -10,6 +10,7 @@ namespace smedley::v2
 
     class CHistoryContainer : public clausewitz::CPersistent
     {
+    protected:
         CEU3Date _date;
         uint8_t _uk[0x14];
     };
@@ -24,6 +25,7 @@ namespace smedley::v2
 
     class CProvinceHistory : public CHistoryContainer
     {
+    protected:
         CProvince *_province; // 20
     };
 

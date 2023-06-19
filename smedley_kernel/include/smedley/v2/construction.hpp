@@ -14,6 +14,7 @@ namespace smedley::v2
 
     class CConstruction : public clausewitz::CReferenceObject, CSelectable
     {
+    protected:
         CEU3Date _start_date; // 38
         CEU3Date _end_date; // 3c
         int _total_days; // 40

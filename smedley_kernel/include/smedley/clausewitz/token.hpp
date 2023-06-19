@@ -5,6 +5,7 @@ namespace smedley::clausewitz
 
 	class CToken
 	{
+	protected:
 		int _type;
 		char _str[256];
 	};

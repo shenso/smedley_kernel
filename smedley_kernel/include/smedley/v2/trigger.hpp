@@ -11,6 +11,7 @@ namespace smedley::v2
 
     class CTrigger : public clausewitz::CPersistent
     {
+    protected:
         sstd::vector<CTrigger *> _children;
     public:
         virtual ~CTrigger(); // 0

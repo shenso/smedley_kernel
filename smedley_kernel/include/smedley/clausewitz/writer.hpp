@@ -7,8 +7,9 @@ namespace smedley::clausewitz
 
 	class CWriter
 	{
-		int _indent_level;
-		CFile *_file;
+	protected:
+		int _indent_level; // 4
+		CFile *_file; // 8
 		bool _uk_0xc;
 	public:
 		virtual ~CWriter();

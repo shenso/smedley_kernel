@@ -8,6 +8,7 @@ namespace smedley::clausewitz
 
     class CColor : public CPersistent
     {
+    protected:
         float _r;
         float _g;
         float _b;

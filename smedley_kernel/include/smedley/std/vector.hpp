@@ -11,6 +11,7 @@ namespace smedley::sstd
 	template <typename T, class Allocator = allocator<T>>
 	class vector
 	{
+	protected:
 		T *_first;
 		T *_last;
 		T *_end;

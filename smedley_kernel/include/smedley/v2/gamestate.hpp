@@ -24,6 +24,7 @@ namespace smedley::v2
 
 	class CDiplomacy : public clausewitz::CPersistent
 	{
+	protected:
 		clausewitz::CList<void *> _relations; // 8
 		CDiplomaticHistory _history; // 18
 	};
@@ -32,6 +33,7 @@ namespace smedley::v2
 
 	class CGameState : clausewitz::CPersistent
 	{
+	protected:
 		sstd::vector<int> _canals; // 8
 		clausewitz::CList<CPlayer> _players; // 18
 		uint8_t _uk_0x28[0x6c];

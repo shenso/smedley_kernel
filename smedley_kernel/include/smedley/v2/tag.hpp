@@ -5,6 +5,7 @@ namespace smedley::v2
 
     class CCountryTag
     {
+    protected:
         char _str[4];
         int _ordinal;
     };

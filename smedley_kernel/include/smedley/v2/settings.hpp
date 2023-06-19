@@ -6,7 +6,8 @@ namespace smedley::v2
 {
 
     class CGamePlaySettings : public clausewitz::CPersistent
-    {
+    { 
+    protected:
         int _uk_0x8;
     };
 

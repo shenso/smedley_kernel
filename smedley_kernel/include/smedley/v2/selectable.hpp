@@ -5,6 +5,7 @@ namespace smedley::v2
 
     class CSelectable
     {
+    protected:
         bool _is_selected; // 4
     public:
         virtual ~CSelectable();

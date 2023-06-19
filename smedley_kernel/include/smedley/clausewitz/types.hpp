@@ -8,6 +8,7 @@ namespace smedley::clausewitz
 
 	class CFixedPoint
 	{
+	protected:
 		int _val;
 	};
 
@@ -16,6 +17,7 @@ namespace smedley::clausewitz
 	template <typename T, unsigned char I, unsigned char F = std::numeric_limits<T>::digits - I>
 	class fixed_point
 	{
+	protected:
 		T _val;
 	};
 
@@ -84,7 +86,7 @@ namespace smedley::clausewitz
 			sstd::string _key;
 			bool _used;
 		};
-	private:
+	protected:
 		Node *_root; // 4
 		bool _locked; // 8
 		int _size; // c
