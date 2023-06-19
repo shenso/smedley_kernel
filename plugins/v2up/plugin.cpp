@@ -1,4 +1,5 @@
 #include <smedley/plugin.hpp>
+#include <smedley/v2/gamestate.hpp>
 
 namespace v2up
 {

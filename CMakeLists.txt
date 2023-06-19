@@ -11,6 +11,8 @@ if(NOT V2_GAME_DIR)
 	set(V2_GAME_DIR "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Victoria 2")
 endif()
 
+set(CMAKE_SKIP_INSTALL_ALL_DEPENDENCY true)
+
 project ("smedley")
 
 include(FetchContent)
