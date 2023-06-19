@@ -39,4 +39,4 @@ jobs:
         if: ${{ matrix.build_type == 'Release' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build/smedley_kernel/html
+          publish_dir: ./build/smedley_kernel/docs/html
