@@ -2,3 +2,5 @@
 .vscode/
 out/
 build/
+*/docs/html
+*/docs/latex

@@ -7,6 +7,6 @@ namespace smedley::v2
 
     class CWorldMarket : public clausewitz::CPersistent
     {
-    }
+    };
 
 }
