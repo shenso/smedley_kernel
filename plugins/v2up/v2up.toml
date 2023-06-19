@@ -1,0 +1,4 @@
+id = "v2up"
+name = "Victoria 2 Unofficial Patch"
+version = "1.0"
+module = "v2up.dll"
