@@ -22,8 +22,8 @@ namespace smedley::clausewitz
         bool _is_created;
         sstd::string _session_name;
     public:
-        virtual Create(CID &, bool);
-        virtual Create();
+        virtual void Create(CID &, bool);
+        virtual void Create();
     };
 
     static_assert(sizeof(CReferenceObject) == 0x30);
