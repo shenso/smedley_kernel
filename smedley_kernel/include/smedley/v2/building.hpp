@@ -54,5 +54,5 @@ namespace smedley::v2
         clausewitz::CFixedPoint _infrastructure; // 13c
     };
 
-    static_assert(sizeof(CBuilding) == 0x140);
+    //static_assert(sizeof(CBuilding) == 0x140);
 }

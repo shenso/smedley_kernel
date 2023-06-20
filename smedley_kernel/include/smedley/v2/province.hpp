@@ -33,6 +33,9 @@ namespace smedley::v2
     {
     };
 
+    /**
+     * A building within a province such as a fort, naval base, or railroad.
+     */
     class CProvinceBuilding : public CSelectable, public CModifierEntry, public clausewitz::CPersistent
     {
     protected:
@@ -44,6 +47,10 @@ namespace smedley::v2
 
     static_assert(sizeof(CProvinceBuilding) == 0x28);
 
+    /**
+     * The basic data structure for in-game provinces. This base class handles
+     * the province game logic.
+     */
     class CProvince : public clausewitz::CPersistent, public CSelectable
     {
     protected:
@@ -85,10 +92,7 @@ namespace smedley::v2
         clausewitz::CList<void *> _regions; // 15c
         CContinent *_continent;
         uint32_t _uk_0x170;
-        uint32_t _uk_0x174;
-        uint32_t _uk_0x178;
-        uint32_t _uk_0x17c;
-        uint32_t _uk_0x180;
+        sstd::vector<int> _fow_setting; // 174 TODO: enum type
         uint32_t _uk_0x184;
         CState *_state; // 188
         uint32_t _uk_0x18c;
@@ -120,5 +124,12 @@ namespace smedley::v2
     };
 
     static_assert(sizeof(CProvince) == 0x398);
+
+    /**
+     * Class for provinces which are created by CMap.
+     */
+    class CMapProvince : public CProvince
+    {
+    };
 
 }

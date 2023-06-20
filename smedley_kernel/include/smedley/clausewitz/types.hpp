@@ -2,6 +2,7 @@
 
 #include <cstdint>
 #include <limits>
+#include "../std/string.hpp"
 
 namespace smedley::clausewitz
 {
@@ -33,6 +34,13 @@ namespace smedley::clausewitz
 
 	class CGregorianDate : public CDate
 	{
+	};
+
+	template <typename T>
+	class CVector2
+	{
+		T _left;
+		T _right;
 	};
 
 	template <typename T>
@@ -105,5 +113,31 @@ namespace smedley::clausewitz
 
 	static_assert(sizeof(CTernary<int>::Node) == 0x14);
 	static_assert(sizeof(CTernary<int>) == 0x24);
+
+	template <typename K, typename V>
+	class ClassicHashKeyTraits
+	{
+	public:
+		static unsigned int GetHashValue(K &);
+		static K &GetKey(V &);
+	};
+
+	template <typename K, typename V, class _Traits = ClassicHashKeyTraits<K, V>>
+	class CHashTable
+	{
+	public:
+		struct Node
+		{
+			V *data;
+			Node *next;
+		};
+	protected:
+		int _size;
+		int _capacity;
+		Node **_buckets;
+	};
+
+	static_assert(sizeof(CHashTable<sstd::string, CFixedPoint>) == 0xc);
+	static_assert(sizeof(CHashTable<sstd::string, CFixedPoint>::Node) == 0x8);
 
 }

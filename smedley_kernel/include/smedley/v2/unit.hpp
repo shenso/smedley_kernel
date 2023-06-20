@@ -26,4 +26,16 @@ namespace smedley::v2
 
     static_assert(sizeof(CUniqueUnitName) == 0x18);
 
+    class CUnit
+    {
+    };
+
+    class CSubUnitDefinition
+    {
+    };
+
+    class CSubUnit
+    {
+    };
+
 }

@@ -7,15 +7,18 @@
 namespace smedley::v2
 {
 
-    class CFlag
+    struct CFlag
     {
-    protected:
-        sstd::string _key;
-        bool _val;
+        sstd::string key;
+        bool val;
     };
 
     static_assert(sizeof(CFlag) == 0x20);
 
+    /**
+     * A set of flag values. Stores the flags referenced by effects/triggers like
+     * set_country_flag and has_country_flag.
+     */
     class CFlags : public clausewitz::CTernary<CFlag *>, public clausewitz::CPersistent
     {
     };

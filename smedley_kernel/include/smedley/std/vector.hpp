@@ -1,14 +1,11 @@
 #pragma once
 
+#include <memory>
+
 namespace smedley::sstd
 {
 
-	template <typename T>
-	class allocator
-	{
-	};
-
-	template <typename T, class Allocator = allocator<T>>
+	template <typename T, class Allocator = std::allocator<T>>
 	class vector
 	{
 	protected:

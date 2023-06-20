@@ -1,20 +1,37 @@
 #pragma once
 
 #include <cstdint>
+#include <cstring>
+#include <memory>
+#include <string>
 
 namespace smedley::sstd
 {
 
-	template <typename T>
+	template <typename T,
+	          class Traits = std::char_traits<T>,
+			  class Allocator = std::allocator<T>>
 	class basic_string
 	{
 	protected:
-		T _impl[16];
+		union {
+			T buf[16];
+			T *ptr;
+		} _impl;
 		size_t _size;
 		size_t _capacity;
-		uint32_t _unk_4;
+		Allocator _alloc;
 	public:
-		const T *c_str() const { return _impl; }
+		basic_string(const T *str)
+		{
+			size_t n = Traits::length(str);
+			if (n > 0xf) {
+				_impl.ptr = _alloc.allocate(n);
+			}
+			std::memcpy(_impl.ptr, str, n + sizeof(T));
+		}
+
+		const T *c_str() const { return _impl.ptr; }
 	};
 
 	using string = basic_string<char>;

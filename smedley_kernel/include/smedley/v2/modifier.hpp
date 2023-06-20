@@ -9,6 +9,8 @@
 namespace smedley::v2
 {
 
+    class CProvince;
+
     enum class ModifierType : uint32_t
     {
         NONE = 0,
@@ -188,8 +190,6 @@ namespace smedley::v2
 
     static_assert(sizeof(CStaticModifier) == 0x4c);
 
-    class CProvince;
-
     class CProvinceModifier : public CModifier
     {
     protected:
@@ -208,5 +208,15 @@ namespace smedley::v2
     };
 
     static_assert(sizeof(CCrime) == 0x70);
+
+    class CTimedModifier : public clausewitz::CPersistent
+    {
+    protected:
+        CStaticModifier *_modifier; // 8
+        CEU3Date _expiration; // c
+    };
+
+    static_assert(sizeof(CTimedModifier) == 0x10);
+
 
 }

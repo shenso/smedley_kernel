@@ -23,7 +23,7 @@ jobs:
         run: cmake -DCMAKE_GENERATOR_PLATFORM=WIN32 -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} -G "Visual Studio 17 2022" -B build 
       - name: build objects
         run: |
-          cmake --build build --config ${{ matrix.build_type }}
+          cmake --build build --config ${{ matrix.build_type }} -DBUILD_DOC=ON
       - name: prepare artifact
         run: |
           mkdir -p dist && mkdir -p dist/plugins
