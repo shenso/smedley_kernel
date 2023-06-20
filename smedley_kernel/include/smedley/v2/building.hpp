@@ -12,11 +12,11 @@ namespace smedley::v2
 
     class CProductionType;
 
-    class CBuilding : public CModifierEntry, public clausewitz::CPersistent
+    class CBuilding : public CModifierEntry, public clausewitz::CPersistent 
     {
     protected:
         int _type; // 10
-        uint8_t _uk_0x14[0x44]; // double check this
+        uint8_t _uk_0x14[0x48];
         clausewitz::CFixedPoint _construction_cost; // 5c
         CGoodsPool _goods_cost; // 60
         int _days_to_build; // b8
@@ -54,5 +54,6 @@ namespace smedley::v2
         clausewitz::CFixedPoint _infrastructure; // 13c
     };
 
-    //static_assert(sizeof(CBuilding) == 0x140);
+    static_assert(sizeof(CBuilding) == 0x140);
+
 }
