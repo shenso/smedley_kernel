@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['basic_5fstring_3',['basic_string',['../d4/daf/classsmedley_1_1sstd_1_1basic__string.html',1,'smedley::sstd']]]
+  ['basic_5fstring_2',['basic_string',['../d4/daf/classsmedley_1_1sstd_1_1basic__string.html',1,'smedley::sstd']]]
 ];
