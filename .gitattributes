@@ -1,2 +1,6 @@
 *.cpp text
 *.hpp text
+*.yml text
+*.md text
+*.txt text
+*.toml text
