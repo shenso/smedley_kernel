@@ -28,6 +28,8 @@ namespace smedley::v2
         CEffect *_effect;
     };
 
+    static_assert(sizeof(CIssueOnExecute) == 0x10);
+
     class CIssue : public CModifier
     {
     protected:
@@ -38,13 +40,19 @@ namespace smedley::v2
         CRule _rules; // 74
         clausewitz::CColor _color; // 198
         int _administrative_multiplier; // 1b4
-        clausewitz::CFixedPoint _tech_cost; // 1c0
+        clausewitz::fixed_point<int64_t,48,15> _tech_cost; // 1c0
         bool _is_jinoism; // 1c4
         CIssueOnExecute _on_execute; // 1c8
     public:
         virtual sstd::string GetLabel(); // 2c
         virtual sstd::string GetDescription(); // 30
         virtual bool Unk34();
+    };
+
+    static_assert(sizeof(CIssue) == 0x1d8);
+
+    class CNullIssue : CIssue
+    {
     };
 
     class CParty : public clausewitz::CReferenceObject
@@ -59,5 +67,18 @@ namespace smedley::v2
     };
 
     static_assert(sizeof(CParty) == 0x70);
+
+    class CUpperHouse : public clausewitz::CPersistent
+    {
+    protected:
+        CCountryTag _country_tag; // 8
+        sstd::vector<clausewitz::fixed_point<int64_t,48,15>> _seats; // 10 indexed by ideology
+    };
+
+    static_assert(sizeof(CUpperHouse) == 0x20);
+
+    class CGovernment
+    {
+    };
 
 }

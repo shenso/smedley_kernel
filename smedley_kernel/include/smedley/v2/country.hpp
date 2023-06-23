@@ -1,11 +1,17 @@
 #pragma once
 
 #include "ai.hpp"
+#include "dataspread.hpp"
 #include "distributionsettings.hpp"
 #include "flags.hpp"
+#include "history.hpp"
+#include "modifier.hpp"
+#include "politics.hpp"
+#include "rules.hpp"
 #include "tag.hpp"
 #include "tech.hpp"
 #include "variables.hpp"
+#include "../clausewitz/color.hpp"
 #include "../clausewitz/persistent.hpp"
 #include "../clausewitz/types.hpp"
 #include "../std/pair.hpp"
@@ -91,6 +97,7 @@ namespace smedley::v2
         CStaticModifier _unk_0x528;
         CStaticModifier _unk_0x574;
         CStaticModifier _unk_0x5c0;
+        CStaticModifier _unk_0x60c;
         bool _auto_assign_leaders; // 658
         bool _auto_create_leaders; // 659
         clausewitz::CFixedPoint _diplomatic_points; // 65c
@@ -99,7 +106,7 @@ namespace smedley::v2
         CEU3Date _last_rebel_acceptance;
         clausewitz::CList<CCountryDate *> _fow_lifted; // 66c
         uint32_t _unk_0x67c;
-        clausewitz::CFixedPoint _war_exhaustion;
+        clausewitz::CFixedPoint _war_exhaustion; // 680
         CStaticModifier _unk_0x684;
         CModifier _unk_0x6d0;
         uint32_t _unk_0x700;
@@ -130,7 +137,7 @@ namespace smedley::v2
         uint32_t _unk_0x7c8;
         uint32_t _unk_0x7cc;
         clausewitz::fixed_point<int64_t,48,15> _leadership; // 7d0
-        int _num_colonial_provinces; // 7d4
+        int _num_colonial_provinces; // 7d8
         uint32_t _unk_0x7dc;
         CModifier _unk_0x7e0;
         uint32_t _unk_0x810;
@@ -140,8 +147,35 @@ namespace smedley::v2
         uint32_t _unk_0x820;
         uint32_t _unk_0x824;
         uint32_t _unk_0x828;
+        clausewitz::CList<CParty *> _parties; // 82c
+        clausewitz::CList<CParty *> _active_parties; // 83c
+        CParty *_ruling_party; // 84c
+        sstd::vector<CIssue *> _social_reforms; // 850
+        sstd::vector<CIssue *> _political_reforms; // 860
+        sstd::vector<CIssue *> _military_reforms; // 870
+        sstd::vector<CIssue *> _economic_reforms; // 880
+        sstd::vector<CIssue *> _policies; // 890
+        sstd::vector<CIssue *> _unk_0x8a0; // enacted reforms?
+        CUpperHouse _upper_house; // 8b0
+        CDataSpread<clausewitz::fixed_point<int64_t,48,15>,int,100> _unk_0x8d0; // people or voter ideologies?
+        CDataSpread<clausewitz::fixed_point<int64_t,48,15>,int,100> _important_issues;
+        clausewitz::CColor _color; // 920
+        uint32_t _unk_0x93c; // color flag?
+        sstd::vector<clausewitz::CColor> _colors; // 940
+        uint8_t _unk_0x950[0x64];
+        CCountryHistory _history; // 9b4
+        sstd::vector<int> _owned_provinces; // 9d8
+        clausewitz::CList<int> _controlled_provinces; // 9e8
+        clausewitz::CList<int> _core_provinces; // 9f8
+        clausewitz::CList<int> _unk_0xa08;
+        uint8_t _unk_0xa18[0x30];
+        CModifier _modifiers; // a48
+        CModifier _unk_0xa78;
+        CRule _rules; // aa8
+        CTechnologyStatus *_status; // bcc
+        CGovernment *_government;  // bd0
     };
 
-    //static_assert(sizeof(CCountry) == 0x20c);
+    //static_assert(sizeof(CCountry) == 0xbd8);
 
 }

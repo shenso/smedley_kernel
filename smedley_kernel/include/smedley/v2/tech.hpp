@@ -143,4 +143,8 @@ namespace smedley::v2
 
     static_assert(sizeof(CInvention) == 0x438);
 
+    class CTechnologyStatus
+    {
+    };
+
 }
