@@ -99,56 +99,80 @@ $(function() {
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <a class="code" href="../../d7/d40/classsmedley_1_1v2_1_1_c_effect.html">CEffect</a> *_effect;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    };</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="../../de/dce/classsmedley_1_1v2_1_1_c_issue.html">   31</a></span>&#160;    <span class="keyword">class </span><a class="code" href="../../de/dce/classsmedley_1_1v2_1_1_c_issue.html">CIssue</a> : <span class="keyword">public</span> <a class="code" href="../../d6/d56/classsmedley_1_1v2_1_1_c_modifier.html">CModifier</a></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <a class="code" href="../../d4/daf/classsmedley_1_1sstd_1_1basic__string.html">sstd::string</a> _tag; <span class="comment">// 34</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordtype">int</span> _id; <span class="comment">// 50</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <a class="code" href="../../d3/d2a/classsmedley_1_1v2_1_1_c_issue_group.html">CIssueGroup</a> *_group; <span class="comment">// 54</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <a class="code" href="../../d3/dd9/classsmedley_1_1v2_1_1_c_and_trigger.html">CAndTrigger</a> _allow; <span class="comment">// 58</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <a class="code" href="../../df/d95/classsmedley_1_1v2_1_1_c_rule.html">CRule</a> _rules; <span class="comment">// 74</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <a class="code" href="../../d7/d59/classsmedley_1_1clausewitz_1_1_c_color.html">clausewitz::CColor</a> _color; <span class="comment">// 198</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordtype">int</span> _administrative_multiplier; <span class="comment">// 1b4</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="../../d0/d05/classsmedley_1_1clausewitz_1_1_c_fixed_point.html">clausewitz::CFixedPoint</a> _tech_cost; <span class="comment">// 1c0</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordtype">bool</span> _is_jinoism; <span class="comment">// 1c4</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <a class="code" href="../../db/d60/classsmedley_1_1v2_1_1_c_issue_on_execute.html">CIssueOnExecute</a> _on_execute; <span class="comment">// 1c8</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="../../d4/daf/classsmedley_1_1sstd_1_1basic__string.html">sstd::string</a> GetLabel(); <span class="comment">// 2c</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="../../d4/daf/classsmedley_1_1sstd_1_1basic__string.html">sstd::string</a> GetDescription(); <span class="comment">// 30</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> Unk34();</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    };</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="../../d3/dcb/classsmedley_1_1v2_1_1_c_party.html">   50</a></span>&#160;    <span class="keyword">class </span><a class="code" href="../../d3/dcb/classsmedley_1_1v2_1_1_c_party.html">CParty</a> : <span class="keyword">public</span> <a class="code" href="../../da/d67/classsmedley_1_1clausewitz_1_1_c_reference_object.html">clausewitz::CReferenceObject</a></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <a class="code" href="../../d4/daf/classsmedley_1_1sstd_1_1basic__string.html">sstd::string</a> _name; <span class="comment">// 30</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <a class="code" href="../../d2/da8/classsmedley_1_1v2_1_1_c_country_tag.html">CCountryTag</a> _country_tag; <span class="comment">// 4c</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <a class="code" href="../../da/d72/classsmedley_1_1v2_1_1_c_ideology.html">CIdeology</a> *_ideology; <span class="comment">// 54</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <a class="code" href="../../d1/da5/classsmedley_1_1sstd_1_1vector.html">sstd::vector&lt;CIssue *&gt;</a> _issues; <span class="comment">// 58</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <a class="code" href="../../d6/dcb/classsmedley_1_1v2_1_1_c_e_u3_date.html">CEU3Date</a> _start_date; <span class="comment">// 68</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <a class="code" href="../../d6/dcb/classsmedley_1_1v2_1_1_c_e_u3_date.html">CEU3Date</a> _end_date; <span class="comment">// 6c</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    };</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    static_assert(<span class="keyword">sizeof</span>(<a class="code" href="../../d3/dcb/classsmedley_1_1v2_1_1_c_party.html">CParty</a>) == 0x70);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    static_assert(<span class="keyword">sizeof</span>(<a class="code" href="../../db/d60/classsmedley_1_1v2_1_1_c_issue_on_execute.html">CIssueOnExecute</a>) == 0x10);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../de/dce/classsmedley_1_1v2_1_1_c_issue.html">   33</a></span>&#160;    <span class="keyword">class </span><a class="code" href="../../de/dce/classsmedley_1_1v2_1_1_c_issue.html">CIssue</a> : <span class="keyword">public</span> <a class="code" href="../../d6/d56/classsmedley_1_1v2_1_1_c_modifier.html">CModifier</a></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <a class="code" href="../../d4/daf/classsmedley_1_1sstd_1_1basic__string.html">sstd::string</a> _tag; <span class="comment">// 34</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordtype">int</span> _id; <span class="comment">// 50</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <a class="code" href="../../d3/d2a/classsmedley_1_1v2_1_1_c_issue_group.html">CIssueGroup</a> *_group; <span class="comment">// 54</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <a class="code" href="../../d3/dd9/classsmedley_1_1v2_1_1_c_and_trigger.html">CAndTrigger</a> _allow; <span class="comment">// 58</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <a class="code" href="../../df/d95/classsmedley_1_1v2_1_1_c_rule.html">CRule</a> _rules; <span class="comment">// 74</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="../../d7/d59/classsmedley_1_1clausewitz_1_1_c_color.html">clausewitz::CColor</a> _color; <span class="comment">// 198</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordtype">int</span> _administrative_multiplier; <span class="comment">// 1b4</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <a class="code" href="../../d3/dbc/classsmedley_1_1clausewitz_1_1fixed__point.html">clausewitz::fixed_point&lt;int64_t,48,15&gt;</a> _tech_cost; <span class="comment">// 1c0</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordtype">bool</span> _is_jinoism; <span class="comment">// 1c4</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <a class="code" href="../../db/d60/classsmedley_1_1v2_1_1_c_issue_on_execute.html">CIssueOnExecute</a> _on_execute; <span class="comment">// 1c8</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="../../d4/daf/classsmedley_1_1sstd_1_1basic__string.html">sstd::string</a> GetLabel(); <span class="comment">// 2c</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="../../d4/daf/classsmedley_1_1sstd_1_1basic__string.html">sstd::string</a> GetDescription(); <span class="comment">// 30</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> Unk34();</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    };</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    static_assert(<span class="keyword">sizeof</span>(<a class="code" href="../../de/dce/classsmedley_1_1v2_1_1_c_issue.html">CIssue</a>) == 0x1d8);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="../../da/d8d/classsmedley_1_1v2_1_1_c_null_issue.html">   54</a></span>&#160;    <span class="keyword">class </span><a class="code" href="../../da/d8d/classsmedley_1_1v2_1_1_c_null_issue.html">CNullIssue</a> : <a class="code" href="../../de/dce/classsmedley_1_1v2_1_1_c_issue.html">CIssue</a></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    };</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="../../d3/dcb/classsmedley_1_1v2_1_1_c_party.html">   58</a></span>&#160;    <span class="keyword">class </span><a class="code" href="../../d3/dcb/classsmedley_1_1v2_1_1_c_party.html">CParty</a> : <span class="keyword">public</span> <a class="code" href="../../da/d67/classsmedley_1_1clausewitz_1_1_c_reference_object.html">clausewitz::CReferenceObject</a></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    {</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <a class="code" href="../../d4/daf/classsmedley_1_1sstd_1_1basic__string.html">sstd::string</a> _name; <span class="comment">// 30</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <a class="code" href="../../d2/da8/classsmedley_1_1v2_1_1_c_country_tag.html">CCountryTag</a> _country_tag; <span class="comment">// 4c</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <a class="code" href="../../da/d72/classsmedley_1_1v2_1_1_c_ideology.html">CIdeology</a> *_ideology; <span class="comment">// 54</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <a class="code" href="../../d1/da5/classsmedley_1_1sstd_1_1vector.html">sstd::vector&lt;CIssue *&gt;</a> _issues; <span class="comment">// 58</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <a class="code" href="../../d6/dcb/classsmedley_1_1v2_1_1_c_e_u3_date.html">CEU3Date</a> _start_date; <span class="comment">// 68</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <a class="code" href="../../d6/dcb/classsmedley_1_1v2_1_1_c_e_u3_date.html">CEU3Date</a> _end_date; <span class="comment">// 6c</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    };</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    static_assert(<span class="keyword">sizeof</span>(<a class="code" href="../../d3/dcb/classsmedley_1_1v2_1_1_c_party.html">CParty</a>) == 0x70);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="../../d4/de4/classsmedley_1_1v2_1_1_c_upper_house.html">   71</a></span>&#160;    <span class="keyword">class </span><a class="code" href="../../d4/de4/classsmedley_1_1v2_1_1_c_upper_house.html">CUpperHouse</a> : <span class="keyword">public</span> <a class="code" href="../../dd/d03/classsmedley_1_1clausewitz_1_1_c_persistent.html">clausewitz::CPersistent</a></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <a class="code" href="../../d2/da8/classsmedley_1_1v2_1_1_c_country_tag.html">CCountryTag</a> _country_tag; <span class="comment">// 8</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <a class="code" href="../../d1/da5/classsmedley_1_1sstd_1_1vector.html">sstd::vector&lt;clausewitz::fixed_point&lt;int64_t,48,15&gt;</a>&gt; _seats; <span class="comment">// 10 indexed by ideology</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    };</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    static_assert(<span class="keyword">sizeof</span>(<a class="code" href="../../d4/de4/classsmedley_1_1v2_1_1_c_upper_house.html">CUpperHouse</a>) == 0x20);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="../../d1/dcc/classsmedley_1_1v2_1_1_c_government.html">   80</a></span>&#160;    <span class="keyword">class </span><a class="code" href="../../d1/dcc/classsmedley_1_1v2_1_1_c_government.html">CGovernment</a></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    {</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    };</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;}</div>
 <div class="ttc" id="aclasssmedley_1_1clausewitz_1_1_c_color_html"><div class="ttname"><a href="../../d7/d59/classsmedley_1_1clausewitz_1_1_c_color.html">smedley::clausewitz::CColor</a></div><div class="ttdef"><b>Definition:</b> color.hpp:10</div></div>
-<div class="ttc" id="aclasssmedley_1_1clausewitz_1_1_c_fixed_point_html"><div class="ttname"><a href="../../d0/d05/classsmedley_1_1clausewitz_1_1_c_fixed_point.html">smedley::clausewitz::CFixedPoint</a></div><div class="ttdef"><b>Definition:</b> types.hpp:11</div></div>
 <div class="ttc" id="aclasssmedley_1_1clausewitz_1_1_c_persistent_html"><div class="ttname"><a href="../../dd/d03/classsmedley_1_1clausewitz_1_1_c_persistent.html">smedley::clausewitz::CPersistent</a></div><div class="ttdef"><b>Definition:</b> persistent.hpp:11</div></div>
 <div class="ttc" id="aclasssmedley_1_1clausewitz_1_1_c_reference_object_html"><div class="ttname"><a href="../../da/d67/classsmedley_1_1clausewitz_1_1_c_reference_object.html">smedley::clausewitz::CReferenceObject</a></div><div class="ttdef"><b>Definition:</b> refobj.hpp:19</div></div>
+<div class="ttc" id="aclasssmedley_1_1clausewitz_1_1fixed__point_html"><div class="ttname"><a href="../../d3/dbc/classsmedley_1_1clausewitz_1_1fixed__point.html">smedley::clausewitz::fixed_point&lt; int64_t, 48, 15 &gt;</a></div></div>
 <div class="ttc" id="aclasssmedley_1_1sstd_1_1basic__string_html"><div class="ttname"><a href="../../d4/daf/classsmedley_1_1sstd_1_1basic__string.html">smedley::sstd::basic_string</a></div><div class="ttdef"><b>Definition:</b> string.hpp:15</div></div>
 <div class="ttc" id="aclasssmedley_1_1sstd_1_1vector_html"><div class="ttname"><a href="../../d1/da5/classsmedley_1_1sstd_1_1vector.html">smedley::sstd::vector</a></div><div class="ttdef"><b>Definition:</b> vector.hpp:10</div></div>
 <div class="ttc" id="aclasssmedley_1_1v2_1_1_c_and_trigger_html"><div class="ttname"><a href="../../d3/dd9/classsmedley_1_1v2_1_1_c_and_trigger.html">smedley::v2::CAndTrigger</a></div><div class="ttdef"><b>Definition:</b> trigger.hpp:30</div></div>
 <div class="ttc" id="aclasssmedley_1_1v2_1_1_c_country_tag_html"><div class="ttname"><a href="../../d2/da8/classsmedley_1_1v2_1_1_c_country_tag.html">smedley::v2::CCountryTag</a></div><div class="ttdef"><b>Definition:</b> tag.hpp:11</div></div>
 <div class="ttc" id="aclasssmedley_1_1v2_1_1_c_e_u3_date_html"><div class="ttname"><a href="../../d6/dcb/classsmedley_1_1v2_1_1_c_e_u3_date.html">smedley::v2::CEU3Date</a></div><div class="ttdef"><b>Definition:</b> eu3date.hpp:9</div></div>
 <div class="ttc" id="aclasssmedley_1_1v2_1_1_c_effect_html"><div class="ttname"><a href="../../d7/d40/classsmedley_1_1v2_1_1_c_effect.html">smedley::v2::CEffect</a></div><div class="ttdef"><b>Definition:</b> effect.hpp:15</div></div>
+<div class="ttc" id="aclasssmedley_1_1v2_1_1_c_government_html"><div class="ttname"><a href="../../d1/dcc/classsmedley_1_1v2_1_1_c_government.html">smedley::v2::CGovernment</a></div><div class="ttdef"><b>Definition:</b> politics.hpp:81</div></div>
 <div class="ttc" id="aclasssmedley_1_1v2_1_1_c_ideology_html"><div class="ttname"><a href="../../da/d72/classsmedley_1_1v2_1_1_c_ideology.html">smedley::v2::CIdeology</a></div><div class="ttdef"><b>Definition:</b> politics.hpp:17</div></div>
 <div class="ttc" id="aclasssmedley_1_1v2_1_1_c_issue_group_html"><div class="ttname"><a href="../../d3/d2a/classsmedley_1_1v2_1_1_c_issue_group.html">smedley::v2::CIssueGroup</a></div><div class="ttdef"><b>Definition:</b> politics.hpp:21</div></div>
-<div class="ttc" id="aclasssmedley_1_1v2_1_1_c_issue_html"><div class="ttname"><a href="../../de/dce/classsmedley_1_1v2_1_1_c_issue.html">smedley::v2::CIssue</a></div><div class="ttdef"><b>Definition:</b> politics.hpp:32</div></div>
+<div class="ttc" id="aclasssmedley_1_1v2_1_1_c_issue_html"><div class="ttname"><a href="../../de/dce/classsmedley_1_1v2_1_1_c_issue.html">smedley::v2::CIssue</a></div><div class="ttdef"><b>Definition:</b> politics.hpp:34</div></div>
 <div class="ttc" id="aclasssmedley_1_1v2_1_1_c_issue_on_execute_html"><div class="ttname"><a href="../../db/d60/classsmedley_1_1v2_1_1_c_issue_on_execute.html">smedley::v2::CIssueOnExecute</a></div><div class="ttdef"><b>Definition:</b> politics.hpp:25</div></div>
 <div class="ttc" id="aclasssmedley_1_1v2_1_1_c_modifier_html"><div class="ttname"><a href="../../d6/d56/classsmedley_1_1v2_1_1_c_modifier.html">smedley::v2::CModifier</a></div><div class="ttdef"><b>Definition:</b> modifier.hpp:168</div></div>
-<div class="ttc" id="aclasssmedley_1_1v2_1_1_c_party_html"><div class="ttname"><a href="../../d3/dcb/classsmedley_1_1v2_1_1_c_party.html">smedley::v2::CParty</a></div><div class="ttdef"><b>Definition:</b> politics.hpp:51</div></div>
+<div class="ttc" id="aclasssmedley_1_1v2_1_1_c_null_issue_html"><div class="ttname"><a href="../../da/d8d/classsmedley_1_1v2_1_1_c_null_issue.html">smedley::v2::CNullIssue</a></div><div class="ttdef"><b>Definition:</b> politics.hpp:55</div></div>
+<div class="ttc" id="aclasssmedley_1_1v2_1_1_c_party_html"><div class="ttname"><a href="../../d3/dcb/classsmedley_1_1v2_1_1_c_party.html">smedley::v2::CParty</a></div><div class="ttdef"><b>Definition:</b> politics.hpp:59</div></div>
 <div class="ttc" id="aclasssmedley_1_1v2_1_1_c_rule_html"><div class="ttname"><a href="../../df/d95/classsmedley_1_1v2_1_1_c_rule.html">smedley::v2::CRule</a></div><div class="ttdef"><b>Definition:</b> rules.hpp:25</div></div>
+<div class="ttc" id="aclasssmedley_1_1v2_1_1_c_upper_house_html"><div class="ttname"><a href="../../d4/de4/classsmedley_1_1v2_1_1_c_upper_house.html">smedley::v2::CUpperHouse</a></div><div class="ttdef"><b>Definition:</b> politics.hpp:72</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
