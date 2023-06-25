@@ -1,10 +1,11 @@
 var searchData=
 [
-  ['unsigned_5finteger_5ftraits_606',['unsigned_integer_traits',['../d5/d3e/structunsigned__integer__traits.html',1,'']]],
-  ['utf8_5fbuffered_5freader_607',['utf8_buffered_reader',['../da/d02/classutf8__buffered__reader.html',1,'']]],
-  ['utf8_5fbyte_5fstream_3c_20std_3a_3abasic_5fstring_5fview_3c_20char_20_3e_20_3e_608',['utf8_byte_stream&lt; std::basic_string_view&lt; Char &gt; &gt;',['../dc/d1f/classutf8__byte__stream_3_01std_1_1basic__string__view_3_01_char_01_4_01_4.html',1,'']]],
-  ['utf8_5fbyte_5fstream_3c_20std_3a_3aistream_20_3e_609',['utf8_byte_stream&lt; std::istream &gt;',['../dd/dcd/classutf8__byte__stream_3_01std_1_1istream_01_4.html',1,'']]],
-  ['utf8_5fcodepoint_610',['utf8_codepoint',['../d7/d90/structutf8__codepoint.html',1,'']]],
-  ['utf8_5freader_611',['utf8_reader',['../d6/d9b/classutf8__reader.html',1,'']]],
-  ['utf8_5freader_5finterface_612',['utf8_reader_interface',['../df/d01/structutf8__reader__interface.html',1,'']]]
+  ['table_621',['table',['../d4/d33/classtoml_1_1v3_1_1table.html',1,'toml::table'],['../d4/d33/classtoml_1_1v3_1_1table.html',1,'toml::v3::table']]],
+  ['table_5finit_5fpair_622',['table_init_pair',['../d8/d88/structtoml_1_1v3_1_1impl_1_1table__init__pair.html',1,'toml::v3::impl']]],
+  ['table_5fiterator_623',['table_iterator',['../da/d6a/classtoml_1_1v3_1_1impl_1_1table__iterator.html',1,'toml::v3::impl']]],
+  ['table_5fproxy_5fpair_624',['table_proxy_pair',['../da/d4c/structtoml_1_1v3_1_1impl_1_1table__proxy__pair.html',1,'toml::v3::impl']]],
+  ['table_5fvector_5fscope_625',['table_vector_scope',['../d8/dff/structtoml_1_1v3_1_1impl_1_1table__vector__scope.html',1,'toml::v3::impl']]],
+  ['time_626',['time',['../d8/d01/structtoml_1_1v3_1_1time.html',1,'toml::time'],['../d8/d01/structtoml_1_1v3_1_1time.html',1,'toml::v3::time']]],
+  ['time_5foffset_627',['time_offset',['../d1/df4/structtoml_1_1v3_1_1time__offset.html',1,'toml::time_offset'],['../d1/df4/structtoml_1_1v3_1_1time__offset.html',1,'toml::v3::time_offset']]],
+  ['toml_5fformatter_628',['toml_formatter',['../da/d78/classtoml_1_1v3_1_1toml__formatter.html',1,'toml::toml_formatter'],['../da/d78/classtoml_1_1v3_1_1toml__formatter.html',1,'toml::v3::toml_formatter']]]
 ];

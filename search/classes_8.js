@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['lockdata_538',['LockData',['../dd/d00/structsmedley_1_1clausewitz_1_1_c_ternary_1_1_lock_data.html',1,'smedley::clausewitz::CTernary']]],
-  ['logger_539',['Logger',['../de/d85/classsmedley_1_1_logger.html',1,'smedley']]]
+  ['json_5fformatter_555',['json_formatter',['../d5/d2a/classtoml_1_1v3_1_1json__formatter.html',1,'toml::json_formatter'],['../d5/d2a/classtoml_1_1v3_1_1json__formatter.html',1,'toml::v3::json_formatter']]]
 ];

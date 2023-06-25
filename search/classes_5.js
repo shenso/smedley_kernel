@@ -1,14 +1,15 @@
 var searchData=
 [
-  ['filelogger_507',['FileLogger',['../dc/d3e/classsmedley_1_1_file_logger.html',1,'smedley']]],
-  ['fixed_5fpoint_508',['fixed_point',['../d3/dbc/classsmedley_1_1clausewitz_1_1fixed__point.html',1,'smedley::clausewitz']]],
-  ['fixed_5fpoint_3c_20int64_5ft_2c_2048_2c_2015_20_3e_509',['fixed_point&lt; int64_t, 48, 15 &gt;',['../d3/dbc/classsmedley_1_1clausewitz_1_1fixed__point.html',1,'smedley::clausewitz']]],
-  ['float_5ftraits_510',['float_traits',['../d2/da1/structfloat__traits.html',1,'']]],
-  ['float_5ftraits_3c_20double_20_3e_511',['float_traits&lt; double &gt;',['../d2/da1/structfloat__traits.html',1,'']]],
-  ['float_5ftraits_3c_20float_20_3e_512',['float_traits&lt; float &gt;',['../d2/da1/structfloat__traits.html',1,'']]],
-  ['float_5ftraits_3c_20long_20double_20_3e_513',['float_traits&lt; long double &gt;',['../d2/da1/structfloat__traits.html',1,'']]],
-  ['float_5ftraits_5fbase_514',['float_traits_base',['../d7/d2d/structfloat__traits__base.html',1,'']]],
-  ['float_5ftraits_5fbase_3c_20t_2c_20std_3a_3anumeric_5flimits_3c_20t_20_3e_3a_3adigits_2c_20std_3a_3anumeric_5flimits_3c_20t_20_3e_3a_3adigits10_20_3e_515',['float_traits_base&lt; T, std::numeric_limits&lt; T &gt;::digits, std::numeric_limits&lt; T &gt;::digits10 &gt;',['../d7/d2d/structfloat__traits__base.html',1,'']]],
-  ['formatter_516',['formatter',['../d4/dd4/classformatter.html',1,'']]],
-  ['formatter_5fconfig_517',['formatter_config',['../d2/d86/structformatter__config.html',1,'']]]
+  ['filelogger_522',['FileLogger',['../dc/d3e/classsmedley_1_1_file_logger.html',1,'smedley']]],
+  ['fixed_5fpoint_523',['fixed_point',['../d3/dbc/classsmedley_1_1clausewitz_1_1fixed__point.html',1,'smedley::clausewitz']]],
+  ['fixed_5fpoint_3c_20int64_5ft_2c_2048_2c_2015_20_3e_524',['fixed_point&lt; int64_t, 48, 15 &gt;',['../d3/dbc/classsmedley_1_1clausewitz_1_1fixed__point.html',1,'smedley::clausewitz']]],
+  ['float_5ftraits_525',['float_traits',['../d0/d97/structtoml_1_1v3_1_1impl_1_1float__traits.html',1,'toml::v3::impl']]],
+  ['float_5ftraits_3c_20double_20_3e_526',['float_traits&lt; double &gt;',['../d0/d97/structtoml_1_1v3_1_1impl_1_1float__traits.html',1,'toml::v3::impl']]],
+  ['float_5ftraits_3c_20float_20_3e_527',['float_traits&lt; float &gt;',['../d0/d97/structtoml_1_1v3_1_1impl_1_1float__traits.html',1,'toml::v3::impl']]],
+  ['float_5ftraits_3c_20long_20double_20_3e_528',['float_traits&lt; long double &gt;',['../d0/d97/structtoml_1_1v3_1_1impl_1_1float__traits.html',1,'toml::v3::impl']]],
+  ['float_5ftraits_5fbase_529',['float_traits_base',['../d8/df2/structtoml_1_1v3_1_1impl_1_1float__traits__base.html',1,'toml::v3::impl']]],
+  ['float_5ftraits_5fbase_3c_20t_2c_20std_3a_3anumeric_5flimits_3c_20t_20_3e_3a_3adigits_2c_20std_3a_3anumeric_5flimits_3c_20t_20_3e_3a_3adigits10_20_3e_530',['float_traits_base&lt; T, std::numeric_limits&lt; T &gt;::digits, std::numeric_limits&lt; T &gt;::digits10 &gt;',['../d8/df2/structtoml_1_1v3_1_1impl_1_1float__traits__base.html',1,'toml::v3::impl']]],
+  ['formatter_531',['formatter',['../d7/dc1/classtoml_1_1v3_1_1impl_1_1formatter.html',1,'toml::v3::impl']]],
+  ['formatter_5fconfig_532',['formatter_config',['../df/d8e/structtoml_1_1v3_1_1impl_1_1formatter__config.html',1,'toml::v3::impl']]],
+  ['formatter_5fconstants_533',['formatter_constants',['../d3/d5d/structtoml_1_1v3_1_1impl_1_1formatter__constants.html',1,'toml::v3::impl']]]
 ];

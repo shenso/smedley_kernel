@@ -1,16 +1,8 @@
 var searchData=
 [
-  ['scommanddata_252',['SCommandData',['../d8/d50/structsmedley_1_1v2_1_1_c_console_cmd_1_1_s_command_data.html',1,'smedley::v2::CConsoleCmd']]],
-  ['signed_5finteger_5ftraits_253',['signed_integer_traits',['../d0/d6d/structsigned__integer__traits.html',1,'']]],
-  ['source_5fposition_254',['source_position',['../da/dee/structsource__position.html',1,'']]],
-  ['source_5fregion_255',['source_region',['../dd/d17/structsource__region.html',1,'']]],
-  ['sresult_256',['SResult',['../db/d8c/structsmedley_1_1v2_1_1_c_console_cmd_1_1_s_result.html',1,'smedley::v2::CConsoleCmd']]],
-  ['sternarytrait_257',['STernaryTrait',['../d0/dfe/structsmedley_1_1clausewitz_1_1_s_ternary_trait.html',1,'smedley::clausewitz']]],
-  ['string_5ftraits_258',['string_traits',['../d4/d3a/structstring__traits.html',1,'']]],
-  ['string_5ftraits_3c_20char_20_2a_20_3e_259',['string_traits&lt; char * &gt;',['../d4/d3a/structstring__traits.html',1,'']]],
-  ['string_5ftraits_3c_20char_5bn_5d_3e_260',['string_traits&lt; char[N]&gt;',['../d4/d3a/structstring__traits.html',1,'']]],
-  ['string_5ftraits_3c_20const_20char_20_2a_20_3e_261',['string_traits&lt; const char * &gt;',['../d4/d3a/structstring__traits.html',1,'']]],
-  ['string_5ftraits_3c_20const_20char_5bn_5d_3e_262',['string_traits&lt; const char[N]&gt;',['../d4/d3a/structstring__traits.html',1,'']]],
-  ['string_5ftraits_3c_20std_3a_3astring_20_3e_263',['string_traits&lt; std::string &gt;',['../d4/d3a/structstring__traits.html',1,'']]],
-  ['string_5ftraits_3c_20std_3a_3astring_5fview_20_3e_264',['string_traits&lt; std::string_view &gt;',['../d4/d3a/structstring__traits.html',1,'']]]
+  ['read_256',['Read',['../dd/d03/classsmedley_1_1clausewitz_1_1_c_persistent.html#a587ecfc98633d1d9f8290f3fd02f5900',1,'smedley::clausewitz::CPersistent']]],
+  ['readmember_257',['ReadMember',['../dd/d03/classsmedley_1_1clausewitz_1_1_c_persistent.html#a466d2dbd4597474eb399180890a3eae7',1,'smedley::clausewitz::CPersistent']]],
+  ['register_258',['Register',['../d0/d68/classsmedley_1_1_event_registry.html#a74669279c4248c96e8a39cc02c4403f2',1,'smedley::EventRegistry']]],
+  ['removeeventhandler_259',['RemoveEventHandler',['../d6/dbe/classsmedley_1_1_plugin.html#a1d9934b8a0c2db0f6c6027c190232722',1,'smedley::Plugin']]],
+  ['reserve_260',['reserve',['../d1/da5/classsmedley_1_1sstd_1_1vector.html#a5e85fe201e3d7f71d7913a326c50a7bc',1,'smedley::sstd::vector']]]
 ];
