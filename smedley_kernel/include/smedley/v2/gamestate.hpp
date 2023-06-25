@@ -22,6 +22,10 @@ namespace smedley::v2
 	{
 	};
 
+	/**
+	 * Container for global diplomacy data. Stores diplomatic
+	 * history and relations.
+	 */
 	class CDiplomacy : public clausewitz::CPersistent
 	{
 	protected:
@@ -31,6 +35,11 @@ namespace smedley::v2
 
 	static_assert(sizeof(CDiplomacy) == 0x38);
 
+	/**
+	 * CGameState is the container of most globally scoped game data. It
+	 * represents a snapshot in time of a game session. In its serialized form
+	 * it is presented as a Victoria 2 save file.
+	 */
 	class CGameState : clausewitz::CPersistent
 	{
 	protected:

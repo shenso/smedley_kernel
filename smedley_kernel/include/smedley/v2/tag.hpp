@@ -7,6 +7,10 @@
 namespace smedley::v2
 {
 
+    /**
+     * CCountryTag stores the identifier of a CCountry object, as
+     * well as its position within the CCountryDataBase instance.
+     */
     class CCountryTag
     {
     protected:

@@ -22,9 +22,14 @@ namespace smedley::v2
 {
 
     class CColonialDistanceTracker;
-
     class CEvent;
 
+    /**
+     * CCountry corresponds a playable country in Victoria 2. It also includes
+     * entities not commonly though of as countries, such as the Rebel Country (owner
+     * of the rebel units and placeholder for rebel controlled territory), as well as 
+     * the NULL country (owner of the "unowned" uncolonized territory in-game).
+     */
     class CCountry : public clausewitz::CPersistent
     {
     protected:

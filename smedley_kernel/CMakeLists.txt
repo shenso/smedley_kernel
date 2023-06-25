@@ -4,6 +4,7 @@
 cmake_minimum_required (VERSION 3.8)
 
 FILE(GLOB_RECURSE kernel_sources src/*.cpp)
+FILE(GLOB_RECURSE test_sources tests/*.cpp)
 
 # include directories
 include_directories("include" "include/smedley")
@@ -14,7 +15,7 @@ target_compile_definitions(smedley_kernel PRIVATE SMEDLEY_KERNEL)
 
 # setup testing
 enable_testing()
-add_executable(run_tests tests/plugin_test.cpp tests/util_test.cpp)
+add_executable(run_tests ${test_sources})
 target_link_libraries(run_tests GTest::gtest_main smedley_kernel)
 
 include(GoogleTest)

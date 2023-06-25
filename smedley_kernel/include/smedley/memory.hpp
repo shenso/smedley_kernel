@@ -1,5 +1,6 @@
 #pragma once
 
+#include "macros.hpp"
 #include <cstdint>
 #include <vector>
 #include <windows.h>
@@ -8,12 +9,20 @@
 namespace smedley::memory
 {
 
-	bool Patch(void *addr, uint8_t *instr, int n);
+	struct SMEDLEY_API Map
+	{
+		static uintptr_t base_addr;
+		static HANDLE game_heap;
 
-	bool Hook(void *addr, void *jmp, int n, std::vector<uint8_t> *old_instr);
+		static void Init();
+	};
+
+	bool Patch(uintptr_t addr, uint8_t *instr, int n);
+
+	bool Hook(uintptr_t addr, void *jmp, int n, std::vector<uint8_t> *old_instr);
 
 	template <typename... Types>
-	bool HookPrologue(void *addr, void(__stdcall *fn)(Types... args), int n)
+	bool HookPrologue(uintptr_t addr, void(__stdcall *fn)(Types... args), int n)
 	{
 		DWORD old_protect, call_addr, ret_addr;
 		uint8_t *buf, *trampoline;
@@ -83,7 +92,7 @@ namespace smedley::memory
 	}
 
 	template <typename... Types>
-	bool HookEpilogue(void *addr, void(__stdcall *fn)(Types... args), int n, const std::vector<int> &preserve = std::vector<int>())
+	bool HookEpilogue(uintptr_t addr, void(__stdcall *fn)(Types... args), int n, const std::vector<int> &preserve = std::vector<int>())
 	{
 		DWORD old_protect, call_addr;
 		uint8_t *buf, *trampoline;

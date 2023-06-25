@@ -1,5 +1,6 @@
 #pragma once
 
+#include "eventregistry.hpp"
 #include "log.hpp"
 #include <memory>
 #include <optional>
@@ -12,6 +13,9 @@
 namespace smedley
 {
 
+	/**
+	 * Plugin metadata structure
+	 */
 	struct PluginDefinition
 	{
 		struct Version
@@ -49,6 +53,12 @@ namespace smedley
 		static PluginDefinition Read(const std::string &filename);
 	};
 
+	/**
+	 * The basic interface for Smedley plugins. All smedley plugins MUST have
+	 * a Plugin subclass in their module. The Plugin base class provides a set of
+	 * helper methods and properties needed to provide basic functionality to a plugin,
+	 * as well as an interface for interaction with the PluginLoader.
+	 */
 	class Plugin
 	{
 	private: // fields populated by the loader
@@ -58,22 +68,42 @@ namespace smedley
 
 		std::unique_ptr<Logger> _logger;
 	public:
-		// plugin constructors should generally have little to no logic. various
-		// object properties will NOT be available until they are provided by the 
-		// plugin loader immediately AFTER instantiation.
+		/// The plugin constructor MUST only contain initialization logic. Uses of
+		/// object properties will lead to undefined behavior as they are initialized
+		/// immediately after instantiation by the plugin loader.
 		Plugin();
 		virtual ~Plugin() {};
 
+		/// @brief Called after the plugin is loaded by the plugin loader.
 		virtual void OnLoad() {};
+		/// @brief Called when the loader makes a request to unload.
 		virtual void OnUnload() {};
 
-		const PluginDefinition &definition() const { return _definition; }
-		uint32_t checksum() const { return _checksum; }
-		HMODULE mod_handle() const { return _hmod; }
+		const PluginDefinition &definition() const noexcept { return _definition; }
+		uint32_t checksum() const noexcept { return _checksum; }
+		HMODULE mod_handle() const noexcept { return _hmod; }
 
 		friend class PluginLoader;
 	protected:
-		Logger &logger() const { return *_logger; }
+		/**
+		 * Helper function for registering plugin event handlers to an event registry.
+		 */
+		template <class Ev>
+		inline void AddEventHandler(const std::string &id, std::function<void(Ev &)> handler, EventHandlerPriority priority = EventHandlerPriority::LOWEST)
+		{
+			EventRegistry<Ev>::Register(this, id, handler, priority);
+		}
+
+		/**
+		 * Helper function for unregistering plugin event handlers
+		 */
+		template <class Ev>
+		inline void RemoveEventHandler(const std::string &id)
+		{
+			EventRegistry<Ev>::Unregister(this, id);
+		}
+
+		Logger &logger() const noexcept { return *_logger; }
 	};
 
 	

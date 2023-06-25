@@ -8,6 +8,10 @@
 namespace smedley
 {
 
+	/**
+	 * Basic Logger interface. Allows for logging at different
+	 * log levels.
+	 */
 	class Logger
 	{
 		std::string _prefix;
@@ -36,6 +40,9 @@ namespace smedley
 		virtual void Write(const std::string &data) = 0;
 	};
 
+	/**
+	 * The FileLogger is a Logger which outputs to a file stream.
+	 */
 	class FileLogger : public Logger
 	{
 		std::string _filename;

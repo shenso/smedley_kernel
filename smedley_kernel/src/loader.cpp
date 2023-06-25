@@ -1,5 +1,8 @@
+#include "hooks.hpp"
 #include "loader.hpp"
+#include "memory.hpp"
 #include "util.hpp"
+#include <cstdio>
 #include <cstdio>
 #include <filesystem>
 #include <windows.h>
@@ -32,19 +35,22 @@ namespace smedley
 
 	void DumpLoadedModules(smedley::Logger &logger)
 	{
-		HMODULE hmods[1024];
+		constexpr size_t hmods_size = 1024;
+		constexpr size_t text_buf_size = 512;
+
+		HMODULE hmods[hmods_size];
 		HANDLE hproc;
 		DWORD cb_needed;
 
 		hproc = GetCurrentProcess();
 		if (EnumProcessModules(hproc, hmods, sizeof(hmods), &cb_needed)) {
-			for (int i = 0; i < (cb_needed / sizeof(HMODULE)); i++) {
+			for (uint32_t i = 0; i < (cb_needed / sizeof(HMODULE)); i++) {
 				char mod_name[MAX_PATH];
-				char text_buf[512];
+				char text_buf[text_buf_size];
 
 				if (GetModuleFileNameEx(hproc, hmods[i], mod_name,
 										sizeof(mod_name) / sizeof(char))) {
-					sprintf(text_buf, TEXT("%s (0x%08X)"), mod_name, hmods[i]);
+					std::snprintf(text_buf, text_buf_size, TEXT("%s (0x%08X)"), mod_name, reinterpret_cast<uint32_t>(hmods[i]));
 					logger.Info("module detected: " + std::string(text_buf));
 				}
 			}
@@ -54,14 +60,13 @@ namespace smedley
 
 	PluginLoader::PluginLoader() : _loaded(false)
 	{
-		char cwd_buf[512];
-		char documents_path[512];
+		wchar_t cwd_buf[MAX_PATH];
 		wchar_t *documents_path_ws;
 
 		// currently victoria 2 always assumes its launched within the game directory.
 		// if it isn't it will crash failing to find some map file. we may want to
 		// fix this in the future, but for now we can ride on this assumption.
-		if (!_getcwd(cwd_buf, 512)) {
+		if (!_wgetcwd(cwd_buf, MAX_PATH)) {
 			auto err_no = errno;
 			throw std::runtime_error("failed to get current working directory: " + err_no);
 		}
@@ -70,19 +75,26 @@ namespace smedley
 		if (SHGetKnownFolderPath(FOLDERID_Documents, 0, NULL, &documents_path_ws) == E_FAIL) {
 			throw std::runtime_error("failed to find documents folder");
 		}
-		std::wcstombs(documents_path, documents_path_ws, 512);
-
-		_gamedir = std::string(cwd_buf);
-		_userdir = std::string(documents_path) + "\\Paradox Interactive\\Victoria II";
+		std::wstring tmp_ws(documents_path_ws);
+		std::string documents_path(tmp_ws.begin(), tmp_ws.end());
+		tmp_ws = std::wstring(cwd_buf);
+		
+		_gamedir = std::string(tmp_ws.begin(), tmp_ws.end());;
+		_userdir = documents_path + "\\Paradox Interactive\\Victoria II";
 		_plugindir = _gamedir + "\\plugins";
 		_log_filepath = _userdir + "\\logs\\smedley.log";
 
 		_logger = std::make_unique<FileLogger>(_log_filepath, "smedley");
-		_logger->Info("logger initialized");
+		_logger->Info("initializing plugin loader...");
 	}
 
 	void PluginLoader::LoadPlugins()
 	{
+		// initialize the memory map before touching the text segment
+		memory::Map::Init();
+		// install hooks & patches
+		InstallHooks();
+
 		auto filenames = ParseCommandLine(GetCommandLineA());
 		for (auto &filename : filenames) {
 			_plugin_defs.push_back(PluginDefinition::Read(filename));

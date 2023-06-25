@@ -9,9 +9,12 @@
 namespace smedley
 {
 
+	/**
+	 * The PluginLoader is responsible for registering modules injected
+	 * by the bootstrapper as plugins and initializing them.
+	 */
 	class PluginLoader
 	{
-	private:
 		std::string _gamedir;
 		std::string _userdir;
 		std::string _plugindir;
