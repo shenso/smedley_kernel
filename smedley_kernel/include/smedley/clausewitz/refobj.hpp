@@ -23,6 +23,10 @@ namespace smedley::clausewitz
 
     static_assert(sizeof(CID) == 0x8);
 
+    /**
+     * The base class for all game objects indexable by a
+     * CID.
+     */
     class CReferenceObject : public CPersistent
     {
     protected:

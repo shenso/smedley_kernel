@@ -5,6 +5,7 @@
 #include "distributionsettings.hpp"
 #include "flags.hpp"
 #include "history.hpp"
+#include "mobilization.hpp"
 #include "modifier.hpp"
 #include "politics.hpp"
 #include "rules.hpp"
@@ -21,8 +22,24 @@
 namespace smedley::v2
 {
 
+    class CActiveMission;
+    class CBank;
+    class CCasusBelliGeneration;
     class CColonialDistanceTracker;
+    class CCreditor;
+    class CCulture;
+    class CDiplomaticAction;
+    class CDiplomacyStatus;
     class CEvent;
+    class CGraphicalCultureType;
+    class CLeader;
+    class CNationalValue;
+    class CNudgeIdler;
+    class CPopMovement;
+    class CRailroadChunk;
+    class CRallyPoint;
+    class CRegion;
+    class CState;
 
     /**
      * CCountry corresponds a playable country in Victoria 2. It also includes
@@ -167,20 +184,170 @@ namespace smedley::v2
         clausewitz::CColor _color; // 920
         uint32_t _unk_0x93c; // color flag?
         sstd::vector<clausewitz::CColor> _colors; // 940
-        uint8_t _unk_0x950[0x64];
+        uint32_t _unk_0x950;
+        uint32_t _unk_0x954;
+        uint32_t _unk_0x958;
+        uint32_t _unk_0x95c;
+        uint32_t _unk_0x960;
+        uint32_t _unk_0x964;
+        uint32_t _unk_0x968;
+        uint32_t _unk_0x96c;
+        uint32_t _unk_0x970;
+        uint32_t _unk_0x974;
+        uint32_t _unk_0x978;
+        uint32_t _unk_0x97c;
+        uint32_t _unk_0x980;
+        uint32_t _unk_0x984;
+        uint32_t _unk_0x988;
+        uint32_t _unk_0x98c;
+        uint32_t _unk_0x990;
+        uint32_t _unk_0x994;
+        uint32_t _unk_0x998;
+        uint32_t _unk_0x99c;
+        uint32_t _unk_0x9a0;
+        uint32_t _unk_0x9a4;
+        uint32_t _unk_0x9a8;
+        uint32_t _unk_0x9ac;
+        uint32_t _unk_0x9b0;
         CCountryHistory _history; // 9b4
         sstd::vector<int> _owned_provinces; // 9d8
         clausewitz::CList<int> _controlled_provinces; // 9e8
         clausewitz::CList<int> _core_provinces; // 9f8
         clausewitz::CList<int> _unk_0xa08;
-        uint8_t _unk_0xa18[0x30];
+        uint32_t _unk_0xa18;
+        uint32_t _unk_0xa1c;
+        uint32_t _unk_0xa20;
+        uint32_t _unk_0xa24;
+        uint32_t _unk_0xa28;
+        uint32_t _unk_0xa2c;
+        uint32_t _unk_0xa30;
+        uint32_t _unk_0xa34;
+        uint32_t _unk_0xa38;
+        uint32_t _unk_0xa3c;
+        uint32_t _unk_0xa40;
+        uint32_t _unk_0xa44;
         CModifier _modifiers; // a48
         CModifier _unk_0xa78;
         CRule _rules; // aa8
-        CTechnologyStatus *_status; // bcc
-        CGovernment *_government;  // bd0
+        CTechnologyStatus *_tech_status; // bcc
+        CGovernment *_government; // bd0
+        clausewitz::CList<v2::CLeader *> _leaders; // bd4
+        int _capital_province_id; // be4
+        sstd::vector<v2::CDiplomacyStatus *> _diplomatic_statuses; // be8
+        CActiveMission *_active_mission; // bf8
+        uint8_t _unk_0xbfc[0xa4];
+        CEU3Date _unk_0xca0;
+        sstd::string _unk_0xca4;
+        sstd::string _last_mission; // cc0
+        CNudgeIdler *_nudge_idler; // cd4
+        CGraphicalCultureType *_graphical_culture; // ce0
+        clausewitz::CList<CDiplomaticAction *> _diplomatic_actions; // ce4
+        bool _is_substate; // cf4
+        bool _is_vassal; // cf5
+        CCountryTag _overlord; // cf8
+        uint8_t _unk_0xd00[0x38];
+        sstd::vector<CCountryTag> _vassals; // d38
+        sstd::vector<CCountryTag> _unk_0xd48;
+        sstd::vector<CCountryTag> _allies; // d58
+        sstd::vector<CCountryTag> _unk_0xd68; // also allies?
+        sstd::vector<CCountryTag> _guaranteed; // d78
+        sstd::vector<CCountryTag> _neighbors; // d88
+        sstd::vector<CCountryTag> _unk_0xd98;
+        uint32_t _unk_0xda8;
+        uint32_t _unk_0xdac;
+        uint32_t _unk_0xdb0;
+        uint32_t _unk_0xdb4;
+        sstd::vector<int> _unk_0xdb8;
+        uint8_t _unk_0xdc8[0x38];
+        sstd::vector<int> _slider_locks;
+        uint32_t _unk_0xe10;
+        sstd::vector<CCountryTag> _historical_friends; // e14
+        uint32_t _unk_0xe24;
+        uint32_t _unk_0xe28;
+        uint32_t _unk_0xe2c;
+        uint32_t _unk_0xe30;
+        uint32_t _unk_0xe34;
+        uint32_t _unk_0xe38;
+        clausewitz::CFixedPoint _research_points; // e3c
+        int _tech_school_id; // e40
+        clausewitz::CList<CState *> _states; // e44
+        clausewitz::CList<CCulture *> _accepted_cultures; // e54
+        CCulture *_primary_culture; // e64
+        uint32_t _unk_0xe68;
+        uint32_t _unk_0xe6c;
+        uint32_t _unk_0xe70;
+        uint32_t _unk_0xe74;
+        clausewitz::fixed_point<int64_t,48,15> _treasury; // e78
+        clausewitz::fixed_point<int64_t,48,15> _treasury_delta; // e80
+        CBank *_bank; // e88
+        sstd::vector<CCreditor *> _creditors; // e8c
+        CEU3Date _last_bankruptcy_date; // e9c
+        clausewitz::CFixedPoint _prestige; // ea0
+        uint8_t _unk_0xea4[0x20];
+        CGoodsPool _land_supply_cost; // ec4
+        CGoodsPool _naval_supply_cost; // f1c
+        CGoodsPool _naval_need; // f74
+        CGoodsPool _unk_0xfcc;
+        CGoodsPool _unk_0x1024;
+        CGoodsPool _unk_0x107c;
+        CGoodsPool _unk_0x10d4;
+        CGoodsPool _unk_0x112c;
+        CGoodsPool _stockpile; // 118c
+        CGoodsPool _stockpile_remaining; // 11dc
+        sstd::vector<CDistributionSetting *> _spending_settings; // 1234
+        CGoodsPool _unk_0x1244; // domestic purchases?
+        bool _buy_from_stockpile; // 129c
+        sstd::vector<CTradeSetting> _trade_settings; // 12a0;
+        CNationalValue *_national_value; // 12b0
+        uint8_t _unk_0x12b4[0x1c];
+        bool _is_civilized; // 12d0
+        uint8_t _unk_0x12d4[0x11c];
+        sstd::vector<int> _unk_0x13f0; // diplomatic influence?
+        CEU3Date _unk_0x1400;
+        int _ranking; // 1404
+        int _military_ranking; // 1408
+        int _industrial_ranking; // 140c
+        int _prestige_ranking; // 1410
+        uint32_t _unk_0x1414;
+        sstd::vector<CCountryTag> _spherelings; // 1418
+        CCountryTag _sphere_leader; // 1428
+        clausewitz::CFixedPoint _infamy; // 1430
+        uint32_t _unk_0x1434;
+        uint32_t _unk_0x1438;
+        uint32_t _unk_0x143c;
+        clausewitz::fixed_point<int64_t,48,15> _tariffs; // 1440
+        clausewitz::fixed_point<int64_t,48,15> _trade_cap_army; // 1448
+        clausewitz::fixed_point<int64_t,48,15> _trade_cap_naval; // 1450
+        clausewitz::fixed_point<int64_t,48,15> _trade_cap_projects; // 1458
+        clausewitz::fixed_point<int64_t,48,15> _min_spend_on_land_units; // 1460
+        clausewitz::fixed_point<int64_t,48,15> _min_spend_on_naval_units; // 1468
+        clausewitz::fixed_point<int64_t,48,15> _min_spend_on_constructions; // 1470
+        uint8_t _unk_0x1478[0x24];
+        clausewitz::CList<CRegion *> _colonies; // 149c
+        clausewitz::CList<sstd::string> _first_names; // 14ac
+        clausewitz::CList<sstd::string> _last_names; // 14bc
+        uint8_t _unk_0x14cc[0x18];
+        sstd::vector<void *> _unk_0x14e4;
+        sstd::vector<void *> _unk_0x14f4;
+        uint8_t _unk_0x1504[0x34];
+        clausewitz::fixed_point<int64_t,48,15> _overseas_penalty; // 1538
+        uint32_t _unk_0x1540;
+        bool _is_releasable_vassal; // 1544
+        uint8_t _unk_0x1548[0x18];
+        clausewitz::fixed_point<int64_t,48,15> _tax_base; // 1560
+        uint32_t _unk_0x1568;
+        CCasusBelliGeneration *_cb_generation; // 156c
+        sstd::vector<CRallyPoint *> _rally_points; // 1570
+        sstd::vector<clausewitz::fixed_point<int64_t,48,15>> _foreign_investment; // 1580
+        sstd::vector<CPopMovement *> _movements; // 1590
+        uint8_t _unk_15a0[0xc];
+        sstd::vector<CRailroadChunk *> _railroad_chunks; // 15ac
+        bool _railroad_cache_invalid; // 15bc
+        uint8_t _unk_0x15c0[0x1c];
+        sstd::vector<CMobilizationSchedule> _scheduled_mobilizations; // 15dc
+        sstd::string _region_name; // 15ec
     };
 
-    //static_assert(sizeof(CCountry) == 0xbd8);
+    static_assert(sizeof(CCountry) == 0x1608);
 
 }

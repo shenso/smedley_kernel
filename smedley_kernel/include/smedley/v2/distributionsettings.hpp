@@ -8,6 +8,26 @@
 namespace smedley::v2
 {
 
+    class CCountry;
+
+    class CDistributionSetting : public clausewitz::CPersistent
+    {
+    protected:
+        clausewitz::fixed_point<int64_t,48,15> _temp_setting; // 8
+        clausewitz::fixed_point<int64_t,48,15> _setting; // 10
+        clausewitz::fixed_point<int64_t,48,15> _factor; // 18
+        CCountry *_country; // 20
+        uint32_t _unk_0x24;
+        clausewitz::fixed_point<int64_t,48,15> _reserve; // 28
+        clausewitz::fixed_point<int64_t,48,15> _max_value; // 30
+        clausewitz::fixed_point<int64_t,48,15> _range_limit_max; // 38
+        clausewitz::fixed_point<int64_t,48,15> _range_limit_min; // 40
+        int _max_tax; // 48
+        int _min_tax; // 4c
+    };
+
+    static_assert(sizeof(CDistributionSetting) == 0x50);
+
     class CTaxSetting : public clausewitz::CPersistent
     {
     protected:
@@ -28,5 +48,16 @@ namespace smedley::v2
     };
 
     static_assert(sizeof(CTaxSetting) == 0x78);
+
+    class CTradeSetting : public clausewitz::CPersistent
+    {
+    protected:
+        clausewitz::fixed_point<int64_t,48,15> _limit; // 8
+        bool _do_buy; // 10
+        bool _automate_trade; // 11
+        uint32_t _unk_0x14;
+    };
+
+    static_assert(sizeof(CTradeSetting) == 0x18);
 
 }

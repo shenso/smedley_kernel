@@ -13,4 +13,8 @@ namespace smedley::v2
     {
     };
 
+    class CNudgeIdler : public CEU3Idler
+    {
+    };
+
 }
