@@ -257,6 +257,8 @@ namespace smedley::v2
     public:
         static constexpr uintptr_t name_address = 0x000f97a0;
 
+        DECLARE_MEMBER_FN_CLASS(CCountry);
+
         DEFINE_MEMBER_FN_ESI_1(AddAcceptedCulture, void, 0x00122310, CCulture *, culture);
         // TODO: test below:
         DEFINE_MEMBER_FN_EDI_4(AddCasusBelli, void, 0x00135fc0, const CCountryTag &, target, const sstd::string &, cb_tag, int, months, bool, send_message);

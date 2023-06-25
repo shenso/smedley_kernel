@@ -16,6 +16,8 @@ namespace smedley::v2
         sstd::vector<CCountryTag> _buckets[64]; // 14
         sstd::vector<CCountryTag> _dynamic_tags; // 414
     public:
+        DEFINE_STATIC_GETTER(instance, CCountryDataBase *, 0x00e587e4);
+
         /// @returns the tag matching str if found. the NULL tag (---) otherwise
         CCountryTag FindTag(const char *str) const
         {
