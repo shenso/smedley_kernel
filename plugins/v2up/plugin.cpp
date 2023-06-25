@@ -14,11 +14,9 @@ namespace v2up
 	namespace sstd = smedley::sstd;
 	namespace v2 = smedley::v2;
 
-	v2::CConsoleCmd::SResult *OnCommand(v2::CConsoleCmd::SResult *__return_storage_ptr__, const sstd::vector<sstd::string> *argv)
+	v2::CConsoleCmd::SResult OnCommand(const sstd::vector<sstd::string> &argv)
 	{
-		__return_storage_ptr__->success = true;
-		__return_storage_ptr__->message = "hello, world!";
-		return __return_storage_ptr__;
+		return v2::CConsoleCmd::SResult("Hello, world!");
 	}
 
 	class Plugin : public smedley::Plugin

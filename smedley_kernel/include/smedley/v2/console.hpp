@@ -22,7 +22,7 @@ namespace smedley::v2
             int num_aliases;
             const char *aliases[3];
             const char *description;
-            SResult *(*handler)(SResult *__return_storage_ptr__, const sstd::vector<sstd::string> *argv);
+            SResult (*handler)(const sstd::vector<sstd::string> &argv);
             int num_args;
             const char *args[10];
         };
