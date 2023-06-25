@@ -23,13 +23,13 @@ namespace smedley
     namespace clausewitz
     {
         template <>
-        unsigned int ClassicHashKeyTraits<v2::CCountryTag, v2::CCountryValue>::GetHashValue(v2::CCountryTag &key)
+        unsigned int ClassicHashKeyTraits<v2::CCountryTag, v2::CCountryValue>::GetHashValue(const v2::CCountryTag &key)
         {
             return static_cast<unsigned int>(key.ordinal());
         }
 
         template<>
-        v2::CCountryTag &ClassicHashKeyTraits<v2::CCountryTag, v2::CCountryValue>::GetKey(v2::CCountryValue &val)
+        const v2::CCountryTag &ClassicHashKeyTraits<v2::CCountryTag, v2::CCountryValue>::GetKey(const v2::CCountryValue &val)
         {
             return val.tag;
         }

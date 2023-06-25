@@ -4,6 +4,8 @@
 #include <smedley/std/string.hpp>
 #include <smedley/std/vector.hpp>
 #include <smedley/v2/console.hpp>
+#include <smedley/v2/gamestate.hpp>
+#include <smedley/v2/db/culture.hpp>
 #include <functional>
 #include <sstream>
 
@@ -37,6 +39,17 @@ namespace v2up
 		void OnConsoleCmdManagerInit(events::ConsoleCmdManagerInitEvent &e)
 		{
 			logger().Info("Initializing commands...");
+
+			auto culture_db = v2::CCultureDataBase::instance();
+			auto culture = culture_db->table().Find("yankee");
+			for (auto country : v2::CCurrentGameState::instance()->countries()) {
+				if (!country->exists()) {
+					continue;
+				}
+
+				country->AddAcceptedCulture(culture);
+				logger().Info(std::string("added yankee culture to ") + country->name().c_str());
+			}
 
 			auto cmd_data = new v2::CConsoleCmd::SCommandData{0};
 			cmd_data->is_allowed = true;

@@ -1,6 +1,8 @@
 #pragma once
 
-#include "macros.hpp"
+#define NOMINMAX
+
+#include "apimacros.hpp"
 #include <cstdint>
 #include <vector>
 #include <windows.h>

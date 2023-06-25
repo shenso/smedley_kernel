@@ -29,8 +29,8 @@ namespace smedley
 		case Level::WARN:
 			level_prefix = "[WARN]";
 			break;
-		case Level::ERROR:
-			level_prefix = "[ERROR]";
+		case Level::FAILURE:
+			level_prefix = "[FAILURE]";
 			break;
 		case Level::CRITICAL:
 			level_prefix = "[CRITICAL]";

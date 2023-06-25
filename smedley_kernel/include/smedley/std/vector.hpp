@@ -2,6 +2,7 @@
 
 #include "../memory.hpp"
 #include <cstring>
+#include <iterator>
 #include <memory>
 #include <type_traits>
 
@@ -14,6 +15,22 @@ namespace smedley::sstd
 	public:
 		using size_type = size_t;
 		using reference = T &;
+
+		struct iterator
+		{
+			iterator(T *ptr) : _ptr(ptr) {}
+
+			reference operator*() const { return *_ptr; }
+			T *operator->() { return _ptr; }
+			iterator &operator++() { _ptr++;  return *this; }
+			iterator operator++(int) { iterator tmp = *this; ++(*this); return tmp; }
+			iterator &operator--() { _ptr--;  return *this; }
+			iterator operator--(int) { iterator tmp = *this; --(*this); return tmp; }
+			friend bool operator==(const iterator &a, const iterator &b) { return a._ptr == b._ptr; }
+			friend bool operator!=(const iterator &a, const iterator &b) { return a._ptr != b._ptr; }
+		private:
+			T *_ptr;
+		};
 	protected:
 		T *_first;
 		T *_last;
@@ -89,6 +106,9 @@ namespace smedley::sstd
 
 		inline size_type capacity() const noexcept { return _end - _first; }
 		inline size_type size() const noexcept { return _last - _first; }
+
+		inline iterator begin() { return iterator(_first); }
+		inline iterator end() { return iterator(_last); }
 
 		reference operator[](size_type i) { return _first[i]; }
 		const reference operator[](size_type i) const { return _first[i]; }

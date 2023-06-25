@@ -118,8 +118,8 @@ namespace smedley::clausewitz
 	class ClassicHashKeyTraits
 	{
 	public:
-		static unsigned int GetHashValue(K &);
-		static K &GetKey(V &);
+		static unsigned int GetHashValue(const K &);
+		static const K &GetKey(const V &);
 	};
 
 	template <typename K, typename V, class _Traits = ClassicHashKeyTraits<K, V>>
@@ -135,6 +135,21 @@ namespace smedley::clausewitz
 		int _size;
 		int _capacity;
 		Node **_buckets;
+	public:
+		V *Find(const K &key)
+		{
+			unsigned int hash = _Traits::GetHashValue(key);
+			Node *bucket_node = _buckets[hash % _capacity];
+			while (bucket_node != nullptr) {
+				if (_Traits::GetKey(*bucket_node->data) == key) {
+					return bucket_node->data;
+				}
+
+				bucket_node = bucket_node->next;
+			}
+
+			return nullptr;
+		}
 	};
 
 	static_assert(sizeof(CHashTable<sstd::string, CFixedPoint>) == 0xc);

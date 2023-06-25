@@ -11,6 +11,7 @@
 #include "settings.hpp"
 #include "war.hpp"
 #include "worldmarket.hpp"
+#include "../macros.hpp"
 #include "../clausewitz/persistent.hpp"
 #include "../clausewitz/types.hpp"
 #include "../std/vector.hpp"
@@ -121,8 +122,19 @@ namespace smedley::v2
 		uint32_t _uk_0xd04;
 	public:
 		virtual ~CGameState();
+		virtual int num_provinces() const; // 18
+		virtual int num_countries() const; // 1c
 	};
 
 	static_assert(sizeof(CGameState) == 0xd08);
+
+	class CCurrentGameState : public CGameState
+	{
+	public:
+		inline const sstd::vector<CCountry *> countries() const { return _countries; }
+		inline sstd::vector<CCountry *> countries() { return _countries; }
+
+		DEFINE_STATIC_GETTER(instance, CCurrentGameState *, 0x00e588e8);
+	};
 
 }

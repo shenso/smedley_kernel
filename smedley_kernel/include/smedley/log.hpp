@@ -22,7 +22,7 @@ namespace smedley
 			DEBUG = 0,
 			INFO = 1,
 			WARN = 2,
-			ERROR = 3,
+			FAILURE = 3,
 			CRITICAL = 4,
 		};
 
@@ -34,7 +34,7 @@ namespace smedley
 		void Debug(const std::string &msg) { Log(Level::DEBUG, msg); }
 		void Info(const std::string &msg) { Log(Level::INFO, msg); }
 		void Warn(const std::string &msg) { Log(Level::WARN, msg); }
-		void Error(const std::string &msg) { Log(Level::ERROR, msg); }
+		void Failure(const std::string &msg) { Log(Level::FAILURE, msg); }
 		void Critical(const std::string &msg) { Log(Level::CRITICAL, msg); }
 	protected:
 		virtual void Write(const std::string &data) = 0;

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ai.hpp"
+#include "culture.hpp"
 #include "dataspread.hpp"
 #include "distributionsettings.hpp"
 #include "flags.hpp"
@@ -12,6 +13,7 @@
 #include "tag.hpp"
 #include "tech.hpp"
 #include "variables.hpp"
+#include "../macros.hpp"
 #include "../clausewitz/color.hpp"
 #include "../clausewitz/persistent.hpp"
 #include "../clausewitz/types.hpp"
@@ -27,10 +29,10 @@ namespace smedley::v2
     class CCasusBelliGeneration;
     class CColonialDistanceTracker;
     class CCreditor;
-    class CCulture;
     class CDiplomaticAction;
     class CDiplomacyStatus;
     class CEvent;
+    class CEventScope;
     class CGraphicalCultureType;
     class CLeader;
     class CNationalValue;
@@ -38,6 +40,7 @@ namespace smedley::v2
     class CPopMovement;
     class CRailroadChunk;
     class CRallyPoint;
+    class CRebelFaction;
     class CRegion;
     class CState;
 
@@ -137,7 +140,7 @@ namespace smedley::v2
         clausewitz::CColor _color; // 920
         uint32_t _unk_0x93c; // color flag?
         sstd::vector<clausewitz::CColor> _colors; // 940
-        uint8_t _unk_0x950[0x65];
+        uint8_t _unk_0x950[0x64];
         CCountryHistory _history;           // 9b4
         sstd::vector<int> _owned_provinces; // 9d8
         clausewitz::CList<int> _controlled_provinces; // 9e8
@@ -251,6 +254,42 @@ namespace smedley::v2
         uint8_t _unk_0x15c0[0x1c];
         sstd::vector<CMobilizationSchedule> _scheduled_mobilizations; // 15dc
         sstd::string _region_name; // 15ec
+    public:
+        static constexpr uintptr_t name_address = 0x000f97a0;
+
+        DEFINE_MEMBER_FN_ESI_1(AddAcceptedCulture, void, 0x00122310, CCulture *, culture);
+        // TODO: test below:
+        DEFINE_MEMBER_FN_EDI_4(AddCasusBelli, void, 0x00135fc0, const CCountryTag &, target, const sstd::string &, cb_tag, int, months, bool, send_message);
+        DEFINE_MEMBER_FN_ESI_2(AddLeader, void, 0x0010e760, CLeader *, leader, bool, add_to_history);
+        DEFINE_MEMBER_FN_ESI_1(AddPrestige, void, 0x001341a0, clausewitz::CFixedPoint, delta);
+        DEFINE_MEMBER_FN_2(AddTimedModifier, void, 0x001114d0, sstd::string, modifier_tag, int, days);
+        DEFINE_MEMBER_FN_1_ESI(AddToSphere, void, 0x00133e50, const CCountryTag &, target);
+        DEFINE_MEMBER_FN_EDI_EAX(AddUnit, void, 0x00113c80, CUnit *, unit);
+        DEFINE_MEMBER_FN_2(Annex, void, 0x00118620, const CCountryTag *, remove_core_from, CCountryTag, target);
+        DEFINE_MEMBER_FN_1(Break, void, 0x00116630, CRebelFaction *, faction);
+        DEFINE_MEMBER_FN_1(CanTakeLoanFrom, bool, 0x00123130, CCountryTag, tag);
+        DEFINE_MEMBER_FN_EDI_2(ChangeCapital, void, 0x00135fc0, int, province_id, bool, add_to_history);
+        DEFINE_MEMBER_FN_3(DelayEvent, void, 0x00140a70, CEvent *, event, CEventScope *, scope, int, days);
+        DEFINE_MEMBER_FN_2(DiscoverInvention, void, 0x00102090, CInvention *, invention, bool, add_to_news);
+        DEFINE_MEMBER_FN_EDI_0(DismantleSphere, void, 0x001340a0);
+
+        sstd::string name()
+        {
+            const uintptr_t addr = memory::Map::base_addr + name_address;
+            sstd::string val;
+            sstd::string *val_ptr = &val;
+            CCountry *country_ptr = this;
+
+            __asm {
+                mov eax, country_ptr
+                mov ecx, val_ptr
+                call addr
+            }
+
+            return val;
+        }
+
+        inline bool exists() const { return _owned_provinces.size() > 0; }
     };
 
     static_assert(sizeof(CCountry) == 0x1608);

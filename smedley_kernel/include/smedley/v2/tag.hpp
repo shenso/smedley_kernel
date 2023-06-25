@@ -20,6 +20,16 @@ namespace smedley::v2
         } _key;
         int _ordinal;
     public:
+        CCountryTag(const char *str, int ordinal) : _ordinal(ordinal)
+        {
+            _key.str[0] = str[0];
+            _key.str[1] = str[1];
+            _key.str[2] = str[2];
+            _key.str[3] = '\0';
+        }
+
+        CCountryTag() : CCountryTag("---", 0) {}
+
         uint32_t key() const { return _key.n; }
         int ordinal() const { return _ordinal; }
         const char *str() const { return _key.str; }
