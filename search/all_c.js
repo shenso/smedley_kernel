@@ -1,10 +1,5 @@
 var searchData=
 [
-  ['table_223',['table',['../d2/d08/classtable.html',1,'']]],
-  ['table_5finit_5fpair_224',['table_init_pair',['../db/d22/structtable__init__pair.html',1,'']]],
-  ['table_5fiterator_225',['table_iterator',['../d7/d1f/classtable__iterator.html',1,'']]],
-  ['table_5fvector_5fscope_226',['table_vector_scope',['../d7/d39/structtable__vector__scope.html',1,'']]],
-  ['time_227',['time',['../d1/d79/structtime.html',1,'']]],
-  ['time_5foffset_228',['time_offset',['../df/dbd/structtime__offset.html',1,'']]],
-  ['toml_5fparse_5ferror_5fbase_229',['TOML_PARSE_ERROR_BASE',['../d2/d85/class_t_o_m_l___p_a_r_s_e___e_r_r_o_r___b_a_s_e.html',1,'']]]
+  ['onload_208',['OnLoad',['../d6/dbe/classsmedley_1_1_plugin.html#a09c3b363d7382b79d9a39b016fa98afc',1,'smedley::Plugin']]],
+  ['onunload_209',['OnUnload',['../d6/dbe/classsmedley_1_1_plugin.html#a7b7de14a6eeca60a8ae9b29118c0db88',1,'smedley::Plugin']]]
 ];

@@ -73,6 +73,8 @@ $(function() {
 <div class="title">smedley::clausewitz::CPersistent Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="../../db/d1d/persistent_8hpp_source.html">persistent.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for smedley::clausewitz::CPersistent:</div>
 <div class="dyncontent">
@@ -121,19 +123,22 @@ Inheritance diagram for smedley::clausewitz::CPersistent:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a7e54c64c0ddaea3496123c1ed02d838a"><td class="memItemLeft" align="right" valign="top"><a id="a7e54c64c0ddaea3496123c1ed02d838a"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Write</b> (<a class="el" href="../../df/d8a/classsmedley_1_1clausewitz_1_1_c_writer.html">CWriter</a> &amp;)</td></tr>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d03/classsmedley_1_1clausewitz_1_1_c_persistent.html#a7e54c64c0ddaea3496123c1ed02d838a">Write</a> (<a class="el" href="../../df/d8a/classsmedley_1_1clausewitz_1_1_c_writer.html">CWriter</a> &amp;)</td></tr>
+<tr class="memdesc:a7e54c64c0ddaea3496123c1ed02d838a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the entire object to the provided <a class="el" href="../../df/d8a/classsmedley_1_1clausewitz_1_1_c_writer.html">CWriter</a> object. <br /></td></tr>
 <tr class="separator:a7e54c64c0ddaea3496123c1ed02d838a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a07fb35a469ee2deac88ddc7247ec0b46"><td class="memItemLeft" align="right" valign="top"><a id="a07fb35a469ee2deac88ddc7247ec0b46"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>WriteMembers</b> (<a class="el" href="../../df/d8a/classsmedley_1_1clausewitz_1_1_c_writer.html">CWriter</a> &amp;)</td></tr>
 <tr class="separator:a07fb35a469ee2deac88ddc7247ec0b46"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a587ecfc98633d1d9f8290f3fd02f5900"><td class="memItemLeft" align="right" valign="top"><a id="a587ecfc98633d1d9f8290f3fd02f5900"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Read</b> (<a class="el" href="../../d9/df5/classsmedley_1_1clausewitz_1_1_c_reader.html">CReader</a> &amp;)</td></tr>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d03/classsmedley_1_1clausewitz_1_1_c_persistent.html#a587ecfc98633d1d9f8290f3fd02f5900">Read</a> (<a class="el" href="../../d9/df5/classsmedley_1_1clausewitz_1_1_c_reader.html">CReader</a> &amp;)</td></tr>
+<tr class="memdesc:a587ecfc98633d1d9f8290f3fd02f5900"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deserialize the object from the provided <a class="el" href="../../d9/df5/classsmedley_1_1clausewitz_1_1_c_reader.html">CReader</a>. <br /></td></tr>
 <tr class="separator:a587ecfc98633d1d9f8290f3fd02f5900"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a466d2dbd4597474eb399180890a3eae7"><td class="memItemLeft" align="right" valign="top"><a id="a466d2dbd4597474eb399180890a3eae7"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>ReadMember</b> (<a class="el" href="../../d9/df5/classsmedley_1_1clausewitz_1_1_c_reader.html">CReader</a> &amp;reader, int type)</td></tr>
+<tr class="memitem:a466d2dbd4597474eb399180890a3eae7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d03/classsmedley_1_1clausewitz_1_1_c_persistent.html#a466d2dbd4597474eb399180890a3eae7">ReadMember</a> (<a class="el" href="../../d9/df5/classsmedley_1_1clausewitz_1_1_c_reader.html">CReader</a> &amp;reader, int type)</td></tr>
+<tr class="memdesc:a466d2dbd4597474eb399180890a3eae7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deserialize the specified member.  <a href="../../dd/d03/classsmedley_1_1clausewitz_1_1_c_persistent.html#a466d2dbd4597474eb399180890a3eae7">More...</a><br /></td></tr>
 <tr class="separator:a466d2dbd4597474eb399180890a3eae7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5540bea9f78c49a009378b5583a6f30c"><td class="memItemLeft" align="right" valign="top"><a id="a5540bea9f78c49a009378b5583a6f30c"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>InitPostRead</b> ()</td></tr>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d03/classsmedley_1_1clausewitz_1_1_c_persistent.html#a5540bea9f78c49a009378b5583a6f30c">InitPostRead</a> ()</td></tr>
+<tr class="memdesc:a5540bea9f78c49a009378b5583a6f30c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the object after deserialization. Called at the end of <a class="el" href="../../dd/d03/classsmedley_1_1clausewitz_1_1_c_persistent.html#a587ecfc98633d1d9f8290f3fd02f5900" title="Deserialize the object from the provided CReader.">CPersistent::Read</a>. <br /></td></tr>
 <tr class="separator:a5540bea9f78c49a009378b5583a6f30c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
@@ -142,6 +147,54 @@ Protected Attributes</h2></td></tr>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>_type_token</b></td></tr>
 <tr class="separator:aa0d2da7a2cb879a8f94851029ff60168"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The base class for most persistent data in the program. This includes virtually all data which is stored in the game files. Definition files in the common dir, decisions, events, history, etc. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a466d2dbd4597474eb399180890a3eae7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a466d2dbd4597474eb399180890a3eae7">&#9670;&nbsp;</a></span>ReadMember()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void smedley::clausewitz::CPersistent::ReadMember </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d9/df5/classsmedley_1_1clausewitz_1_1_c_reader.html">CReader</a> &amp;&#160;</td>
+          <td class="paramname"><em>reader</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Deserialize the specified member. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">reader</td><td>the reader to read from </td></tr>
+    <tr><td class="paramname">type</td><td>the type token of the member to be deserialized </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>D:/a/smedley_kernel/smedley_kernel/smedley_kernel/include/smedley/clausewitz/<a class="el" href="../../db/d1d/persistent_8hpp_source.html">persistent.hpp</a></li>
 </ul>

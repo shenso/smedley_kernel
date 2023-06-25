@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>smedley: smedley::sstd::vector&lt; T, Allocator &gt; Class Template Reference</title>
+<title>smedley: smedley::sstd::vector&lt; T &gt; Class Template Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -66,28 +66,107 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="../../d1/d37/classsmedley_1_1sstd_1_1vector-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">smedley::sstd::vector&lt; T, Allocator &gt; Class Template Reference</div>  </div>
+<div class="title">smedley::sstd::vector&lt; T &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a0a039f94f1480b8c9de317d5ad4a24bd"><td class="memItemLeft" align="right" valign="top"><a id="a0a039f94f1480b8c9de317d5ad4a24bd"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>size_type</b> = size_t</td></tr>
+<tr class="separator:a0a039f94f1480b8c9de317d5ad4a24bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81ddb424bbbb838715b6e879161ae600"><td class="memItemLeft" align="right" valign="top"><a id="a81ddb424bbbb838715b6e879161ae600"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>reference</b> = T &amp;</td></tr>
+<tr class="separator:a81ddb424bbbb838715b6e879161ae600"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a5e85fe201e3d7f71d7913a326c50a7bc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/da5/classsmedley_1_1sstd_1_1vector.html#a5e85fe201e3d7f71d7913a326c50a7bc">reserve</a> (size_t n)</td></tr>
+<tr class="separator:a5e85fe201e3d7f71d7913a326c50a7bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17276ddd65bfd92526d09d4156668f9d"><td class="memItemLeft" align="right" valign="top"><a id="a17276ddd65bfd92526d09d4156668f9d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>push_back</b> (const T &amp;val)</td></tr>
+<tr class="separator:a17276ddd65bfd92526d09d4156668f9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39364fc1ba02a986749bcfd6d611aec9"><td class="memItemLeft" align="right" valign="top"><a id="a39364fc1ba02a986749bcfd6d611aec9"></a>
+size_type&#160;</td><td class="memItemRight" valign="bottom"><b>capacity</b> () const noexcept</td></tr>
+<tr class="separator:a39364fc1ba02a986749bcfd6d611aec9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afab101f6327e83fc0b477b80dfcd3e92"><td class="memItemLeft" align="right" valign="top"><a id="afab101f6327e83fc0b477b80dfcd3e92"></a>
+size_type&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> () const noexcept</td></tr>
+<tr class="separator:afab101f6327e83fc0b477b80dfcd3e92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80a719b0e8dcfe55711ac962d19acdf0"><td class="memItemLeft" align="right" valign="top"><a id="a80a719b0e8dcfe55711ac962d19acdf0"></a>
+reference&#160;</td><td class="memItemRight" valign="bottom"><b>operator[]</b> (size_type i)</td></tr>
+<tr class="separator:a80a719b0e8dcfe55711ac962d19acdf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb3481546e3f2a38ccfa21197845e35e"><td class="memItemLeft" align="right" valign="top"><a id="afb3481546e3f2a38ccfa21197845e35e"></a>
+const reference&#160;</td><td class="memItemRight" valign="bottom"><b>operator[]</b> (size_type i) const</td></tr>
+<tr class="separator:afb3481546e3f2a38ccfa21197845e35e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a73d211e5ab5c68f1e9f93bfeccf58640"><td class="memItemLeft" align="right" valign="top"><a id="a73d211e5ab5c68f1e9f93bfeccf58640"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>_change_array</b> (T *new_vec, size_type new_size, size_type new_capacity)</td></tr>
+<tr class="separator:a73d211e5ab5c68f1e9f93bfeccf58640"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae505ed62fcc8d8a6958b009ccfd60e6a"><td class="memItemLeft" align="right" valign="top"><a id="ae505ed62fcc8d8a6958b009ccfd60e6a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>_uninit_move</b> (T *first, T *last, T *where)</td></tr>
+<tr class="separator:ae505ed62fcc8d8a6958b009ccfd60e6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cd8a59e747fe125bd20cf8dccd9dd05"><td class="memItemLeft" align="right" valign="top"><a id="a9cd8a59e747fe125bd20cf8dccd9dd05"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>_uninit_copy</b> (T *first, T *last, T *where)</td></tr>
+<tr class="separator:a9cd8a59e747fe125bd20cf8dccd9dd05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a2045b4e0d5e888771d1fbef84eaba026"><td class="memItemLeft" align="right" valign="top"><a id="a2045b4e0d5e888771d1fbef84eaba026"></a>
+<tr class="memitem:ae500288b2c13c8e1ccac063c1eb2bb91"><td class="memItemLeft" align="right" valign="top"><a id="ae500288b2c13c8e1ccac063c1eb2bb91"></a>
 T *&#160;</td><td class="memItemRight" valign="bottom"><b>_first</b></td></tr>
-<tr class="separator:a2045b4e0d5e888771d1fbef84eaba026"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a783d0f1daf07ee5bf6813298bacd683c"><td class="memItemLeft" align="right" valign="top"><a id="a783d0f1daf07ee5bf6813298bacd683c"></a>
+<tr class="separator:ae500288b2c13c8e1ccac063c1eb2bb91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab772b493ef9ca596324d7f7280f0169e"><td class="memItemLeft" align="right" valign="top"><a id="ab772b493ef9ca596324d7f7280f0169e"></a>
 T *&#160;</td><td class="memItemRight" valign="bottom"><b>_last</b></td></tr>
-<tr class="separator:a783d0f1daf07ee5bf6813298bacd683c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a555148eaf3cd02245112d47c31e5dc77"><td class="memItemLeft" align="right" valign="top"><a id="a555148eaf3cd02245112d47c31e5dc77"></a>
+<tr class="separator:ab772b493ef9ca596324d7f7280f0169e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae95651135d02857364b9b2590080169c"><td class="memItemLeft" align="right" valign="top"><a id="ae95651135d02857364b9b2590080169c"></a>
 T *&#160;</td><td class="memItemRight" valign="bottom"><b>_end</b></td></tr>
-<tr class="separator:a555148eaf3cd02245112d47c31e5dc77"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85b516a6301f6486c197bc0894701fbc"><td class="memItemLeft" align="right" valign="top"><a id="a85b516a6301f6486c197bc0894701fbc"></a>
-Allocator *&#160;</td><td class="memItemRight" valign="bottom"><b>_al_val</b></td></tr>
-<tr class="separator:a85b516a6301f6486c197bc0894701fbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:ae95651135d02857364b9b2590080169c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9feb35e2b8bb4e7f5c093f96649ace6d"><td class="memItemLeft" align="right" valign="top"><a id="a9feb35e2b8bb4e7f5c093f96649ace6d"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>_al_val</b></td></tr>
+<tr class="separator:a9feb35e2b8bb4e7f5c093f96649ace6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a5e85fe201e3d7f71d7913a326c50a7bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e85fe201e3d7f71d7913a326c50a7bc">&#9670;&nbsp;</a></span>reserve()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d1/da5/classsmedley_1_1sstd_1_1vector.html">smedley::sstd::vector</a>&lt; T &gt;::reserve </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>the new capacity (size of the internal array). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>D:/a/smedley_kernel/smedley_kernel/smedley_kernel/include/smedley/std/<a class="el" href="../../da/d16/vector_8hpp_source.html">vector.hpp</a></li>
 </ul>

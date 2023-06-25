@@ -74,30 +74,42 @@ $(function() {
 <div class="title">smedley::Plugin Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="../../d1/dab/plugin_8hpp_source.html">plugin.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a3397d0f6645dabadc94352fc9399b188"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dbe/classsmedley_1_1_plugin.html#a3397d0f6645dabadc94352fc9399b188">Plugin</a> ()</td></tr>
+<tr class="separator:a3397d0f6645dabadc94352fc9399b188"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09c3b363d7382b79d9a39b016fa98afc"><td class="memItemLeft" align="right" valign="top"><a id="a09c3b363d7382b79d9a39b016fa98afc"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>OnLoad</b> ()</td></tr>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dbe/classsmedley_1_1_plugin.html#a09c3b363d7382b79d9a39b016fa98afc">OnLoad</a> ()</td></tr>
+<tr class="memdesc:a09c3b363d7382b79d9a39b016fa98afc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called after the plugin is loaded by the plugin loader. <br /></td></tr>
 <tr class="separator:a09c3b363d7382b79d9a39b016fa98afc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b7de14a6eeca60a8ae9b29118c0db88"><td class="memItemLeft" align="right" valign="top"><a id="a7b7de14a6eeca60a8ae9b29118c0db88"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>OnUnload</b> ()</td></tr>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dbe/classsmedley_1_1_plugin.html#a7b7de14a6eeca60a8ae9b29118c0db88">OnUnload</a> ()</td></tr>
+<tr class="memdesc:a7b7de14a6eeca60a8ae9b29118c0db88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the loader makes a request to unload. <br /></td></tr>
 <tr class="separator:a7b7de14a6eeca60a8ae9b29118c0db88"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a09f54c94308ca784ac99436f645b5bca"><td class="memItemLeft" align="right" valign="top"><a id="a09f54c94308ca784ac99436f645b5bca"></a>
-const <a class="el" href="../../d3/da5/structsmedley_1_1_plugin_definition.html">PluginDefinition</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>definition</b> () const</td></tr>
-<tr class="separator:a09f54c94308ca784ac99436f645b5bca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff895f78095e54fe0d7c65cf4c3c0306"><td class="memItemLeft" align="right" valign="top"><a id="aff895f78095e54fe0d7c65cf4c3c0306"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>checksum</b> () const</td></tr>
-<tr class="separator:aff895f78095e54fe0d7c65cf4c3c0306"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed4e6baaa748d1c5fdd2a4267d3409b0"><td class="memItemLeft" align="right" valign="top"><a id="aed4e6baaa748d1c5fdd2a4267d3409b0"></a>
-HMODULE&#160;</td><td class="memItemRight" valign="bottom"><b>mod_handle</b> () const</td></tr>
-<tr class="separator:aed4e6baaa748d1c5fdd2a4267d3409b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c396a58d347d4401e8f368a5bd2e130"><td class="memItemLeft" align="right" valign="top"><a id="a4c396a58d347d4401e8f368a5bd2e130"></a>
+const <a class="el" href="../../d3/da5/structsmedley_1_1_plugin_definition.html">PluginDefinition</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>definition</b> () const noexcept</td></tr>
+<tr class="separator:a4c396a58d347d4401e8f368a5bd2e130"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac45e97beefaa1ccf91c83e49c41cbc9e"><td class="memItemLeft" align="right" valign="top"><a id="ac45e97beefaa1ccf91c83e49c41cbc9e"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>checksum</b> () const noexcept</td></tr>
+<tr class="separator:ac45e97beefaa1ccf91c83e49c41cbc9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a221bf910f58221208d7e440ee446b981"><td class="memItemLeft" align="right" valign="top"><a id="a221bf910f58221208d7e440ee446b981"></a>
+HMODULE&#160;</td><td class="memItemRight" valign="bottom"><b>mod_handle</b> () const noexcept</td></tr>
+<tr class="separator:a221bf910f58221208d7e440ee446b981"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:aeddaf351597b50d09f8c38ee86802483"><td class="memItemLeft" align="right" valign="top"><a id="aeddaf351597b50d09f8c38ee86802483"></a>
-<a class="el" href="../../de/d85/classsmedley_1_1_logger.html">Logger</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>logger</b> () const</td></tr>
-<tr class="separator:aeddaf351597b50d09f8c38ee86802483"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a124ad18f0993f51b2577ea45c525b673"><td class="memTemplParams" colspan="2">template&lt;class Ev &gt; </td></tr>
+<tr class="memitem:a124ad18f0993f51b2577ea45c525b673"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d6/dbe/classsmedley_1_1_plugin.html#a124ad18f0993f51b2577ea45c525b673">AddEventHandler</a> (const std::string &amp;id, std::function&lt; void(Ev &amp;)&gt; handler, EventHandlerPriority priority=EventHandlerPriority::LOWEST)</td></tr>
+<tr class="separator:a124ad18f0993f51b2577ea45c525b673"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d9934b8a0c2db0f6c6027c190232722"><td class="memTemplParams" colspan="2">template&lt;class Ev &gt; </td></tr>
+<tr class="memitem:a1d9934b8a0c2db0f6c6027c190232722"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d6/dbe/classsmedley_1_1_plugin.html#a1d9934b8a0c2db0f6c6027c190232722">RemoveEventHandler</a> (const std::string &amp;id)</td></tr>
+<tr class="separator:a1d9934b8a0c2db0f6c6027c190232722"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd7002d89009f07e5fe60753f48d5749"><td class="memItemLeft" align="right" valign="top"><a id="afd7002d89009f07e5fe60753f48d5749"></a>
+<a class="el" href="../../de/d85/classsmedley_1_1_logger.html">Logger</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>logger</b> () const noexcept</td></tr>
+<tr class="separator:afd7002d89009f07e5fe60753f48d5749"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
@@ -105,6 +117,102 @@ Friends</h2></td></tr>
 class&#160;</td><td class="memItemRight" valign="bottom"><b>PluginLoader</b></td></tr>
 <tr class="separator:a7935fed495dc747e3ee24e005a4439eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The basic interface for Smedley plugins. All smedley plugins MUST have a <a class="el" href="../../d6/dbe/classsmedley_1_1_plugin.html">Plugin</a> subclass in their module. The <a class="el" href="../../d6/dbe/classsmedley_1_1_plugin.html">Plugin</a> base class provides a set of helper methods and properties needed to provide basic functionality to a plugin, as well as an interface for interaction with the <a class="el" href="../../d7/d47/classsmedley_1_1_plugin_loader.html">PluginLoader</a>. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a3397d0f6645dabadc94352fc9399b188"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3397d0f6645dabadc94352fc9399b188">&#9670;&nbsp;</a></span>Plugin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">smedley::Plugin::Plugin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The plugin constructor MUST only contain initialization logic. Uses of object properties will lead to undefined behavior as they are initialized immediately after instantiation by the plugin loader. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a124ad18f0993f51b2577ea45c525b673"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a124ad18f0993f51b2577ea45c525b673">&#9670;&nbsp;</a></span>AddEventHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Ev &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void smedley::Plugin::AddEventHandler </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; void(Ev &amp;)&gt;&#160;</td>
+          <td class="paramname"><em>handler</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">EventHandlerPriority&#160;</td>
+          <td class="paramname"><em>priority</em> = <code>EventHandlerPriority::LOWEST</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Helper function for registering plugin event handlers to an event registry. </p>
+
+</div>
+</div>
+<a id="a1d9934b8a0c2db0f6c6027c190232722"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d9934b8a0c2db0f6c6027c190232722">&#9670;&nbsp;</a></span>RemoveEventHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Ev &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void smedley::Plugin::RemoveEventHandler </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Helper function for unregistering plugin event handlers </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>D:/a/smedley_kernel/smedley_kernel/smedley_kernel/include/smedley/<a class="el" href="../../d1/dab/plugin_8hpp_source.html">plugin.hpp</a></li>
 <li>D:/a/smedley_kernel/smedley_kernel/smedley_kernel/src/plugin.cpp</li>
