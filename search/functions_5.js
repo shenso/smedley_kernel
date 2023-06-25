@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['plugin_714',['Plugin',['../d6/dbe/classsmedley_1_1_plugin.html#a3397d0f6645dabadc94352fc9399b188',1,'smedley::Plugin']]]
+  ['notify_722',['Notify',['../d0/d68/classsmedley_1_1_event_registry.html#aec750cf59110a7cc9778cff4aa9c7121',1,'smedley::EventRegistry']]]
 ];

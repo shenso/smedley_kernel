@@ -1,16 +1,9 @@
 var searchData=
 [
-  ['scommanddata_261',['SCommandData',['../d8/d50/structsmedley_1_1v2_1_1_c_console_cmd_1_1_s_command_data.html',1,'smedley::v2::CConsoleCmd']]],
-  ['signed_5finteger_5ftraits_262',['signed_integer_traits',['../de/daf/structtoml_1_1v3_1_1impl_1_1signed__integer__traits.html',1,'toml::v3::impl']]],
-  ['source_5fposition_263',['source_position',['../d5/de6/structtoml_1_1v3_1_1source__position.html',1,'toml::source_position'],['../d5/de6/structtoml_1_1v3_1_1source__position.html',1,'toml::v3::source_position']]],
-  ['source_5fregion_264',['source_region',['../d1/dea/structtoml_1_1v3_1_1source__region.html',1,'toml::source_region'],['../d1/dea/structtoml_1_1v3_1_1source__region.html',1,'toml::v3::source_region']]],
-  ['sresult_265',['SResult',['../db/d8c/structsmedley_1_1v2_1_1_c_console_cmd_1_1_s_result.html',1,'smedley::v2::CConsoleCmd']]],
-  ['sternarytrait_266',['STernaryTrait',['../d0/dfe/structsmedley_1_1clausewitz_1_1_s_ternary_trait.html',1,'smedley::clausewitz']]],
-  ['string_5ftraits_267',['string_traits',['../d5/dc7/structtoml_1_1v3_1_1impl_1_1string__traits.html',1,'toml::v3::impl']]],
-  ['string_5ftraits_3c_20char_20_2a_20_3e_268',['string_traits&lt; char * &gt;',['../d5/dc7/structtoml_1_1v3_1_1impl_1_1string__traits.html',1,'toml::v3::impl']]],
-  ['string_5ftraits_3c_20char_5bn_5d_3e_269',['string_traits&lt; char[N]&gt;',['../d5/dc7/structtoml_1_1v3_1_1impl_1_1string__traits.html',1,'toml::v3::impl']]],
-  ['string_5ftraits_3c_20const_20char_20_2a_20_3e_270',['string_traits&lt; const char * &gt;',['../d5/dc7/structtoml_1_1v3_1_1impl_1_1string__traits.html',1,'toml::v3::impl']]],
-  ['string_5ftraits_3c_20const_20char_5bn_5d_3e_271',['string_traits&lt; const char[N]&gt;',['../d5/dc7/structtoml_1_1v3_1_1impl_1_1string__traits.html',1,'toml::v3::impl']]],
-  ['string_5ftraits_3c_20std_3a_3astring_20_3e_272',['string_traits&lt; std::string &gt;',['../d5/dc7/structtoml_1_1v3_1_1impl_1_1string__traits.html',1,'toml::v3::impl']]],
-  ['string_5ftraits_3c_20std_3a_3astring_5fview_20_3e_273',['string_traits&lt; std::string_view &gt;',['../d5/dc7/structtoml_1_1v3_1_1impl_1_1string__traits.html',1,'toml::v3::impl']]]
+  ['read_260',['Read',['../dd/d03/classsmedley_1_1clausewitz_1_1_c_persistent.html#a587ecfc98633d1d9f8290f3fd02f5900',1,'smedley::clausewitz::CPersistent']]],
+  ['readmember_261',['ReadMember',['../dd/d03/classsmedley_1_1clausewitz_1_1_c_persistent.html#a466d2dbd4597474eb399180890a3eae7',1,'smedley::clausewitz::CPersistent']]],
+  ['register_262',['Register',['../d0/d68/classsmedley_1_1_event_registry.html#a74669279c4248c96e8a39cc02c4403f2',1,'smedley::EventRegistry']]],
+  ['removeeventhandler_263',['RemoveEventHandler',['../d6/dbe/classsmedley_1_1_plugin.html#a1d9934b8a0c2db0f6c6027c190232722',1,'smedley::Plugin']]],
+  ['removefow_264',['RemoveFoW',['../d3/d71/classsmedley_1_1v2_1_1_c_country.html#ace98b625e9c3ec33200a0a4e2b87a521',1,'smedley::v2::CCountry']]],
+  ['reserve_265',['reserve',['../d1/da5/classsmedley_1_1sstd_1_1vector.html#a5e85fe201e3d7f71d7913a326c50a7bc',1,'smedley::sstd::vector']]]
 ];

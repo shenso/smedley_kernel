@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['array_362',['array',['../dd/d88/classtoml_1_1v3_1_1array.html',1,'toml::array'],['../dd/d88/classtoml_1_1v3_1_1array.html',1,'toml::v3::array']]],
-  ['array_5finit_5felem_363',['array_init_elem',['../d7/df4/structtoml_1_1v3_1_1impl_1_1array__init__elem.html',1,'toml::v3::impl']]],
-  ['array_5fiterator_364',['array_iterator',['../d7/d6e/classtoml_1_1v3_1_1impl_1_1array__iterator.html',1,'toml::v3::impl']]]
+  ['_5fidentity_5fhelper_369',['_identity_helper',['../df/d12/struct__identity__helper.html',1,'']]],
+  ['_5fidentity_5fhelper_3c_20r_28arg_29_3e_370',['_identity_helper&lt; R(Arg)&gt;',['../d8/d32/struct__identity__helper_3_01_r_07_arg_08_4.html',1,'']]]
 ];

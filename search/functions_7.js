@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['type_720',['type',['../df/d79/classsmedley_1_1clausewitz_1_1_c_i_d.html#aadbf05ade737d9146aa70ae1bad76faa',1,'smedley::clausewitz::CID']]]
+  ['plugin_725',['Plugin',['../d6/dbe/classsmedley_1_1_plugin.html#a3397d0f6645dabadc94352fc9399b188',1,'smedley::Plugin']]]
 ];

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['lockdata_557',['LockData',['../dd/d00/structsmedley_1_1clausewitz_1_1_c_ternary_1_1_lock_data.html',1,'smedley::clausewitz::CTernary']]],
-  ['logger_558',['Logger',['../de/d85/classsmedley_1_1_logger.html',1,'smedley']]]
+  ['key_565',['key',['../d4/d5b/classtoml_1_1v3_1_1key.html',1,'toml::key'],['../d4/d5b/classtoml_1_1v3_1_1key.html',1,'toml::v3::key']]]
 ];

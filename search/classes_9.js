@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['key_556',['key',['../d4/d5b/classtoml_1_1v3_1_1key.html',1,'toml::key'],['../d4/d5b/classtoml_1_1v3_1_1key.html',1,'toml::v3::key']]]
+  ['json_5fformatter_564',['json_formatter',['../d5/d2a/classtoml_1_1v3_1_1json__formatter.html',1,'toml::json_formatter'],['../d5/d2a/classtoml_1_1v3_1_1json__formatter.html',1,'toml::v3::json_formatter']]]
 ];

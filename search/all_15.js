@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['yaml_5fformatter_361',['yaml_formatter',['../d2/ddb/classtoml_1_1v3_1_1yaml__formatter.html',1,'toml::v3::yaml_formatter'],['../d2/ddb/classtoml_1_1v3_1_1yaml__formatter.html',1,'toml::yaml_formatter']]]
+  ['write_367',['Write',['../dd/d03/classsmedley_1_1clausewitz_1_1_c_persistent.html#a7e54c64c0ddaea3496123c1ed02d838a',1,'smedley::clausewitz::CPersistent']]]
 ];

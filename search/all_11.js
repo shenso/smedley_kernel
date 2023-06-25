@@ -1,12 +1,16 @@
 var searchData=
 [
-  ['table_274',['table',['../d4/d33/classtoml_1_1v3_1_1table.html',1,'toml::table'],['../d4/d33/classtoml_1_1v3_1_1table.html',1,'toml::v3::table']]],
-  ['table_5finit_5fpair_275',['table_init_pair',['../d8/d88/structtoml_1_1v3_1_1impl_1_1table__init__pair.html',1,'toml::v3::impl']]],
-  ['table_5fiterator_276',['table_iterator',['../da/d6a/classtoml_1_1v3_1_1impl_1_1table__iterator.html',1,'toml::v3::impl']]],
-  ['table_5fproxy_5fpair_277',['table_proxy_pair',['../da/d4c/structtoml_1_1v3_1_1impl_1_1table__proxy__pair.html',1,'toml::v3::impl']]],
-  ['table_5fvector_5fscope_278',['table_vector_scope',['../d8/dff/structtoml_1_1v3_1_1impl_1_1table__vector__scope.html',1,'toml::v3::impl']]],
-  ['time_279',['time',['../d8/d01/structtoml_1_1v3_1_1time.html',1,'toml::time'],['../d8/d01/structtoml_1_1v3_1_1time.html',1,'toml::v3::time']]],
-  ['time_5foffset_280',['time_offset',['../d1/df4/structtoml_1_1v3_1_1time__offset.html',1,'toml::time_offset'],['../d1/df4/structtoml_1_1v3_1_1time__offset.html',1,'toml::v3::time_offset']]],
-  ['toml_5fformatter_281',['toml_formatter',['../da/d78/classtoml_1_1v3_1_1toml__formatter.html',1,'toml::toml_formatter'],['../da/d78/classtoml_1_1v3_1_1toml__formatter.html',1,'toml::v3::toml_formatter']]],
-  ['type_282',['type',['../df/d79/classsmedley_1_1clausewitz_1_1_c_i_d.html#aadbf05ade737d9146aa70ae1bad76faa',1,'smedley::clausewitz::CID']]]
+  ['scommanddata_266',['SCommandData',['../d8/d50/structsmedley_1_1v2_1_1_c_console_cmd_1_1_s_command_data.html',1,'smedley::v2::CConsoleCmd']]],
+  ['signed_5finteger_5ftraits_267',['signed_integer_traits',['../de/daf/structtoml_1_1v3_1_1impl_1_1signed__integer__traits.html',1,'toml::v3::impl']]],
+  ['source_5fposition_268',['source_position',['../d5/de6/structtoml_1_1v3_1_1source__position.html',1,'toml::source_position'],['../d5/de6/structtoml_1_1v3_1_1source__position.html',1,'toml::v3::source_position']]],
+  ['source_5fregion_269',['source_region',['../d1/dea/structtoml_1_1v3_1_1source__region.html',1,'toml::source_region'],['../d1/dea/structtoml_1_1v3_1_1source__region.html',1,'toml::v3::source_region']]],
+  ['sresult_270',['SResult',['../db/d8c/structsmedley_1_1v2_1_1_c_console_cmd_1_1_s_result.html',1,'smedley::v2::CConsoleCmd']]],
+  ['sternarytrait_271',['STernaryTrait',['../d0/dfe/structsmedley_1_1clausewitz_1_1_s_ternary_trait.html',1,'smedley::clausewitz']]],
+  ['string_5ftraits_272',['string_traits',['../d5/dc7/structtoml_1_1v3_1_1impl_1_1string__traits.html',1,'toml::v3::impl']]],
+  ['string_5ftraits_3c_20char_20_2a_20_3e_273',['string_traits&lt; char * &gt;',['../d5/dc7/structtoml_1_1v3_1_1impl_1_1string__traits.html',1,'toml::v3::impl']]],
+  ['string_5ftraits_3c_20char_5bn_5d_3e_274',['string_traits&lt; char[N]&gt;',['../d5/dc7/structtoml_1_1v3_1_1impl_1_1string__traits.html',1,'toml::v3::impl']]],
+  ['string_5ftraits_3c_20const_20char_20_2a_20_3e_275',['string_traits&lt; const char * &gt;',['../d5/dc7/structtoml_1_1v3_1_1impl_1_1string__traits.html',1,'toml::v3::impl']]],
+  ['string_5ftraits_3c_20const_20char_5bn_5d_3e_276',['string_traits&lt; const char[N]&gt;',['../d5/dc7/structtoml_1_1v3_1_1impl_1_1string__traits.html',1,'toml::v3::impl']]],
+  ['string_5ftraits_3c_20std_3a_3astring_20_3e_277',['string_traits&lt; std::string &gt;',['../d5/dc7/structtoml_1_1v3_1_1impl_1_1string__traits.html',1,'toml::v3::impl']]],
+  ['string_5ftraits_3c_20std_3a_3astring_5fview_20_3e_278',['string_traits&lt; std::string_view &gt;',['../d5/dc7/structtoml_1_1v3_1_1impl_1_1string__traits.html',1,'toml::v3::impl']]]
 ];
