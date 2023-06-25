@@ -94,13 +94,13 @@ $(function() {
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">namespace </span>clausewitz</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    {</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keyword">template</span> &lt;&gt;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> ClassicHashKeyTraits&lt;v2::CCountryTag, v2::CCountryValue&gt;::GetHashValue(<a class="code" href="../../d2/da8/classsmedley_1_1v2_1_1_c_country_tag.html">v2::CCountryTag</a> &amp;key)</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> ClassicHashKeyTraits&lt;v2::CCountryTag, v2::CCountryValue&gt;::GetHashValue(<span class="keyword">const</span> <a class="code" href="../../d2/da8/classsmedley_1_1v2_1_1_c_country_tag.html">v2::CCountryTag</a> &amp;key)</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        {</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">int</span><span class="keyword">&gt;</span>(key.ordinal());</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        }</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keyword">template</span>&lt;&gt;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        v2::CCountryTag &amp;ClassicHashKeyTraits&lt;v2::CCountryTag, v2::CCountryValue&gt;::GetKey(v2::CCountryValue &amp;val)</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keyword">const</span> v2::CCountryTag &amp;ClassicHashKeyTraits&lt;v2::CCountryTag, v2::CCountryValue&gt;::GetKey(<span class="keyword">const</span> v2::CCountryValue &amp;val)</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        {</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <span class="keywordflow">return</span> val.tag;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        }</div>

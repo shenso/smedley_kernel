@@ -66,14 +66,29 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="#pro-static-attribs">Static Protected Attributes</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="../../dc/d27/classsmedley_1_1sstd_1_1basic__string-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">smedley::sstd::basic_string&lt; T, Traits, Allocator &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:aa86b6f82dfaa797815f60bc221e89011"><td class="memItemLeft" align="right" valign="top"><a id="aa86b6f82dfaa797815f60bc221e89011"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>size_type</b> = size_t</td></tr>
+<tr class="separator:aa86b6f82dfaa797815f60bc221e89011"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94b0ab532434a0bc604dc262e9311bd7"><td class="memItemLeft" align="right" valign="top"><a id="a94b0ab532434a0bc604dc262e9311bd7"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>reference</b> = T &amp;</td></tr>
+<tr class="separator:a94b0ab532434a0bc604dc262e9311bd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71b5b3af8ea3966829e91084010eb5ad"><td class="memItemLeft" align="right" valign="top"><a id="a71b5b3af8ea3966829e91084010eb5ad"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>const_reference</b> = const T &amp;</td></tr>
+<tr class="separator:a71b5b3af8ea3966829e91084010eb5ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a495abdf443b8918d9127f64f680a8bfb"><td class="memItemLeft" align="right" valign="top"><a id="a495abdf443b8918d9127f64f680a8bfb"></a>
@@ -82,28 +97,52 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:adec1d3c1ef1ac7177b052606da8d8bc6"><td class="memItemLeft" align="right" valign="top"><a id="adec1d3c1ef1ac7177b052606da8d8bc6"></a>
 const T *&#160;</td><td class="memItemRight" valign="bottom"><b>c_str</b> () const</td></tr>
 <tr class="separator:adec1d3c1ef1ac7177b052606da8d8bc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19f2d0dddd1529a5c39329f4fb22e599"><td class="memItemLeft" align="right" valign="top"><a id="a19f2d0dddd1529a5c39329f4fb22e599"></a>
+size_type&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> () const noexcept</td></tr>
+<tr class="separator:a19f2d0dddd1529a5c39329f4fb22e599"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a193fd5a868757c76238e11c40a98fe02"><td class="memItemLeft" align="right" valign="top"><a id="a193fd5a868757c76238e11c40a98fe02"></a>
+size_type&#160;</td><td class="memItemRight" valign="bottom"><b>capacity</b> () const noexcept</td></tr>
+<tr class="separator:a193fd5a868757c76238e11c40a98fe02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a1181b2ea9218ec2ecf705f6e7fd746"><td class="memItemLeft" align="right" valign="top"><a id="a8a1181b2ea9218ec2ecf705f6e7fd746"></a>
+reference&#160;</td><td class="memItemRight" valign="bottom"><b>operator[]</b> (size_type pos)</td></tr>
+<tr class="separator:a8a1181b2ea9218ec2ecf705f6e7fd746"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f5218c504a1834a3adb1efb280174c0"><td class="memItemLeft" align="right" valign="top"><a id="a2f5218c504a1834a3adb1efb280174c0"></a>
+const_reference&#160;</td><td class="memItemRight" valign="bottom"><b>operator[]</b> (size_type pos) const</td></tr>
+<tr class="separator:a2f5218c504a1834a3adb1efb280174c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:a5c8dc8ca225f885cea2a50e403eef29b"><td class="memItemLeft" ><a id="a5c8dc8ca225f885cea2a50e403eef29b"></a>
 union {</td></tr>
-<tr class="memitem:abafe327cd84e6de3f00dae7c7a36b118"><td class="memItemLeft" >
-&#160;&#160;&#160;T&#160;&#160;&#160;<b>buf</b> [16]</td></tr>
-<tr class="separator:abafe327cd84e6de3f00dae7c7a36b118"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abdd2c28be9e87b28ab1b9b872e44f58d"><td class="memItemLeft" >
+&#160;&#160;&#160;T&#160;&#160;&#160;<b>buf</b> [default_capacity+1]</td></tr>
+<tr class="separator:abdd2c28be9e87b28ab1b9b872e44f58d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a868dd25af3eab4b02faeb0900e148ca6"><td class="memItemLeft" >
 &#160;&#160;&#160;T *&#160;&#160;&#160;<b>ptr</b></td></tr>
 <tr class="separator:a868dd25af3eab4b02faeb0900e148ca6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c8dc8ca225f885cea2a50e403eef29b"><td class="memItemLeft" valign="top">}&#160;</td><td class="memItemRight" valign="bottom"><b>_impl</b></td></tr>
 <tr class="separator:a5c8dc8ca225f885cea2a50e403eef29b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a979755447d231750cd97289f1dffd80d"><td class="memItemLeft" align="right" valign="top"><a id="a979755447d231750cd97289f1dffd80d"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><b>_size</b></td></tr>
-<tr class="separator:a979755447d231750cd97289f1dffd80d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99a89fee5a0bb9a3c774b72d483138fe"><td class="memItemLeft" align="right" valign="top"><a id="a99a89fee5a0bb9a3c774b72d483138fe"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><b>_capacity</b></td></tr>
-<tr class="separator:a99a89fee5a0bb9a3c774b72d483138fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c1eff6188fb8b0125260e1a188db1c1"><td class="memItemLeft" align="right" valign="top"><a id="a7c1eff6188fb8b0125260e1a188db1c1"></a>
+size_type&#160;</td><td class="memItemRight" valign="bottom"><b>_size</b></td></tr>
+<tr class="separator:a7c1eff6188fb8b0125260e1a188db1c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84829b36b5d25ac72969fdf22a57021a"><td class="memItemLeft" align="right" valign="top"><a id="a84829b36b5d25ac72969fdf22a57021a"></a>
+size_type&#160;</td><td class="memItemRight" valign="bottom"><b>_capacity</b></td></tr>
+<tr class="separator:a84829b36b5d25ac72969fdf22a57021a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa040c1482606fcb7d0007cc096d87244"><td class="memItemLeft" align="right" valign="top"><a id="aa040c1482606fcb7d0007cc096d87244"></a>
 Allocator&#160;</td><td class="memItemRight" valign="bottom"><b>_alloc</b></td></tr>
 <tr class="separator:aa040c1482606fcb7d0007cc096d87244"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-attribs"></a>
+Static Protected Attributes</h2></td></tr>
+<tr class="memitem:a0b982d9c38122bfee6f95581f2708faf"><td class="memItemLeft" align="right" valign="top"><a id="a0b982d9c38122bfee6f95581f2708faf"></a>
+static constexpr size_type&#160;</td><td class="memItemRight" valign="bottom"><b>default_capacity</b> = 0xf</td></tr>
+<tr class="separator:a0b982d9c38122bfee6f95581f2708faf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a971e2a5a9f2bc81a131d5a107f916009"><td class="memItemLeft" align="right" valign="top"><a id="a971e2a5a9f2bc81a131d5a107f916009"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="../../d4/daf/classsmedley_1_1sstd_1_1basic__string.html">basic_string</a>&lt; T &gt; &amp;lhs, const <a class="el" href="../../d4/daf/classsmedley_1_1sstd_1_1basic__string.html">basic_string</a>&lt; T &gt; &amp;rhs)</td></tr>
+<tr class="separator:a971e2a5a9f2bc81a131d5a107f916009"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>D:/a/smedley_kernel/smedley_kernel/smedley_kernel/include/smedley/std/<a class="el" href="../../d4/da0/string_8hpp_source.html">string.hpp</a></li>

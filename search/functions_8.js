@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['write_670',['Write',['../dd/d03/classsmedley_1_1clausewitz_1_1_c_persistent.html#a7e54c64c0ddaea3496123c1ed02d838a',1,'smedley::clausewitz::CPersistent']]]
+  ['unregister_695',['Unregister',['../d0/d68/classsmedley_1_1_event_registry.html#aa01efa25a1c43c4ce150c352f59e02f3',1,'smedley::EventRegistry']]]
 ];
