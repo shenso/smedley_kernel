@@ -43,7 +43,6 @@ namespace v2up
 			auto cmd_data = new v2::CConsoleCmd::SCommandData{0};
 			cmd_data->is_allowed = true;
 			cmd_data->name = "v2up";
-			cmd_data->num_aliases = 0;
 			cmd_data->description = "displays the current version of the plugin.";
 			cmd_data->handler = &OnCommand;
 

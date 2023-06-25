@@ -1,7 +1,6 @@
 #include "memory.hpp"
 #include <cstdint>
 #include <stdexcept>
-#include <sstream>
 
 namespace smedley::memory
 {
@@ -40,11 +39,6 @@ namespace smedley::memory
 			VirtualProtect(trampoline, sizeof(trampoline_template), PAGE_EXECUTE_READWRITE, &old_protect);
 		}
 
-		std::ostringstream ss;
-		ss << std::hex << Map::base_addr + 0x006babee << std::endl;
-		auto s = ss.str();
-
-		MessageBox(NULL, s.c_str(), "", MB_ICONINFORMATION);
 		Hook(Map::base_addr + 0x006babee, trampoline, 8, nullptr);
 	}
 
