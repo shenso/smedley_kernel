@@ -1,0 +1,38 @@
+function_specifier = "inline" | "virtual" | "explicit"
+
+nested_name_specifier = class_or_namespace_name "::" [nested_name_specifier] |
+                        class_or_namespace_name "::" "template" nested_name_specifier
+
+class_name = identifier | template_id
+enum_name = identifier
+typedef_name = identifier
+
+type_name = class_name | enum_name | typedef_name
+
+template_name = identifier
+template_argument = assignment_expression | type_id | id_expression
+template_argument_list = template_argument |
+                         template_argument_list "," template_argument
+template_id = template_name "<" [template_argument_list] ">"
+
+simple_type_specifier = ["::"] [nested_name_specifier] type_name |
+                        ["::"] nested_name_specifier "template" template_id |
+                        "char" |
+                        "wchar_t" |
+                        "bool" |
+                        "short" |
+                        "int" |
+                        "long" |
+                        "signed" |
+                        "unsigned" |
+                        "float" |
+                        "double" |
+                        "void"
+
+# class_specifier and enum_specifier currently removed for simplicity.
+# may be added if necessary (or PRed)
+type_specifier = simple_type_specifier | elaborated_type_specifier | cv_qualifier
+
+storage_class_specifier = "auto" | "register" | "static" | "extern" | "mutable"
+
+decl_specifier = function_specifier | type_specifier | storage_class_specifier | "friend" | "typedef"
