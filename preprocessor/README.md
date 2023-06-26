@@ -31,13 +31,14 @@ And invoked ultimately leads to the output (asm transformed into a block for cla
 ```C++
 void AddAcceptedCulture(CCulture *culture)
 {
-    const uintptr_t _addr = memory::Map::base_addr + addr;
+    const uintptr_t _addr = memory::Map::base_addr + 0x00122310;
     __asm {
         mov esi, this
-        push arg1_name
+        push culture
         call _addr
     }
 }
+static constexpr uintptr_t AddAcceptedCulture_address = 0x00122310;
 ```
 
 This approach is problematic. This macro name is slightly confusing at first glance, and its one of the simple cases (see `DEFINE_MEMBER_FN_EDI_ECX_1_RET_ESI` lol). The macros header file became 400 lines long just defining all of calling conventions used by `CCountry` alone. And if any of the boilerplate needs to change it will be a real headache. Macros can't differentiate between template parameters and macro arguments which necessitates a workaround `TYPE_IDENTITY` macro which degrades static analysis output.
