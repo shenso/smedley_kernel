@@ -25,5 +25,6 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
 # Include sub-projects.
+add_subdirectory ("preprocessor")
 add_subdirectory ("smedley_kernel")
 add_subdirectory ("plugins")

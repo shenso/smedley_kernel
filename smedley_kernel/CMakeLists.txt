@@ -15,11 +15,11 @@ target_compile_definitions(smedley_kernel PRIVATE SMEDLEY_KERNEL)
 
 # setup testing
 enable_testing()
-add_executable(run_tests ${test_sources})
-target_link_libraries(run_tests GTest::gtest_main smedley_kernel)
+add_executable(smedley_run_tests ${test_sources})
+target_link_libraries(smedley_run_tests GTest::gtest_main smedley_kernel)
 
 include(GoogleTest)
-gtest_discover_tests(run_tests)
+gtest_discover_tests(smedley_run_tests)
 
 if(EXISTS ${V2_GAME_DIR})
 	install(TARGETS smedley_kernel DESTINATION ${V2_GAME_DIR})
