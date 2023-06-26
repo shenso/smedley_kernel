@@ -1,4 +1,5 @@
 #include "scanner.hpp"
+#include <cctype>
 #include <sstream>
 
 Scanner::Scanner()
@@ -35,6 +36,11 @@ bool Scanner::Next(Lexeme &out)
             throw ScannerException("unexpected end of file", _loc);
         }
 
+        // ignore whitespace
+        if (std::isspace(ch)) {
+            continue;
+        }
+
         // ignore content in comments, including preprocessor directives
         if (in_line_comment) {
             if (ch == '\n') {
@@ -53,6 +59,7 @@ bool Scanner::Next(Lexeme &out)
             continue;
         }
 
+        // check block begin
         if (ch == '{') {
             auto tmp = _loc;
             peephole = _stream->peek();
@@ -70,6 +77,7 @@ bool Scanner::Next(Lexeme &out)
         }
 
         if (_in_block) {
+            // check block end
             if (ch == '%') {
                 peephole = _stream->peek();
                 if (peephole == static_cast<int>('}')) {
