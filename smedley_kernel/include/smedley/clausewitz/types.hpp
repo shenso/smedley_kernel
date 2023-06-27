@@ -7,6 +7,10 @@
 namespace smedley::clausewitz
 {
 
+    /**
+     * Represents a fixed point number with a scaling factor of 1000.
+     * i.e., 25000 = 25.000, 15637 = 15.637, and so on
+     */
     class CFixedPoint
     {
     protected:
@@ -15,6 +19,15 @@ namespace smedley::clausewitz
 
     static_assert(sizeof(CFixedPoint) == 0x4);
 
+    /**
+     * Template class for fixed point numbers, typically used for 64-bit fixed points. I bits
+     * are dedicated to the integer, and F bits to the fractional part. Below is an illustration
+     * of the fixed point's memory layout:
+     * 
+     *      --------------------
+     *      | sign |  I  |  F  |
+     *      --------------------
+     */
     template <typename T, unsigned char I, unsigned char F = std::numeric_limits<T>::digits - I>
     class fixed_point
     {
@@ -24,6 +37,9 @@ namespace smedley::clausewitz
 
     static_assert(sizeof(fixed_point<int64_t,48,15>) == 0x8);
 
+    /**
+     * Base class for representing in-game dates.
+     */
     class CDate
     {
     protected:

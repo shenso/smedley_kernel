@@ -3,6 +3,9 @@
 namespace smedley::clausewitz
 {
 
+    /**
+     * Represents lexemes read by the Lexer.
+     */
     class CToken
     {
     protected:

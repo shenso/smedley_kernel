@@ -11,18 +11,45 @@
 namespace smedley::memory
 {
 
+    /**
+     * container of all global/static info regarding the games memory,
+     * such as addresses of the memory segments. Should be unchanging
+     * after initialization.
+     */
     struct SMEDLEY_API Map
     {
+        /// @brief the base memory address of v2game.exe
         static uintptr_t base_addr;
+        /// @brief the heap used by the v2game.exe module for dynamic allocations
         static HANDLE game_heap;
 
         static void Init();
     };
 
-    bool Patch(uintptr_t addr, uint8_t *instr, int n);
+    /**
+     * Patches the instructions at addr.
+     * @param addr the address of the instructions to be patched.
+     * @param instr byte sequence of the instructions to patch
+     * @param n the number of bytes to be written
+     */
+    void Patch(uintptr_t addr, uint8_t *instr, int n);
 
+    /**
+     * Hooks a function by patching a jump at the instructions at addr.
+     * @param addr where to install the hook
+     * @param jmp the jump address (a naked function)
+     * @param n the number of bytes to be written. instructions after the jump are made noops.
+     * @returns if n is valid
+     */
     bool Hook(uintptr_t addr, void *jmp, int n, std::vector<uint8_t> *old_instr);
 
+    /**
+     * Hooks a function at its prologue. Automatically generates the trampoline to
+     * call the argument fn.
+     * @param addr location of the prologue
+     * @param fn the hook callback
+     * @param n the number of bytes to be written
+     */
     template <typename... Types>
     bool HookPrologue(uintptr_t addr, void(__stdcall *fn)(Types... args), int n)
     {
@@ -93,6 +120,14 @@ namespace smedley::memory
 
     }
 
+    /**
+     * Hooks a function at its epilogue. Automatically generates the trampoline to call
+     * fn.
+     * @param addr the location of the epilogue
+     * @param fn the hook callback
+     * @param n the number of bytes to write
+     * @param preserve registers which should be preserved after returning from fn
+     */
     template <typename... Types>
     bool HookEpilogue(uintptr_t addr, void(__stdcall *fn)(Types... args), int n, const std::vector<int> &preserve = std::vector<int>())
     {

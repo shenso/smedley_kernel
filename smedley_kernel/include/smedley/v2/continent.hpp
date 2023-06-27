@@ -8,6 +8,10 @@
 namespace smedley::v2
 {
 
+    /**
+     * Represents a continent as defined in map/continents.txt
+     * Is also a list of province ids
+     */
     class CContinent : public CModifier, public clausewitz::CList<int>
     {
     protected:

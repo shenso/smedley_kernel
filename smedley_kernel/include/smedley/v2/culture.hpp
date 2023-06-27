@@ -12,6 +12,10 @@ namespace smedley::v2
 
     class CCultureGroup;
 
+    /**
+     * Represents an in-game culture (e.g., "yankee", "british", etc.).
+     * Deserialized from common/cultures.txt
+     */
     class CCulture : public clausewitz::CPersistent
     {
     protected:
@@ -28,11 +32,16 @@ namespace smedley::v2
 
         friend class clausewitz::ClassicHashKeyTraits<sstd::string, CCulture>;
     public:
+        /// @brief returns the key/identifier of the culture (e.g. "yankee")
         inline sstd::string tag() const noexcept { return _tag; }
     };
 
     static_assert(sizeof(CCulture) == 0x98);
 
+    /**
+     * Represents an in-game culture group (e.g. "germanic").
+     * Deserialized from common/cultures.txt
+     */
     class CCultureGroup : public clausewitz::CList<CCulture *>, public clausewitz::CPersistent
     {
     protected:
@@ -48,6 +57,9 @@ namespace smedley::v2
         sstd::string _leader; // d4
         uint32_t _unk_0xf0;
         uint32_t _unk_0xf4;
+    public:
+        /// @brief returns the key/identifier of the culture group
+        inline sstd::string tag() const noexcept { return _tag; }
     };
 
     static_assert(sizeof(CCultureGroup) == 0xf8);

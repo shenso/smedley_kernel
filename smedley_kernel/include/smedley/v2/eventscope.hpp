@@ -8,6 +8,9 @@
 namespace smedley::v2
 {
 
+    /**
+     * Represents a scope within a given effect/trigger.
+     */
     class CEventScope : public clausewitz::CPersistent
     {
     protected:

@@ -13,6 +13,9 @@ namespace smedley::clausewitz
 
     class CBlob;
 
+    /**
+     * Base file class
+     */
     class CFile
     {
     protected:

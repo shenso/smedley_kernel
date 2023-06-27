@@ -164,6 +164,10 @@ namespace smedley::v2
 
     static_assert(sizeof(CModifierEntry) == 0x8);
 
+    /**
+     * Base class for all modifiers. Modifiers are composed of entries which
+     * contain the actual modifier values.
+     */
     class CModifier : public clausewitz::CPersistent
     {
     protected:

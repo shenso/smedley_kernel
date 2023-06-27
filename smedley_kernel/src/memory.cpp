@@ -42,7 +42,7 @@ namespace smedley::memory
         Hook(Map::base_addr + 0x006babee, trampoline, 8, nullptr);
     }
 
-    bool Patch(uintptr_t addr, uint8_t *instr, int n)
+    void Patch(uintptr_t addr, uint8_t *instr, int n)
     {
         DWORD old_protect;
         LPVOID lpv_addr = reinterpret_cast<LPVOID>(addr);
@@ -50,8 +50,6 @@ namespace smedley::memory
         VirtualProtect(lpv_addr, n, PAGE_EXECUTE_READWRITE, &old_protect);
         memcpy(lpv_addr, instr, n);
         VirtualProtect(lpv_addr, n, old_protect, &old_protect);
-
-        return true;
     }
 
     bool Hook(uintptr_t addr, void *jmp, int n, std::vector<uint8_t> *old_instr)

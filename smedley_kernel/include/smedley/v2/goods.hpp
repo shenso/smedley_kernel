@@ -8,10 +8,15 @@
 namespace smedley::v2
 {
 
+    /**
+     * A collection of goods.
+     */
     class CGoodsPool : public clausewitz::CPersistent
     {
     protected:
+        /// @brief the ordinals of the goods types in _values
         uint8_t _index[64];
+        /// @brief the quantities of the goods
         sstd::vector<clausewitz::fixed_point<int64_t,48,15>> _values;
     };
 

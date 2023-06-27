@@ -24,7 +24,7 @@ namespace smedley
     };
 
     /**
-     * The container of all listeners for a given event.
+     * A static container for of all listeners of a given event.
      */
     template <class Ev>
     class EventRegistry
@@ -45,6 +45,7 @@ namespace smedley
             inline bool operator()(Handler a, Handler b) const { return a.priority < b.priority; }
         } _handler_compare_lt{};
 
+        // should be defined for each event by template specialization
         SMEDLEY_API static Handlers _handlers;
     public:
         /**
