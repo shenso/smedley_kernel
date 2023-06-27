@@ -20,4 +20,4 @@ When submitting pull requests, please first test your changes and ensure all uni
 
 ## Styling
 
-To be added.
+See the [styling guide.](STYLING.md)
