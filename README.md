@@ -1,12 +1,12 @@
 # Smedley
 
-Smedley is a loader and SDK for Victoria 2 plugins, similar to Minecraft Forge.
+Smedley is an API and plugin loader for Victoria 2, similar to Minecraft Forge. Smedley plugins can alter and enhance gameplay in ways that base Victoria 2 mods cannot, and have access to real game objects instead of relying on effects/triggers to change the game state.
 
 # The Smedley Kernel
 
-Smedley is made of two components, the bootstrapper (launcher) and kernel. The bootstrapper launches the game, and is responsible for injecting the kernel and the user's selected plugins into the game. More information can be found on the project page here: https://github.com/shenso/smedley_bootstrapper
+Smedley is made of two components, the bootstrapper (launcher) and kernel. The bootstrapper launches the game, and is responsible for injecting the kernel and the user's selected plugins into the game. The bootstrapper source can be found on the [project page.](https://github.com/shenso/smedley_bootstrapper)
 
-The kernel is responsible for loader initialization and providing an API for plugins to use. Despite being separate components releases on this project page will come bundled with components.
+The kernel is responsible for initializing plugins and the facilities used by them. Despite being separate components the bootstrapper will be bundled with releases on this project page.
 
 ## V2UP and 3rd party plugin disclaimer
 
