@@ -3,6 +3,6 @@
 
 TEST(UtilTests, SplitStringTest)
 {
-	using sv = std::vector<std::string>;
-	ASSERT_EQ(smedley::SplitString("hello;world", ';'), sv({"hello", "world"}));
+    using sv = std::vector<std::string>;
+    ASSERT_EQ(smedley::SplitString("hello;world", ';'), sv({"hello", "world"}));
 }

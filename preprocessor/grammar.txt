@@ -36,3 +36,5 @@ type_specifier = simple_type_specifier | elaborated_type_specifier | cv_qualifie
 storage_class_specifier = "auto" | "register" | "static" | "extern" | "mutable"
 
 decl_specifier = function_specifier | type_specifier | storage_class_specifier | "friend" | "typedef"
+
+declarator = direct_declarator | ptr_operator declarator
