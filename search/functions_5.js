@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['notify_722',['Notify',['../d0/d68/classsmedley_1_1_event_registry.html#aec750cf59110a7cc9778cff4aa9c7121',1,'smedley::EventRegistry']]]
+  ['monthlyupdate_734',['MonthlyUpdate',['../d3/d71/classsmedley_1_1v2_1_1_c_country.html#aad1f149b611ecc56cf7f573a3790688b',1,'smedley::v2::CCountry']]]
 ];

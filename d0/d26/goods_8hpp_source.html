@@ -79,29 +79,31 @@ $(function() {
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span>smedley::v2</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="../../df/d39/classsmedley_1_1v2_1_1_c_goods_pool.html">   11</a></span>&#160;    <span class="keyword">class </span><a class="code" href="../../df/d39/classsmedley_1_1v2_1_1_c_goods_pool.html">CGoodsPool</a> : <span class="keyword">public</span> <a class="code" href="../../dd/d03/classsmedley_1_1clausewitz_1_1_c_persistent.html">clausewitz::CPersistent</a></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    {</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        uint8_t _index[64];</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <a class="code" href="../../d1/da5/classsmedley_1_1sstd_1_1vector.html">sstd::vector&lt;clausewitz::fixed_point&lt;int64_t,48,15&gt;</a>&gt; _values;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    };</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    static_assert(<span class="keyword">sizeof</span>(<a class="code" href="../../df/d39/classsmedley_1_1v2_1_1_c_goods_pool.html">CGoodsPool</a>) == 0x58);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="../../db/dbc/classsmedley_1_1v2_1_1_c_goods_project.html">   20</a></span>&#160;    <span class="keyword">class </span><a class="code" href="../../db/dbc/classsmedley_1_1v2_1_1_c_goods_project.html">CGoodsProject</a> : <span class="keyword">public</span> <a class="code" href="../../dd/d03/classsmedley_1_1clausewitz_1_1_c_persistent.html">clausewitz::CPersistent</a></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <a class="code" href="../../df/d39/classsmedley_1_1v2_1_1_c_goods_pool.html">CGoodsPool</a> _input;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <a class="code" href="../../df/d39/classsmedley_1_1v2_1_1_c_goods_pool.html">CGoodsPool</a> _demand;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <a class="code" href="../../d3/dbc/classsmedley_1_1clausewitz_1_1fixed__point.html">clausewitz::fixed_point&lt;int64_t,48,15&gt;</a> _money;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    };</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="../../df/d39/classsmedley_1_1v2_1_1_c_goods_pool.html">   14</a></span>&#160;    <span class="keyword">class </span><a class="code" href="../../df/d39/classsmedley_1_1v2_1_1_c_goods_pool.html">CGoodsPool</a> : <span class="keyword">public</span> <a class="code" href="../../dd/d03/classsmedley_1_1clausewitz_1_1_c_persistent.html">clausewitz::CPersistent</a></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    {</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="../../df/d39/classsmedley_1_1v2_1_1_c_goods_pool.html#a6d626e6adf1b8ad87fbdc80bc0d8b467">   18</a></span>&#160;        uint8_t <a class="code" href="../../df/d39/classsmedley_1_1v2_1_1_c_goods_pool.html#a6d626e6adf1b8ad87fbdc80bc0d8b467">_index</a>[64];</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="../../df/d39/classsmedley_1_1v2_1_1_c_goods_pool.html#ae04f07ad4cb26fefe68605035e557acd">   20</a></span>&#160;        <a class="code" href="../../d1/da5/classsmedley_1_1sstd_1_1vector.html">sstd::vector&lt;clausewitz::fixed_point&lt;int64_t,48,15&gt;</a>&gt; <a class="code" href="../../df/d39/classsmedley_1_1v2_1_1_c_goods_pool.html#ae04f07ad4cb26fefe68605035e557acd">_values</a>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    };</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    static_assert(<span class="keyword">sizeof</span>(<a class="code" href="../../df/d39/classsmedley_1_1v2_1_1_c_goods_pool.html">CGoodsPool</a>) == 0x58);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="../../db/dbc/classsmedley_1_1v2_1_1_c_goods_project.html">   25</a></span>&#160;    <span class="keyword">class </span><a class="code" href="../../db/dbc/classsmedley_1_1v2_1_1_c_goods_project.html">CGoodsProject</a> : <span class="keyword">public</span> <a class="code" href="../../dd/d03/classsmedley_1_1clausewitz_1_1_c_persistent.html">clausewitz::CPersistent</a></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <a class="code" href="../../df/d39/classsmedley_1_1v2_1_1_c_goods_pool.html">CGoodsPool</a> _input;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <a class="code" href="../../df/d39/classsmedley_1_1v2_1_1_c_goods_pool.html">CGoodsPool</a> _demand;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <a class="code" href="../../d3/dbc/classsmedley_1_1clausewitz_1_1fixed__point.html">clausewitz::fixed_point&lt;int64_t,48,15&gt;</a> _money;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    };</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}</div>
 <div class="ttc" id="aclasssmedley_1_1clausewitz_1_1_c_persistent_html"><div class="ttname"><a href="../../dd/d03/classsmedley_1_1clausewitz_1_1_c_persistent.html">smedley::clausewitz::CPersistent</a></div><div class="ttdef"><b>Definition:</b> persistent.hpp:15</div></div>
 <div class="ttc" id="aclasssmedley_1_1clausewitz_1_1fixed__point_html"><div class="ttname"><a href="../../d3/dbc/classsmedley_1_1clausewitz_1_1fixed__point.html">smedley::clausewitz::fixed_point&lt; int64_t, 48, 15 &gt;</a></div></div>
 <div class="ttc" id="aclasssmedley_1_1sstd_1_1vector_html"><div class="ttname"><a href="../../d1/da5/classsmedley_1_1sstd_1_1vector.html">smedley::sstd::vector</a></div><div class="ttdef"><b>Definition:</b> vector.hpp:14</div></div>
-<div class="ttc" id="aclasssmedley_1_1v2_1_1_c_goods_pool_html"><div class="ttname"><a href="../../df/d39/classsmedley_1_1v2_1_1_c_goods_pool.html">smedley::v2::CGoodsPool</a></div><div class="ttdef"><b>Definition:</b> goods.hpp:12</div></div>
-<div class="ttc" id="aclasssmedley_1_1v2_1_1_c_goods_project_html"><div class="ttname"><a href="../../db/dbc/classsmedley_1_1v2_1_1_c_goods_project.html">smedley::v2::CGoodsProject</a></div><div class="ttdef"><b>Definition:</b> goods.hpp:21</div></div>
+<div class="ttc" id="aclasssmedley_1_1v2_1_1_c_goods_pool_html"><div class="ttname"><a href="../../df/d39/classsmedley_1_1v2_1_1_c_goods_pool.html">smedley::v2::CGoodsPool</a></div><div class="ttdef"><b>Definition:</b> goods.hpp:15</div></div>
+<div class="ttc" id="aclasssmedley_1_1v2_1_1_c_goods_pool_html_a6d626e6adf1b8ad87fbdc80bc0d8b467"><div class="ttname"><a href="../../df/d39/classsmedley_1_1v2_1_1_c_goods_pool.html#a6d626e6adf1b8ad87fbdc80bc0d8b467">smedley::v2::CGoodsPool::_index</a></div><div class="ttdeci">uint8_t _index[64]</div><div class="ttdoc">the ordinals of the goods types in _values</div><div class="ttdef"><b>Definition:</b> goods.hpp:18</div></div>
+<div class="ttc" id="aclasssmedley_1_1v2_1_1_c_goods_pool_html_ae04f07ad4cb26fefe68605035e557acd"><div class="ttname"><a href="../../df/d39/classsmedley_1_1v2_1_1_c_goods_pool.html#ae04f07ad4cb26fefe68605035e557acd">smedley::v2::CGoodsPool::_values</a></div><div class="ttdeci">sstd::vector&lt; clausewitz::fixed_point&lt; int64_t, 48, 15 &gt; &gt; _values</div><div class="ttdoc">the quantities of the goods</div><div class="ttdef"><b>Definition:</b> goods.hpp:20</div></div>
+<div class="ttc" id="aclasssmedley_1_1v2_1_1_c_goods_project_html"><div class="ttname"><a href="../../db/dbc/classsmedley_1_1v2_1_1_c_goods_project.html">smedley::v2::CGoodsProject</a></div><div class="ttdef"><b>Definition:</b> goods.hpp:26</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

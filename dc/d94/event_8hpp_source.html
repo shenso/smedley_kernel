@@ -74,21 +74,24 @@ $(function() {
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">namespace </span>smedley</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;{</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="../../d1/d97/classsmedley_1_1_event.html">    6</a></span>&#160;    <span class="keyword">class </span><a class="code" href="../../d1/d97/classsmedley_1_1_event.html">Event</a></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    {</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;        <span class="keywordtype">bool</span> _cancelable;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        <span class="keywordtype">bool</span> _is_cancelled;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        <a class="code" href="../../d1/d97/classsmedley_1_1_event.html">Event</a>(<span class="keywordtype">bool</span> cancelable) : _cancelable(cancelable), _is_cancelled(<span class="keyword">false</span>) {}</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="keyword">virtual</span> ~<a class="code" href="../../d1/d97/classsmedley_1_1_event.html">Event</a>() {}</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keywordtype">void</span> Cancel();</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">bool</span> can_cancel() { <span class="keywordflow">return</span> _cancelable; }</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">bool</span> is_cancelled() { <span class="keywordflow">return</span> _is_cancelled; }</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    };</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;}</div>
-<div class="ttc" id="aclasssmedley_1_1_event_html"><div class="ttname"><a href="../../d1/d97/classsmedley_1_1_event.html">smedley::Event</a></div><div class="ttdef"><b>Definition:</b> event.hpp:7</div></div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="../../d1/d97/classsmedley_1_1_event.html">   10</a></span>&#160;    <span class="keyword">class </span><a class="code" href="../../d1/d97/classsmedley_1_1_event.html">Event</a></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="keywordtype">bool</span> _cancelable;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="keywordtype">bool</span> _is_cancelled;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <a class="code" href="../../d1/d97/classsmedley_1_1_event.html">Event</a>(<span class="keywordtype">bool</span> cancelable) : _cancelable(cancelable), _is_cancelled(<span class="keyword">false</span>) {}</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keyword">virtual</span> ~<a class="code" href="../../d1/d97/classsmedley_1_1_event.html">Event</a>() {}</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d1/d97/classsmedley_1_1_event.html#a98e0ad482e20f618f64c396c13e01781">Cancel</a>();</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="../../d1/d97/classsmedley_1_1_event.html#a0f3ddda028ea1f5d20f00865a8dda648">   21</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="../../d1/d97/classsmedley_1_1_event.html#a0f3ddda028ea1f5d20f00865a8dda648">can_cancel</a>() { <span class="keywordflow">return</span> _cancelable; }</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="../../d1/d97/classsmedley_1_1_event.html#a582cc870665048b5bc0075a26931bc70">   23</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="../../d1/d97/classsmedley_1_1_event.html#a582cc870665048b5bc0075a26931bc70">is_cancelled</a>() { <span class="keywordflow">return</span> _is_cancelled; }</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    };</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}</div>
+<div class="ttc" id="aclasssmedley_1_1_event_html"><div class="ttname"><a href="../../d1/d97/classsmedley_1_1_event.html">smedley::Event</a></div><div class="ttdef"><b>Definition:</b> event.hpp:11</div></div>
+<div class="ttc" id="aclasssmedley_1_1_event_html_a0f3ddda028ea1f5d20f00865a8dda648"><div class="ttname"><a href="../../d1/d97/classsmedley_1_1_event.html#a0f3ddda028ea1f5d20f00865a8dda648">smedley::Event::can_cancel</a></div><div class="ttdeci">bool can_cancel()</div><div class="ttdoc">Returns if the event is cancellable.</div><div class="ttdef"><b>Definition:</b> event.hpp:21</div></div>
+<div class="ttc" id="aclasssmedley_1_1_event_html_a582cc870665048b5bc0075a26931bc70"><div class="ttname"><a href="../../d1/d97/classsmedley_1_1_event.html#a582cc870665048b5bc0075a26931bc70">smedley::Event::is_cancelled</a></div><div class="ttdeci">bool is_cancelled()</div><div class="ttdoc">Returns if the event has been cancelled.</div><div class="ttdef"><b>Definition:</b> event.hpp:23</div></div>
+<div class="ttc" id="aclasssmedley_1_1_event_html_a98e0ad482e20f618f64c396c13e01781"><div class="ttname"><a href="../../d1/d97/classsmedley_1_1_event.html#a98e0ad482e20f618f64c396c13e01781">smedley::Event::Cancel</a></div><div class="ttdeci">void Cancel()</div><div class="ttdoc">Cancels the event if possible.</div><div class="ttdef"><b>Definition:</b> event.cpp:15</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
