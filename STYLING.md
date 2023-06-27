@@ -16,7 +16,7 @@ When contributing to the project, please be sure to follow the following styling
 
 ## Indentation
 
-Indentations are 4 characters long, using tabs, not spaces.
+Indentations are 4 characters long, using spaces, not tabs.
 
 ### Brace Placement
 
