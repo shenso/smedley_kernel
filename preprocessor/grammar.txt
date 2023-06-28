@@ -1,22 +1,24 @@
-function_specifier = "inline" | "virtual" | "explicit"
+# top-level rule. preprocessor treats blocks as a sequence of simple declarations
+# always assumes specifiers and declarators are present
+simple_declaration = decl_specifier_seq init_declarator_list SEMICOLON
 
-nested_name_specifier = class_or_namespace_name "::" [nested_name_specifier] |
-                        class_or_namespace_name "::" "template" nested_name_specifier
+decl_specifier_seq = [decl_specifier_seq] decl_specifier
+init_declarator_list = init_declarator |
+                       init_declarator_list COMMA init_declarator
 
-class_name = identifier | template_id
-enum_name = identifier
-typedef_name = identifier
+decl_specifier = function_specifier | type_specifier | storage_class_specifier | FRIEND | TYPEDEF
 
-type_name = class_name | enum_name | typedef_name
+# initializer removed as the preprocessor expected to be writing definitions
+init_declarator = declarator
 
-template_name = identifier
-template_argument = assignment_expression | type_id | id_expression
-template_argument_list = template_argument |
-                         template_argument_list "," template_argument
-template_id = template_name "<" [template_argument_list] ">"
+function_specifier = INLINE | VIRTUAL | EXPLICIT
+type_specifier = simple_type_specifier | elaborated_type_specifier | cv_qualifier
+storage_class_specifier = AUTO | REGISTER | STATIC | EXTERN | MUTABLE
+
+declarator = direct_declarator | ptr_operator declarator
 
 simple_type_specifier = ["::"] [nested_name_specifier] type_name |
-                        ["::"] nested_name_specifier "template" template_id |
+                        ["::"] nested_name_specifier TEMPLATE template_id |
                         "char" |
                         "wchar_t" |
                         "bool" |
@@ -28,22 +30,54 @@ simple_type_specifier = ["::"] [nested_name_specifier] type_name |
                         "float" |
                         "double" |
                         "void"
-
-elaborated_type_specifier = class_key ["::"] [nested_name_specifier] identifier |
-                            "enum" ["::"] [nested_name_specifier] identifier |
-                            "typename" ["::"] nested_name_specifier identifier |
+elaborated_type_specifier = class_key ["::"] [nested_name_specifier] IDENTIFIER |
+                            "enum" ["::"] [nested_name_specifier] IDENTIFIER |
+                            "typename" ["::"] nested_name_specifier IDENTIFIER |
                             "typename" ["::"] nested_name_specifier ["template"] template_id
-
 cv_qualifier = "const" | "volatile"
 
-# class_specifier and enum_specifier currently removed for simplicity.
-type_specifier = simple_type_specifier | elaborated_type_specifier | cv_qualifier
-
-storage_class_specifier = "auto" | "register" | "static" | "extern" | "mutable"
-
-decl_specifier = function_specifier | type_specifier | storage_class_specifier | "friend" | "typedef"
-decl_specifier_seq = [decl_specifier_seq] decl_specifier
-
 direct_declarator = declarator_id |
-                    direct_declarator "(" parameter_declaration_clause ")" [cv_qualifier_seq] [exception_specification]
-declarator = direct_declarator | ptr_operator declarator
+                    direct_declarator L_PAREN parameter_declaration_clause R_PAREN [cv_qualifier_seq] [exception_specification]
+ptr_operator = "*" [cv_qualifier_seq] |
+               "&" |
+               ["::"] nested_name_specifier "*" [cv_qualifier_seq]
+
+declarator_id = id_expression |
+                "::" [nested_name_specifier] type_name
+parameter_declaration_clause = [parameter_declaration_list] ["..."] |
+                               parameter_declaration_list "," "..."
+cv_qualifier_seq = cv_qualifier [cv_qualifier_seq]
+exception_specification = "throw" "(" [type_id_list] ")"
+constant_expression
+
+
+
+
+
+
+
+
+function_specifier = "inline" | "virtual" | "explicit"
+
+namespace_name = IDENTIFIER
+class_name = IDENTIFIER | template_id
+enum_name = IDENTIFIER
+typedef_name = IDENTIFIER
+
+type_name = class_name | enum_name | typedef_name
+
+class_or_namespace_name = class_name | namespace_name
+
+nested_name_specifier = class_or_namespace_name "::" [nested_name_specifier] |
+                        class_or_namespace_name "::" "template" nested_name_specifier
+
+template_name = IDENTIFIER
+template_argument = assignment_expression | type_id | id_expression
+template_argument_list = template_argument |
+                         template_argument_list "," template_argument
+template_id = template_name "<" [template_argument_list] ">"
+
+
+
+# class_specifier and enum_specifier currently removed for simplicity.
+

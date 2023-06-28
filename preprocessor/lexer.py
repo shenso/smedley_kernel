@@ -1,4 +1,4 @@
-import ply.lex as lex
+from ply import lex
 
 tokens = (
     'L_PAREN',
@@ -23,6 +23,17 @@ tokens = (
     'DOUBLE',
     'VOID',
     'CONST',
+    'INLINE',
+    'VIRTUAL',
+    'EXPLICIT',
+    'FRIEND',
+    'TYPEDEF',
+    'AUTO',
+    'REGISTER',
+    'STATIC',
+    'EXTERN',
+    'MUTABLE',
+    'TYPENAME',
     'STRING_LITERAL',
     'NUMBER_LITERAL',
     'IDENTIFIER'
@@ -41,6 +52,18 @@ reserved = {
     'double': 'DOUBLE',
     'void': 'VOID',
     'const': 'CONST',
+    'inline': 'INLINE',
+    'virtual': 'VIRTUAL',
+    'explicit': 'EXPLICIT',
+    'template': 'TEMPLATE',
+    'friend': 'FRIEND',
+    'typedef': 'TYPEDEF',
+    'auto': 'AUTO',
+    'register': 'REGISTER',
+    'static': 'STATIC',
+    'extern': 'EXTERN',
+    'mutable': 'MUTABLE',
+    'typename': 'TYPENAME',
 }
 
 def build_lexer() -> lex.Lexer:
