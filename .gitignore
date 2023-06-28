@@ -4,3 +4,5 @@ out/
 build/
 */docs/html
 */docs/latex
+.venv/
+__pycache__/
